@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 746.4
     y: 912.8
     width: 640
@@ -38,6 +39,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 0
 <<<<<<< HEAD
     y: 43.2
@@ -49,17 +52,12 @@ MonoBehaviour:
     height: 710
 >>>>>>> origin/SkibidiDanielBranch
   m_ShowMode: 4
-<<<<<<< HEAD
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
-=======
-  m_Title: Inspector
-  m_RootView: {fileID: 5}
-  m_MinSize: {x: 875, y: 321}
->>>>>>> origin/NamBranch
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
+<<<<<<< HEAD
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -111,6 +109,9 @@ MonoBehaviour:
   vertical: 0
   controlID: 15
 --- !u!114 &5
+=======
+--- !u!114 &2
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,9 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 8}
-  - {fileID: 7}
+  - {fileID: 3}
+  - {fileID: 5}
+  - {fileID: 4}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &6
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &7
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,7 +196,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &8
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,15 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-<<<<<<< HEAD
   - {fileID: 6}
   - {fileID: 9}
   - {fileID: 12}
-=======
-  - {fileID: 9}
-  - {fileID: 10}
-  - {fileID: 15}
->>>>>>> origin/NamBranch
   m_Position:
     serializedVersion: 2
     x: 0
@@ -234,14 +229,16 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-<<<<<<< HEAD
   controlID: 49
 --- !u!114 &6
+<<<<<<< HEAD
 =======
   controlID: 258
 >>>>>>> origin/SkibidiDanielBranch
 --- !u!114 &9
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,8 +246,8 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-<<<<<<< HEAD
   m_EditorHideFlags: 1
+<<<<<<< HEAD
 =======
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
@@ -280,13 +277,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-<<<<<<< HEAD
   - {fileID: 7}
   - {fileID: 8}
+<<<<<<< HEAD
 =======
   - {fileID: 11}
   - {fileID: 14}
@@ -316,15 +315,20 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 13}
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1148
     height: 652
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     width: 556.5
     height: 660
   m_MinSize: {x: 100, y: 100}
@@ -332,6 +336,7 @@ MonoBehaviour:
   vertical: 1
   controlID: 27
 --- !u!114 &7
+<<<<<<< HEAD
 =======
     width: 984
     height: 545.6
@@ -342,6 +347,8 @@ MonoBehaviour:
   controlID: 154
 --- !u!114 &12
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,14 +366,17 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 386.4
     height: 652
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     width: 556.5
     height: 308
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -391,14 +401,15 @@ MonoBehaviour:
     y: 308
     width: 556.5
     height: 352
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &9
+<<<<<<< HEAD
 =======
     width: 331.2
     height: 545.6
@@ -412,6 +423,8 @@ MonoBehaviour:
   m_LastSelected: 0
 --- !u!114 &13
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,18 +465,22 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 386.4
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 0
     y: 0
     width: 406.5
     height: 339
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
+<<<<<<< HEAD
 =======
     x: 331.2
 >>>>>>> origin/SkibidiDanielBranch
@@ -476,9 +493,11 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 20}
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &14
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,6 +513,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     y: 652
     width: 1148
@@ -518,10 +538,18 @@ MonoBehaviour:
   m_ActualView: {fileID: 21}
 >>>>>>> origin/NamBranch
 >>>>>>> origin/SkibidiDanielBranch
+=======
+    y: 339
+    width: 406.5
+    height: 321
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 17}
+>>>>>>> origin/SkibidiDanielBranch
   m_Panes:
-  - {fileID: 21}
-  - {fileID: 22}
+  - {fileID: 16}
   - {fileID: 17}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Selected: 1
 =======
@@ -534,6 +562,11 @@ MonoBehaviour:
   m_LastSelected: 2
 --- !u!114 &15
 >>>>>>> origin/NamBranch
+=======
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &12
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -549,16 +582,20 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1372
     y: 0
     width: 420
     height: 978.80005
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 963
     y: 0
     width: 317
     height: 660
+<<<<<<< HEAD
 =======
     x: 1176
     y: 0
@@ -566,22 +603,16 @@ MonoBehaviour:
     height: 818.8
 >>>>>>> origin/NamBranch
 >>>>>>> origin/SkibidiDanielBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 23}
+  m_ActualView: {fileID: 18}
   m_Panes:
-<<<<<<< HEAD
   - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
-=======
-  - {fileID: 23}
-  - {fileID: 24}
-  m_Selected: 0
-  m_LastSelected: 1
---- !u!114 &16
->>>>>>> origin/NamBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -589,27 +620,31 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12043, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 640, y: 580}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Build Settings
-    m_Image: {fileID: 0}
+    m_Text: Game
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
     x: 746.4
     y: 912.8
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 0
     y: 380
     width: 555.5
     height: 331
+<<<<<<< HEAD
 =======
     x: 1132
     y: 864.8
@@ -617,6 +652,8 @@ MonoBehaviour:
     width: 640
     height: 579.8
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -627,14 +664,13 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-<<<<<<< HEAD
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1111, y: 620}
+  m_TargetSize: {x: 992, y: 620}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -643,14 +679,14 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 02000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -277.75
-    m_HBaseRangeMax: 277.75
+    m_HBaseRangeMin: -248
+    m_HBaseRangeMax: 248
     m_VBaseRangeMin: -155
     m_VBaseRangeMax: 155
     m_HAllowExceedBaseRangeMin: 1
@@ -661,7 +697,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -693,6 +729,7 @@ MonoBehaviour:
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
 --- !u!114 &14
+<<<<<<< HEAD
 =======
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
@@ -761,6 +798,8 @@ MonoBehaviour:
     m_SubElements: []
 --- !u!114 &18
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -769,6 +808,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
@@ -835,6 +875,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_Script: {fileID: 12013, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -847,22 +889,28 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 224
     y: 73.6
     width: 384.4
     height: 631
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 0
     y: 72
     width: 555.5
     height: 287
+<<<<<<< HEAD
 =======
     x: 192
     y: 73.6
     width: 329.2
     height: 524.6
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
 >>>>>>> origin/SkibidiDanielBranch
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -878,11 +926,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-<<<<<<< HEAD
       snapOffset: {x: -171, y: -26.399994}
-=======
-      snapOffset: {x: -161, y: -26.400024}
->>>>>>> origin/NamBranch
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
@@ -895,15 +939,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-<<<<<<< HEAD
       snapOffset: {x: -141, y: 62.400024}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 1
-=======
-      snapOffset: {x: -219.2, y: -151.79999}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
->>>>>>> origin/NamBranch
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -966,11 +1004,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-<<<<<<< HEAD
       snapOffset: {x: 67.5, y: 86}
-=======
-      snapOffset: {x: -58.400024, y: 86}
->>>>>>> origin/NamBranch
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Orientation
@@ -1168,35 +1202,6 @@ MonoBehaviour:
       snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
-<<<<<<< HEAD
-=======
-      id: Scene View/TrailRenderer
-      index: 10
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
-      floating: 0
-      collapsed: 0
-      displayed: 0
-      snapOffset: {x: -134.40002, y: 48}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
-      id: Scene View/Open Tile Palette
-      index: 0
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
-      floating: 0
-      collapsed: 0
-      displayed: 0
-      snapOffset: {x: -136, y: -44}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
->>>>>>> origin/NamBranch
       id: Scene View/Tilemap Focus
       index: 1
       layout: 4
@@ -1266,6 +1271,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 143.09653, y: 298.49777, z: -9.108227}
     speed: 2
     m_Value: {x: 143.09653, y: 298.49777, z: -9.108227}
@@ -1279,6 +1285,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 466.72955, y: 278.96866, z: -0.61967206}
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
+    m_Target: {x: 2.5873935, y: -12.185265, z: -0.12166215}
+    speed: 2
+    m_Value: {x: 2.5873935, y: -12.185265, z: -0.12166215}
 >>>>>>> origin/SkibidiDanielBranch
   m_RenderMode: 0
   m_CameraMode:
@@ -1330,6 +1341,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 324.91095
     speed: 2
     m_Value: 324.91095
@@ -1343,6 +1355,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 142.58968
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
+    m_Target: 13.978995
+    speed: 2
+    m_Value: 13.978995
 >>>>>>> origin/SkibidiDanielBranch
   m_Ortho:
     m_Target: 1
@@ -1368,11 +1385,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
-<<<<<<< HEAD
 --- !u!114 &15
-=======
---- !u!114 &20
->>>>>>> origin/NamBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1381,17 +1394,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-<<<<<<< HEAD
   m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
-=======
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>> origin/NamBranch
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-<<<<<<< HEAD
     m_Text: Hierarchy
     m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
@@ -1401,6 +1409,7 @@ MonoBehaviour:
     y: 72
     width: 404.5
     height: 318
+<<<<<<< HEAD
 =======
     m_Text: Game
     m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
@@ -1417,6 +1426,8 @@ MonoBehaviour:
     height: 524.6
 >>>>>>> origin/NamBranch
 >>>>>>> origin/SkibidiDanielBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1427,27 +1438,26 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-<<<<<<< HEAD
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1212feff
-      m_LastClickedID: -126446
-      m_ExpandedIDs: 6615feff0217fefff27dffff127effff147effff367effff967fffff8883ffffce8effffa091ffff3297ffff6698ffffb4c4ffffd6cdfffffed1ffff78e3ffffdee5ffff40e8fffffcebffffa2ecffff8eefffff8ef0ffffd8f9ffffdc7b00005c7c0000aa7c0000c27d0000ee7d0000148600002a8c0000
+      scrollPos: {x: 0, y: 375}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5cfdf9fffafdf9ffc003faff8204faffa404faffe007faffba0afaff740bfaff7a0bfaff540efaffea0efaffc811faffa614faff6415faff6e15fafffc24faff9a25fafff42afaffb62bfaffd82bfaffa82efaff1631faffd031faffd631faff4434faffda34faff4c37faffbe39faff7c3afaff863afaffe4b8faff82b9faffdcbefaff9ebffaffc0bffaff90c2fafffec4faffb8c5faffbec5faff2cc8faffc2c8faff34cbfaffa6cdfaff64cefaff6ecefaffa6d3faffa8d3faffaad5faffbcfbfaff5afcfaffb201fbff7402fbff9602fbff6405fbffd007fbff8a08fbff9008fbfffc0afbff920bfbff020efbff7210fbff3011fbff3a11fbff3620fbffd420fbff6226fbff2427fbff4627fbff4a2afbffec2cfbffa62dfbffac2dfbff4e30fbffe430fbff8a33fbff3036fbffee36fbfff836fbff8c42fbff2a43fbffb848fbff7a49fbff9c49fbffa04cfbff424ffbfffc4ffbff0250fbffa452fbff3a53fbffdc55fbff7e58fbff3859fbff3e59fbfff212fdfff812fdffc41cfdff621dfdffb822fdff7a23fdff9c23fdff6826fdffd228fdff8c29fdff9229fdfffc2bfdff922cfdff002ffdff6e31fdff2c32fdff3632fdffde58fdff785afdffee63fdff8c64fdffe269fdffa46afdffc66afdff966dfdff0070fdffba70fdffc070fdff2a73fdffc073fdff2e76fdff9c78fdff5a79fdff6479fdff6cb7feffc4b7feffe2b7feff3cb8feff60d5fefff69bfffff8a0ffffccadffff5aafffffaab0ffff44c4ffff48c5ffff1ad3ffff1ed3ffff4ad8ffff74dbffff6addffffc2dfffff64f1ffff20f3ffff4af8ffff9c7c0000788c0000a88c0000768f00008c8f0000b0950000e0950000f49c0000669d00007c9d00000c9e0000489e0000249f0000569f0000bcad0000eaad0000baae000094af0000c4af00008ebd0000e6160100f6c90100a2ca010002cd010022cd010034980200b0aa020058d802009e460300e6460300bc4703008a4903002e4a03007a4a0300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Square
-        m_OriginalName: Square
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -33306
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -1458,6 +1468,7 @@ MonoBehaviour:
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4f6bef7be9a22ae49b5b970472e23a60
 --- !u!114 &16
+<<<<<<< HEAD
 =======
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -1525,6 +1536,8 @@ MonoBehaviour:
   m_RenderTexture: {fileID: 0}
 --- !u!114 &21
 >>>>>>> origin/NamBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1545,22 +1558,28 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 224
     y: 725.60004
     width: 1146
     height: 305.80005
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 556.5
     y: 411
     width: 404.5
     height: 300
+<<<<<<< HEAD
 =======
     x: 192
     y: 619.2
     width: 982
     height: 252.20001
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
 >>>>>>> origin/SkibidiDanielBranch
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1583,7 +1602,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/SFX and Music
+=======
+    - Assets/Scripts
+>>>>>>> origin/SkibidiDanielBranch
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1591,12 +1614,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/SFX and Music
+=======
+  - Assets/Scripts
+>>>>>>> origin/SkibidiDanielBranch
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Studio 404B\Desktop\penitence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
 <<<<<<< HEAD
     scrollPos: {x: 0, y: 88}
     m_SelectedIDs: 70740000
@@ -1614,6 +1642,12 @@ MonoBehaviour:
     m_ExpandedIDs: 000000006a72000000ca9a3bffffff7f
 >>>>>>> origin/NamBranch
 >>>>>>> origin/SkibidiDanielBranch
+=======
+    scrollPos: {x: 0, y: 87.99927}
+    m_SelectedIDs: 80770000
+    m_LastClickedID: 30592
+    m_ExpandedIDs: 000000007e7700008077000004780000a631010000ca9a3bffffff7f
+>>>>>>> origin/SkibidiDanielBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1629,7 +1663,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1642,6 +1676,7 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000092750000
 =======
 <<<<<<< HEAD
@@ -1649,6 +1684,9 @@ MonoBehaviour:
 =======
     m_ExpandedIDs: 000000006a720000
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
+    m_ExpandedIDs: 000000007e77000080770000
 >>>>>>> origin/SkibidiDanielBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1674,8 +1712,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 28850000
     m_LastClickedInstanceID: 34088
+=======
+    m_SelectedInstanceIDs: 8a490300
+    m_LastClickedInstanceID: 215434
+>>>>>>> origin/SkibidiDanielBranch
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 8c750000a8730000
     m_RenameOverlay:
@@ -1693,7 +1736,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 14}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1701,11 +1744,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 140}
+    m_ScrollPosition: {x: 0, y: 116.5}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
---- !u!114 &22
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1726,22 +1769,28 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 224
     y: 725.60004
     width: 1146
     height: 305.80005
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 556.5
     y: 411
     width: 404.5
     height: 300
+<<<<<<< HEAD
 =======
     x: 224.8
     y: 724
     width: 1086.7999
     height: 307.40002
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
 >>>>>>> origin/SkibidiDanielBranch
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1753,7 +1802,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &23
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1774,22 +1823,28 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1372
     y: 73.6
     width: 419
     height: 957.80005
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/SkibidiDanielBranch
     x: 963
     y: 72
     width: 316
     height: 639
+<<<<<<< HEAD
 =======
     x: 1176
     y: 73.6
     width: 359
     height: 797.8
 >>>>>>> origin/NamBranch
+>>>>>>> origin/SkibidiDanielBranch
+=======
 >>>>>>> origin/SkibidiDanielBranch
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1804,81 +1859,13 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-<<<<<<< HEAD
     m_CachedPref: -160
-=======
-    m_CachedPref: -168
->>>>>>> origin/NamBranch
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 423
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
-<<<<<<< HEAD
-=======
---- !u!114 &24
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 13854, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 310, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Project Settings
-    m_Image: {fileID: 866346219090771560, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 1125.6
-    y: 73.6
-    width: 409.40002
-    height: 797.8
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
-  m_PosLeft: {x: 0, y: 0}
-  m_PosRight: {x: 0, y: 0}
-  m_Scope: 1
-  m_SplitterFlex: 0.2
-  m_SearchText: 
-  m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 53336be2
-    m_LastClickedID: -496290989
-    m_ExpandedIDs: 53336be200000000c53aba5a
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
->>>>>>> origin/NamBranch
