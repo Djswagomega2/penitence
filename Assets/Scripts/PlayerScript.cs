@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
+
+    //TODO: Switch the Rigidbody to be Countinous
     #region General Variables
     [Header("General")]
     public int ammo;
