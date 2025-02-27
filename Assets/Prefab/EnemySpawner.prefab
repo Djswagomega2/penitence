@@ -49,5 +49,5 @@ MonoBehaviour:
   enemySpawnCoolDown: 0
   enemySpawnCoolTime: 2
   enemyCount: 0
-  maxEnemies: 3
+  maxEnemies: 2
   isSpawningEnemy: 0
