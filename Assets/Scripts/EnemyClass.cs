@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Enemy : MonoBehaviour,IDamageable
 {
-	//TODO: Find a way to pool less objects (maybe make it so the know how may enemies are on the stage, and divde it by their health?)
+	//TODO: Find a way to pool less blood objects (maybe make it so the know how may enemies are on the stage, and divde it by their health?)
 	//TODO: Make scriptable objects for enemyDamage,MaxHp, and potentially speed?
-	//TODO: As Nam if the blood is being destoryeed from this enemy class or the Blood Script?
-	//TODO: Go back to using Raycast non alloc for rays in FOV script?
 
 	public int MaxHp;
 
@@ -30,7 +28,7 @@ public class Enemy : MonoBehaviour,IDamageable
         _currentHealth = MaxHp;
         bloodDropPool = new ObjectPooler<GameObject>(bloodDrop,21,null);
         hurtSoundPool = new ObjectPooler<GameObject>(_audioSource.gameObject,5,null);
-        bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
+        //bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
 
     }
 
@@ -63,13 +61,13 @@ public class Enemy : MonoBehaviour,IDamageable
         }
     }
 
-    private void SprayBlood()
+    /*private void SprayBlood()
     {
         GameObject bloodSprayObj = bloodSprayPool.Get(transform.position,Quaternion.identity);
         ParticleSystem particleSystem = bloodSprayObj.GetComponent<ParticleSystem>();
         particleSystem.Play();
         StartCoroutine(ReturnBloodSprayToPool(bloodSprayObj,2.1f));
-    }
+    }*/
 
     private void PlayHurtSound()
     {
@@ -87,11 +85,11 @@ public class Enemy : MonoBehaviour,IDamageable
         bloodDropPool.ReturnToPool(blood);
     }
 
-    private IEnumerator ReturnBloodSprayToPool(GameObject bloodSpray, float delay)
+  /*  private IEnumerator ReturnBloodSprayToPool(GameObject bloodSpray, float delay)
     {
         yield return new WaitForSeconds(delay);
         bloodDropPool.ReturnToPool(bloodSpray);
-    }
+    }*/
 
    private IEnumerator ReturnSoundToPool(GameObject soundObj, float delay)
     {

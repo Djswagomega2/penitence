@@ -17,6 +17,11 @@ public class BloodScript : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
+	public void SetPool(ObjectPooler<BloodScript> poolReference)
+	{
+		pool = poolReference;
+	}
+
 	private void OnEnable()
 	{
 		// Reset properties every time it's taken from the pool
@@ -30,6 +35,8 @@ public class BloodScript : MonoBehaviour
 		despawnTime = Random.Range(2f, 5f); // Set random despawn time if needed
 		StartCoroutine(FadeOutAndReturnToPool());
 	}
+	
+
 
 	private IEnumerator FadeOutAndReturnToPool()
 	{
@@ -46,11 +53,14 @@ public class BloodScript : MonoBehaviour
 			yield return null;
 		}
 
+		if (pool == null)
+		{
+			Debug.LogError("BloodScript: pool is NULL when trying to return to pool!");
+			yield break; // Exit the coroutine to prevent errors
+		}
+
 		pool.ReturnToPool(this); // Return blood object to the pool <-- Causes an Error fix this please!S
 	}
 
-	public void SetPool(ObjectPooler<BloodScript> poolReference)
-	{
-		pool = poolReference;
-	}
+	
 }

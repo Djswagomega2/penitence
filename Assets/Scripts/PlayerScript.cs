@@ -263,7 +263,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     {
         if(health <= 0)
         {
-            this.transform.position = spawner.transform.position;
+			this.transform.position = spawner.transform.position;
             health = 100;
         }
     }
@@ -305,13 +305,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 			ReceiveDamage(enemy.EnemyDmg);
 
-			//This code below is technically useless as the enemies rigidbodies are static, and cannot apply a force
-			//Maybe we find someway for the player to do it instead?
+			/* This code below is technically useless as the enemies rigidbodies are static, and cannot apply a force
+			Maybe we find someway for the player to do it instead? /*
 
-			/*Transform enemyTransform = collision.gameObject.GetComponent<Transform>();
+			/*
+            Transform enemyTransform = collision.gameObject.GetComponent<Transform>();
             Vector2 direction = (rb.position - (Vector2)enemyTransform.position).normalized;
             Debug.Log(direction);
-            ApplyKnockBack(direction, 9000f);*/
+            ApplyKnockBack(direction, 9000f)
+            ;*/
 
 		}
 	}
