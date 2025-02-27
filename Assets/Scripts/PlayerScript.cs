@@ -103,7 +103,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
         muzzleflash.intensity -= 2f;
-        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f);
+        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
     }
 
     public IEnumerator bulletShellSound()
@@ -146,4 +146,4 @@ public class PlayerScript : MonoBehaviour
                 inventory.selectedItem.Use(this);
         }
     }
-}
+} //WHY ARE THERE NO FUCKING COMMENTS MAN 
