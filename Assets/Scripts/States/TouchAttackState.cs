@@ -62,7 +62,6 @@ public override State RunCurrentState()
 
         return this; 
     }
-    //Lets first make the enemy's speed zero when we start on the attack as to indicate to player that the enemy is doing the attack. Afterwards, we commit to the attack like usual
 
     private IEnumerator TouchAttack() 
     {

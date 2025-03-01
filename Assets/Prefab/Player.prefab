@@ -389,7 +389,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &1003004796732064463
 CircleCollider2D:
@@ -586,7 +586,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: -53262
+  m_InstanceId: -50694
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}
