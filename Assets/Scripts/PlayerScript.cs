@@ -4,63 +4,100 @@ using System.Drawing;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor;
+using TMPro;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
+
+    //TODO: Switch the Rigidbody to be Countinous
+    #region General Variables
+    [Header("General")]
     public int ammo;
     public float health;
-
-    [SerializeField] public InventoryManager inventory;
-
     [SerializeField] private float speed;
+    private Rigidbody2D rb;
+	#endregion
+
+	#region Movement Variables
+	[Header("Movement")]
     private float hor;
     private float vert;
     private Vector2 dir;
-    private Rigidbody2D rb;
+    private Vector3 velocity = Vector3.zero;
+	#endregion
 
+	#region Camera Variables
+	[Header("Camera")]
+    private Camera _cam;
     private Vector3 mouseWorldPosition;
     private float lookAngle;
-
-    [SerializeField] private Transform firePoint;
-
-    private Camera _cam;
     public float smooth = 0.5f;
-    private Vector3 velocity = Vector3.zero;
-
     public AnimationCurve curve;
     public float duration = 1f;
+	#endregion
 
+	#region Attacking Variables
+	[Header("Attacking")]
+	[SerializeField]private float enemyDamage;
+	[SerializeField] private Transform firePoint;
+    public Transform muzzle;
+	#endregion
+
+
+	#region Audio and SFX Variables
+	[Header("Audio and SFX")]
     [SerializeField] private AudioClip gunShot;
     [SerializeField] private AudioClip gunNoAmmo;
-    [SerializeField] private AudioClip gunEquip;
     [SerializeField] private AudioClip bulletCasing;
+    [SerializeField] private AudioSource audioSource;
+    private ObjectPooler<AudioSource> gsPool;
+    private ObjectPooler<AudioSource> gnsPool;
+    private ObjectPooler<AudioSource> bcPool;
 
-    [SerializeField] private Sprite normalJohn;
-    [SerializeField] private Sprite hasGun;
+	#endregion
 
-    private SpriteRenderer sr;
-
-    public Transform muzzle;
-
+	#region Respawning Variables
+	[Header("Respawning")]
     [SerializeField] private GameObject spawner;
     [SerializeField] private LayerMask spawnerMask;
     [SerializeField] private int spawnerRadius;
-    [SerializeField] public GameObject droplet;
-    
-    public UnityEngine.Rendering.Universal.Light2D muzzleflash;
+    public GameObject droplet;
+	#endregion
 
-    // Start is called before the first frame update
-    void Start()
+	#region UI Variables
+	[Header("UI")]
+    public TextMeshProUGUI healthText; 
+    [SerializeField] public InventoryManager inventory;
+	#endregion
+
+	#region Light2D Variables
+	[Header("Light2D")]
+	public UnityEngine.Rendering.Universal.Light2D muzzleflash;
+	#endregion
+
+	//[SerializeField] private Sprite normalJohn;
+	//[SerializeField] private Sprite hasGun;
+
+	//private SpriteRenderer sr;
+
+
+	// Start is called before the first frame update
+	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        ammo = 7;
         _cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        healthText.text = "";
+        health = 100f;
+        gsPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
+        gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
+        bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
 
     }
 
+    #region Update Methods
     // Update is called once per frame
     void Update()
     {
@@ -80,6 +117,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         RespawnParse();
         Respawn();
         InstantiateDroplet(this.transform.position);
+        healthText.text = "Health: " + health;
     }
     private void LateUpdate()
     {
@@ -89,7 +127,9 @@ public class PlayerScript : MonoBehaviour,IDamageable
     {
         rb.velocity = dir * speed * Time.deltaTime;
     }
+    #endregion
 
+    #region Shooting Methods
     private void ShootHandler()
     {
         if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
@@ -98,35 +138,75 @@ public class PlayerScript : MonoBehaviour,IDamageable
             {
                 StartCoroutine(Shake());
                 muzzleflash.intensity = 50f;
-                AudioSource.PlayClipAtPoint(gunShot, transform.position, 1f);
+                PlayGunShot();
                 RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
                 if (hit)
                 {
-                    Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.gameObject.tag == "Enemy")
                     {
-                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(30);
-                    }
+                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
+
+					}
                 }
                 StartCoroutine(bulletShellSound());
                 ammo--;
             }
             else
             {
-                AudioSource.PlayClipAtPoint(gunNoAmmo, transform.position, 1f);
+                PlayNoAmmo();
             }
         }
         muzzleflash.intensity -= 2f;
         muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f);
     }
 
+    private void PlayGunShot()
+    {
+        AudioSource audioSource = gsPool.Get(transform.position,Quaternion.identity);
+        audioSource.clip = gunShot; // Ensure the correct sound is assigned
+        audioSource.Play();
+        
+        StartCoroutine(ReturnToGunShotPool(audioSource, audioSource.clip.length)); // Return after sound finishes
+    }
+
+    private void PlayNoAmmo()
+    {
+		AudioSource audioSource = gnsPool.Get(transform.position,Quaternion.identity);
+        audioSource.clip = gunNoAmmo; // Ensure the correct sound is assigned
+        audioSource.Play();
+        
+        StartCoroutine(ReturnToGunNoAmmoPool(audioSource, audioSource.clip.length)); // Return after sound finishes
+    }
+
     public IEnumerator bulletShellSound()
     {
         yield return new WaitForSeconds(0.25f);
-        AudioSource.PlayClipAtPoint(bulletCasing, transform.position, 1f);
+        AudioSource audioSource  = bcPool.Get(transform.position,Quaternion.identity);
+        audioSource.clip = bulletCasing;
+        audioSource.Play();
+        StartCoroutine(ReturnToBulletCasePool(audioSource, audioSource.clip.length));
+
+    }
+    IEnumerator ReturnToGunShotPool(AudioSource source, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gsPool.ReturnToPool(source);
     }
 
-    private void CameraHandler()
+    IEnumerator ReturnToGunNoAmmoPool(AudioSource source, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gnsPool.ReturnToPool(source);
+    }
+    IEnumerator ReturnToBulletCasePool(AudioSource source, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        bcPool.ReturnToPool(source);
+    }
+	#endregion
+
+	#region Camera Methods
+	private void CameraHandler()
     {
         float magnitude = 2f;
         float xMidpoint = Mathf.Clamp((mouseWorldPosition.x - transform.position.x) / 2, -magnitude, magnitude);
@@ -151,8 +231,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
         _cam.transform.position = new Vector3(startPosition.x, startPosition.y, _cam.transform.position.z);
     }
+	#endregion
 
-    private void InventoryHandler()
+	#region Inventory Methods
+	private void InventoryHandler()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -160,8 +242,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 inventory.selectedItem.Use(this);
         }
     }
+	#endregion
 
-    void RespawnParse()
+	#region Respawn Methods
+	void RespawnParse()
     {
         Collider2D[] circleCols = Physics2D.OverlapCircleAll(this.transform.position, spawnerRadius, spawnerMask);
 		for (int i = 0; i < circleCols.Length; i++)
@@ -176,18 +260,19 @@ public class PlayerScript : MonoBehaviour,IDamageable
             break;
 		}
     }
-
     //Down the line change this an IEnumator where it waits for the Taste/Death Animation to finish before Respawning
     void Respawn()
     {
         if(health <= 0)
         {
-            this.transform.position = spawner.transform.position;
+			this.transform.position = spawner.transform.position;
             health = 100;
         }
     }
+	#endregion
 
-   public void UpdateHealth(float newHealthValue)
+	#region Health Methods
+	public void UpdateHealth(float newHealthValue)
    {
         health = newHealthValue;
    }
@@ -196,13 +281,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
         var updatedHealth = health - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
    }
+	#endregion;
 
-   void ApplyKnockBack(Vector2 direction, float force)
-    {
-        rb.AddForce(direction * force, ForceMode2D.Impulse);
-    }
-
-    private GameObject InstantiateDroplet(Vector2 position)
+	#region Player Tracking Methods
+	private GameObject InstantiateDroplet(Vector2 position)
     {
         if (droplet != null)
         {
@@ -215,20 +297,37 @@ public class PlayerScript : MonoBehaviour,IDamageable
         droplet.tag = "Droplet";
         return droplet;
     }
+	#endregion
+
+	#region Collision Methods
+	private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) 
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+			ReceiveDamage(enemy.EnemyDmg);
+
+			/* This code below is technically useless as the enemies rigidbodies are static, and cannot apply a force
+			Maybe we find someway for the player to do it instead? /*
+
+			/*
+            Transform enemyTransform = collision.gameObject.GetComponent<Transform>();
+            Vector2 direction = (rb.position - (Vector2)enemyTransform.position).normalized;
+            Debug.Log(direction);
+            ApplyKnockBack(direction, 9000f)
+            ;*/
+
+		}
+	}
+	private void ApplyKnockBack(Vector2 direction, float strength)
+    {
+        Debug.Log("Applying Knockback");
+        this.rb.AddForce(direction * strength,ForceMode2D.Impulse);
+    }
+    #endregion
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy")) 
-        {
-            ReceiveDamage(5f);
-            /*Vector2 directionToPlayer = ((Vector2).transform.position - rb.position).normalized;
-            rb.AddForce(-directionToPlayer * 30f,ForceMode2D.Impulse);*/
-            
-        }
     }
 }

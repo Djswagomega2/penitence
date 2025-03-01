@@ -8,6 +8,7 @@ TagManager:
   - StaticEnemy
   - TouchEnemy
   - Droplet
+  - Destination
   layers:
   - Default
   - TransparentFX
