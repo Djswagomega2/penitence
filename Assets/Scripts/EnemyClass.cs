@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour,IDamageable
         for (int i = 0; i < amount; i++)
         {
             GameObject blood = bloodDropPool.Get((Vector2)(transform.position + Random.insideUnitSphere * spread), Quaternion.identity);
-            StartCoroutine(ReturnBloodToPool(blood,5.1f));
+            //StartCoroutine(ReturnBloodToPool(blood,5.1f));
         }
     }
 
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour,IDamageable
         StartCoroutine(ReturnSoundToPool(soundObj, audioSource.clip.length)); // Return after sound finishes
     }
 
-    private IEnumerator ReturnBloodToPool(GameObject blood, float delay)
+    public IEnumerator ReturnBloodToPool(GameObject blood, float delay)
     {
         yield return new WaitForSeconds(delay);
         bloodDropPool.ReturnToPool(blood);
