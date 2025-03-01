@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1280
     height: 710
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 125
+  controlID: 130
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1866,23 +1866,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 82880000
-      m_LastClickedID: 34946
-      m_ExpandedIDs: ee42ffff0c43ffffd046ffff584affff6aefffff7ef6ffffd8f9ffff1276000082880000
+      m_SelectedIDs: ea710000
+      m_LastClickedID: 29162
+      m_ExpandedIDs: 8ef9ffffd8f9ffffea710000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Touch Enemy (1)
-        m_OriginalName: Touch Enemy (1)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -49062
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -1952,9 +1952,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 117}
-    m_SelectedIDs: ac740000
-    m_LastClickedID: 29868
-    m_ExpandedIDs: 00000000d2720000d472000000ca9a3bffffff7f
+    m_SelectedIDs: 70770000
+    m_LastClickedID: 30576
+    m_ExpandedIDs: 00000000907500009275000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1982,7 +1982,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d2720000d4720000
+    m_ExpandedIDs: 000000009075000092750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2009,7 +2009,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 8c750000a8730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
