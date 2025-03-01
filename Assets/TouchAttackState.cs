@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class TouchAttackState : State
 {
-    //TODO: Attack is happening too fast 
     #region General
     [Header("General")]
     [SerializeField] private Rigidbody2D rb;
@@ -34,16 +33,13 @@ public class TouchAttackState : State
 
     void Start()
     {
-        
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiPath = enemy.GetComponent<AIPath>();
         aiLerp = enemy.GetComponent<AILerp>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
         ps = player.GetComponent<PlayerScript>();
-        //rb.AddForce(Vector2.zero, ForceMode2D.Impulse);
     }
-
     public override State RunCurrentState()
     {
         aiLerp.speed = touchAttackSpeed;
@@ -53,35 +49,31 @@ public class TouchAttackState : State
             aiPath.enabled = false;
             StartCoroutine(TouchAttack());
         }
-        else 
+        else
         {
             StopCoroutine(TouchAttack());
             aiDestinationSetter.enabled = true;
+            aiDestinationSetter.target = null;
             aiPath.enabled = true;
             hasTouchAttacked = false;
             return pursuitState;
         }
 
-        return this; 
+        return this;
     }
-    //Lets first make the enemy's speed zero when we start on the attack as to indicate to player that the enemy is doing the attack. Afterwards, we commit to the attack like usual
-
-    private IEnumerator TouchAttack() 
+    private IEnumerator TouchAttack()
     {
-        
+
         Lunge();
-        //rb.AddForce(Vector2.zero,ForceMode2D.Impulse);
         yield return new WaitForSeconds(coolDownSeconds);
         hasTouchAttacked = true;
     }
-    
-    
-    private void Lunge() 
+
+
+    private void Lunge()
     {
         Vector2 directionToPlayer = ((Vector2)ps.droplet.transform.position - rb.position).normalized;
-        //rb.AddForce(directionToPlayer * lungeStrength, ForceMode2D.Impulse);
-        rb.velocity = directionToPlayer * aiLerp.speed;
-        Debug.Log("I AM EDGING!");
+        rb.velocity = directionToPlayer * aiLerp.speed; ;
     }
-    
+
 }
