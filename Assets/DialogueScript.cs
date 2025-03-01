@@ -31,20 +31,11 @@ public class DialogueScript : MonoBehaviour
     }
     public void dialogue(string text,float delay) // throwaway function or rename this shit PLEASE
     {
-        if (!isTextPlaying)
-        {
             StartCoroutine(DisplayText(text, delay));
-            isTextPlaying = true;
-        }
-        else
-        {
-            StopCoroutine(DisplayText(text, delay));
-            isTextPlaying = false;
-        }
     }
     public IEnumerator DisplayText(string text,float delay)
     {
-        for (int i = 0; i < fullText.Length + 1; i++)
+        for (int i = 0; i < text.Length + 1; i++)
         {
             curText = text.Substring(0, i);
             textDisplay.text = curText;
