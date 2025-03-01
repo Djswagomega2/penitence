@@ -6,7 +6,7 @@ public class BloodScript : MonoBehaviour
 {
     private Vector3 localscale;
     public float despawnTime;
-    public Color newColor;
+    private Color newColor;
     private Color oldColor;
     private float alpha;
     private float size;
