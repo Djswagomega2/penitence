@@ -155,7 +155,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
             }
         }
         muzzleflash.intensity -= 2f;
-        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f);
+        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
     }
 
     private void PlayGunShot()
