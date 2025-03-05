@@ -33,7 +33,6 @@ public class TouchAttackState : State
 
     void Start()
     {
-
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiPath = enemy.GetComponent<AIPath>();
         aiLerp = enemy.GetComponent<AILerp>();
@@ -41,7 +40,7 @@ public class TouchAttackState : State
         playerTransform = player.transform;
         ps = player.GetComponent<PlayerScript>();
     }
-public override State RunCurrentState()
+    public override State RunCurrentState()
     {
         aiLerp.speed = touchAttackSpeed;
         if (!hasTouchAttacked)
@@ -50,7 +49,7 @@ public override State RunCurrentState()
             aiPath.enabled = false;
             StartCoroutine(TouchAttack());
         }
-        else 
+        else
         {
             StopCoroutine(TouchAttack());
             aiDestinationSetter.enabled = true;
@@ -60,9 +59,8 @@ public override State RunCurrentState()
             return pursuitState;
         }
 
-        return this; 
+        return this;
     }
-    //Lets first make the enemy's speed zero when we start on the attack as to indicate to player that the enemy is doing the attack. Afterwards, we commit to the attack like usual
 
     private IEnumerator TouchAttack() 
     {
@@ -73,10 +71,10 @@ public override State RunCurrentState()
     }
 
 
-    private void Lunge() 
+    private void Lunge()
     {
         Vector2 directionToPlayer = ((Vector2)ps.droplet.transform.position - rb.position).normalized;
-        rb.velocity = directionToPlayer * aiLerp.speed;;
+        rb.velocity = directionToPlayer * aiLerp.speed; ;
     }
 
 }
