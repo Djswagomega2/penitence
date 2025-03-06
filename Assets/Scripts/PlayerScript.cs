@@ -86,8 +86,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-		audioSource = GetComponentInChildren<AudioSource>();
-		_cam = Camera.main;
+        _cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         healthText.text = "";
@@ -160,7 +159,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
             }
         }
         muzzleflash.intensity -= 2f;
-        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
+        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f);
     }
 
     private void PlayGunShot()

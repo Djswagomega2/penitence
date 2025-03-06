@@ -14,9 +14,8 @@ public class Footsteps : MonoBehaviour
 
     private void Start()
     {
-        audioSourcePrefab = GetComponentInChildren<AudioSource>();
-																   // Initialize the object pool for AudioSources
-		audioPool = new ObjectPooler<AudioSource>(audioSourcePrefab, footstepSounds.Length, transform);
+        // Initialize the object pool for AudioSources
+        audioPool = new ObjectPooler<AudioSource>(audioSourcePrefab, footstepSounds.Length, transform);
     }
 
     private void Update()
