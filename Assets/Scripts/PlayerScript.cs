@@ -86,7 +86,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        _cam = Camera.main;
+		audioSource = GetComponentInChildren<AudioSource>();
+		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         healthText.text = "";

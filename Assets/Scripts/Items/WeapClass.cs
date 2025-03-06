@@ -75,7 +75,7 @@ public class WeapClass : ItemClass
         }
         */
     }
-    public override WeapClass GetWeap() { return this; }
+    //public override WeapClass GetWeap() { return this; }
 
     public virtual IEnumerator playWeaponAnim(string animName)
     {
