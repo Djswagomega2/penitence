@@ -26,41 +26,21 @@ public class Pursuit : State
     [Header("States to Transition to")]
     [SerializeField] private State wanderState;
     [SerializeField] private State attackState;
-    [SerializeField] public float attackRange;
+    [SerializeField] private float attackRange;
     #endregion
-    // Not needed, but keeping just in case for futrue testing
-    /*
-    #region Ending Pursuit Values
-    [Header("Ending Pursuit Values")]
-    [SerializeField] private float endPursitTimer;
-    [SerializeField] private float endPursitTimerThreshold;
-    [SerializeField] private int pursitDistance;
-    #endregion
-    */
 
     private void Start()
     {
-        //aiLerp = enemy.GetComponent<AILerp>();
         fov = enemy.GetComponent<FOV>();
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiLerp = enemy.GetComponent<AILerp>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyTransform = enemy.transform;
+        enemyTransform = enemy.GetComponent<Transform>();
     }
-
-    /*
-    void Update()
-    {
-        aiLerp.speed = pursuitSpeed;
-    }
-    */
-
     public override State RunCurrentState()
     {
         aiLerp.speed = pursuitSpeed;
         aiDestinationSetter.target = playerTransform;
-        Debug.Log(Vector2.Distance(enemyTransform.position,playerTransform.position));
-
         if (!fov.canSeePlayer)
         {
             aiDestinationSetter.target = null;
@@ -70,13 +50,6 @@ public class Pursuit : State
         {
             return attackState;
         }
-
         return this;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Debug.DrawLine(enemyTransform.position,playerTransform.position);
     }
 }
