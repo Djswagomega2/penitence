@@ -8,6 +8,8 @@ TagManager:
   - StaticEnemy
   - TouchEnemy
   - Droplet
+  - Destination
+  - AudioSource
   layers:
   - Default
   - TransparentFX
