@@ -61,7 +61,8 @@ public class TouchAttackState : State
 
         return this;
     }
-    private IEnumerator TouchAttack()
+
+    private IEnumerator TouchAttack() 
     {
 
         Lunge();
