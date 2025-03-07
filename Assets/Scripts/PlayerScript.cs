@@ -118,7 +118,9 @@ public class PlayerScript : MonoBehaviour,IDamageable
         RespawnParse();
         Respawn();
         InstantiateDroplet(this.transform.position);
-        healthText.text = "Health: " + health;
+        //healthText.text = "Health: " + health;
+        //remove line above
+
     }
     private void LateUpdate()
     {
