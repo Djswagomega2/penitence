@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    //Set up SpawnerID
+    //Remove the enemy from the list of the spawner where the come from when they die
     public GameObject[] enemies;
+    public List<GameObject> spawnedEnemies;
     public float enemySpawnCoolDown;
     public float enemySpawnCoolTime;
     public int enemyCount;
     public int maxEnemies;
     public bool isSpawningEnemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -27,7 +25,9 @@ public class Spawner : MonoBehaviour
     {
         if (isSpawningEnemy)
         {
-            Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);
+            //spawnedEnemy.GetComponent<Enemy>().spanwerID = this.gameObject;
+            spawnedEnemies.Add(spawnedEnemy);
             enemyCount++;
             isSpawningEnemy = false;
 
@@ -44,9 +44,14 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        //if we need to have a kill switch down the line
-       if (!stopSpawning())
+        if(spawnedEnemies.Count <= 0)
         {
+            enemyCount = 0;
+        }
+
+        //if we need to have a kill switch down the line
+        if (!stopSpawning())
+       {
             if (!isSpawningEnemy)
             {
                 enemySpawnCoolDown -= Time.deltaTime;
@@ -57,15 +62,12 @@ public class Spawner : MonoBehaviour
                     isSpawningEnemy = true;
                 }
             }
-        }
+       }
         else
         {
             isSpawningEnemy = false;
             enemySpawnCoolDown = 0;
         }
-
-
-
 
     }
 
