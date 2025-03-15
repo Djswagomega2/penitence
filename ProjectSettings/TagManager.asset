@@ -9,7 +9,8 @@ TagManager:
   - TouchEnemy
   - Droplet
   - Destination
-  - AudioSource
+  - Projectile
+  - Obstacle
   layers:
   - Default
   - TransparentFX

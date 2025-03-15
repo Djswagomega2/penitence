@@ -1,10 +1,10 @@
 using Pathfinding;
 using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Pursuit : State
+public class SmellAttackState : State
 {
     #region General
     [Header("General")]
@@ -13,20 +13,28 @@ public class Pursuit : State
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private FOV fov;
-    [SerializeField] private AILerp aiLerp;
     [SerializeField] private float pursuitSpeed;
     #endregion
 
     #region AStarGrid and Scripts
     [Header("AStarGrid and Scripts")]
     [SerializeField] private AIDestinationSetter aiDestinationSetter;
+    [SerializeField] private AILerp aiLerp;
     #endregion
 
     #region States to Transition to
     [Header("States to Transition to")]
     [SerializeField] private State wanderState;
-    [SerializeField] private State attackState;
-    [SerializeField] private float attackRange;
+    #endregion
+
+    #region AStarGrid and Scripts
+    [Header("Shooting Goop")]
+    [SerializeField] float goopTimer;
+    [SerializeField] float goopRespawn;
+    [SerializeField] GameObject goop;
+    [SerializeField] float goopSpeed;
+    [SerializeField] float goopSpawnDistance;
+
     #endregion
 
     private void Start()
@@ -46,10 +54,24 @@ public class Pursuit : State
             aiDestinationSetter.target = null;
             return wanderState;
         }
-        else if(fov.canSeePlayer && Vector2.Distance(enemyTransform.position, playerTransform.position) >= fov.distance - attackRange) 
-        {
-            return attackState;
-        }
         return this;
+    }
+    void Update()
+    {
+        if (fov.canSeePlayer)
+        {
+            goopTimer += Time.deltaTime;
+            if (goopTimer >= goopRespawn)
+            {
+                Vector2 direction = (playerTransform.position - enemyTransform.position).normalized;
+                GameObject newGoop = Instantiate(goop, enemyTransform.position + (Vector3)(direction * goopSpawnDistance), Quaternion.identity);
+                Rigidbody2D goopRb = newGoop.GetComponent<Rigidbody2D>();
+                if (goopRb != null)
+                {
+                    goopRb.velocity = direction * goopSpeed;
+                }
+                goopTimer = 0;
+            }
+        }
     }
 }
