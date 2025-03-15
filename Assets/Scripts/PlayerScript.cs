@@ -9,14 +9,15 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
-
-    //TODO: Switch the Rigidbody to be Countinous
+    //Make Level 3 One floor
+    //Fix the lighting
     #region General Variables
     [Header("General")]
     public int ammo;
     public float health;
     [SerializeField] private float speed;
     private Rigidbody2D rb;
+    private CircleCollider2D playerCol;
 	#endregion
 
 	#region Movement Variables
@@ -86,7 +87,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-		audioSource = GetComponentInChildren<AudioSource>();
+        playerCol = GetComponent<CircleCollider2D>();
+        audioSource = GetComponentInChildren<AudioSource>();
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
@@ -283,7 +285,16 @@ public class PlayerScript : MonoBehaviour,IDamageable
    {
         var updatedHealth = health - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
-   }
+        StartCoroutine(Invincablity());
+    }
+
+    private IEnumerator Invincablity() 
+    {
+        playerCol.enabled = false;
+        Debug.Log("Player is invincible for 1 second");
+        yield return new WaitForSeconds(1f);
+        playerCol.enabled = true;
+    }
 	#endregion;
 
 	#region Player Tracking Methods
