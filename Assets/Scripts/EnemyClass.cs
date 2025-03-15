@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Enemy : MonoBehaviour,IDamageable
 {
-    public int MaxHp;
+	//TODO: Find a way to pool less blood objects (maybe make it so the know how may enemies are on the stage, and divde it by their health?)
+	//TODO: Make scriptable objects for enemyDamage,MaxHp, and potentially speed?
+    //TODO: Camera does more damage, but doesn't stun. Bat does decent damage, but does stun. 
+
+	public int MaxHp;
 
     public int EnemyDmg;
 
@@ -11,16 +15,23 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public float knockback; 
 
-    [SerializeField] private ParticleSystem bloodSpray;
+    [SerializeField] private GameObject bloodSpray;
     [SerializeField] private GameObject bloodDrop;
-
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip hurtSound;
-    private AudioSource _audioSource;
+    private ObjectPooler<GameObject> bloodDropPool;
+    private ObjectPooler<GameObject> hurtSoundPool;
+    private ObjectPooler<GameObject> bloodSprayPool;
+    
 
     public void Start()
     {
         _currentHealth = MaxHp;
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponentInChildren<AudioSource>();
+		bloodDropPool = new ObjectPooler<GameObject>(bloodDrop,21,null);
+        hurtSoundPool = new ObjectPooler<GameObject>(_audioSource.gameObject,5,null);
+        //bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
+
     }
 
     public void Update()
@@ -39,22 +50,53 @@ public class Enemy : MonoBehaviour,IDamageable
     {
         var updatedHealth = _currentHealth - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
-        Instantiate(bloodSpray, transform.position, Quaternion.identity);
-        //DropBlood(5, 1f);
-        AudioSource.PlayClipAtPoint(hurtSound, transform.position, 1f);
+        DropBlood(5, 1f);
+        PlayHurtSound();
 
     }
-   /* public void DropBlood(int amount, float spread)
+   public void DropBlood(int amount, float spread)
     {
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(bloodDrop, (Vector2)(transform.position + Random.insideUnitSphere * spread), Quaternion.identity);
+            GameObject blood = bloodDropPool.Get((Vector2)(transform.position + Random.insideUnitSphere * spread), Quaternion.identity);
+            //StartCoroutine(ReturnBloodToPool(blood,5.1f));
         }
-    }*/
-    public void RotateToPlayer(GameObject player)
-    {
-        Vector3 direction = player.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
-}
+
+    /*private void SprayBlood()
+    {
+        GameObject bloodSprayObj = bloodSprayPool.Get(transform.position,Quaternion.identity);
+        ParticleSystem particleSystem = bloodSprayObj.GetComponent<ParticleSystem>();
+        particleSystem.Play();
+        StartCoroutine(ReturnBloodSprayToPool(bloodSprayObj,2.1f));
+    }*/
+
+    private void PlayHurtSound()
+    {
+        GameObject soundObj = hurtSoundPool.Get(transform.position, Quaternion.identity); // Get GameObject
+        AudioSource audioSource = soundObj.GetComponent<AudioSource>(); // Get AudioSource component
+        audioSource.clip = hurtSound; // Ensure the correct sound is assigned
+        audioSource.Play();
+        
+        StartCoroutine(ReturnSoundToPool(soundObj, audioSource.clip.length)); // Return after sound finishes
+    }
+
+    public IEnumerator ReturnBloodToPool(GameObject blood, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        bloodDropPool.ReturnToPool(blood);
+    }
+
+  /*  private IEnumerator ReturnBloodSprayToPool(GameObject bloodSpray, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        bloodDropPool.ReturnToPool(bloodSpray);
+    }*/
+
+   private IEnumerator ReturnSoundToPool(GameObject soundObj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        soundObj.SetActive(false);
+        hurtSoundPool.ReturnToPool(soundObj);
+    }
+} 

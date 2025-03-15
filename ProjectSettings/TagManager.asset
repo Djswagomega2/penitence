@@ -8,6 +8,9 @@ TagManager:
   - StaticEnemy
   - TouchEnemy
   - Droplet
+  - Destination
+  - Projectile
+  - Obstacle
   layers:
   - Default
   - TransparentFX

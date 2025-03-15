@@ -53,7 +53,7 @@ MonoBehaviour:
   pursuitSpeed: 2
   aiDestinationSetter: {fileID: 0}
   wanderState: {fileID: 5301209354671859258}
-  attackState: {fileID: 6584796077764018492}
+  attackState: {fileID: 0}
   attackRange: 1
 --- !u!1 &4278319301291308360
 GameObject:
@@ -265,6 +265,7 @@ MonoBehaviour:
   knockback: 0
   bloodSpray: {fileID: 6122068742976237884, guid: f7ed74695a60d4d4b83e7fb95475d27a, type: 3}
   bloodDrop: {fileID: 2883353509993904058, guid: 3567e8daf5a60d144a0b5542f8febb85, type: 3}
+  _audioSource: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 06432f86751720e45b1242f3fb0ec432, type: 3}
 --- !u!114 &9122461883024113360
 MonoBehaviour:
@@ -464,7 +465,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -43060
+  m_InstanceId: 37746
   m_LocalBounds:
     m_Center: {x: 0, y: 0.000000059604645, z: 0}
     m_Extent: {x: 0.5, y: 0.50000006, z: 0}
@@ -477,7 +478,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8249878599978156627}
-  - component: {fileID: 6584796077764018492}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -500,31 +500,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7715623409615264194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6584796077764018492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331609303213159103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b057f77343810f34db685bd76bea41b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 4621512940506377995}
-  enemy: {fileID: 4430453679191176384}
-  playerTransform: {fileID: 0}
-  player: {fileID: 0}
-  hasTouchAttacked: 0
-  coolDownSeconds: 2
-  coolLungeSecond: 0.02
-  touchAttackSpeed: 6
-  ps: {fileID: 0}
-  aiDestinationSetter: {fileID: 0}
-  aiPath: {fileID: 0}
-  aiLerp: {fileID: 0}
-  pursuitState: {fileID: 6020431578925280047}
 --- !u!1 &6949744596432505488
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,12 +546,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 4430453679191176384}
   enemyTransform: {fileID: 3265527113602512497}
-  showGizmos: 1
   pursuitState: {fileID: 6020431578925280047}
   aiDestinationSetter: {fileID: 0}
   aiPath: {fileID: 0}
   aiLerp: {fileID: 5583024519389305651}
-  point: {fileID: 0}
   minDistanceBetweenPoints: 35
   randomDistanceFactor: 1.5
   wanderSpeed: 1.5
