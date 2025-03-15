@@ -15,7 +15,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
     [Header("General")]
     public int ammo;
     public float health;
-    [SerializeField] private float speed;
+    [SerializeField] private int floorCounter;
+	[SerializeField] private float speed;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
 	#endregion
@@ -44,7 +45,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	[SerializeField] private Transform firePoint;
     public Transform muzzle;
 	#endregion
-
 
 	#region Audio and SFX Variables
 	[Header("Audio and SFX")]
