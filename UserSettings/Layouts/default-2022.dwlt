@@ -149,6 +149,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 28
 =======
     width: 1920
@@ -166,6 +167,9 @@ MonoBehaviour:
   controlID: 18
 >>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
+=======
+  controlID: 26
+>>>>>>> Stashed changes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -309,6 +313,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 65
 =======
     x: 836
@@ -324,6 +329,9 @@ MonoBehaviour:
   controlID: 64
 >>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
+=======
+  controlID: 120
+>>>>>>> Stashed changes
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1107,6 +1115,7 @@ MonoBehaviour:
     m_Target: {x: -1.8705103, y: 1.0602418, z: -0.123166926}
     speed: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Value: {x: -1.8705103, y: 1.0602418, z: -0.123166926}
 =======
     m_Value: {x: 0, y: 0, z: 0}
@@ -1122,6 +1131,9 @@ MonoBehaviour:
     m_Value: {x: 3.2401276, y: -2.9381166, z: -0.098312326}
 >>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
+=======
+    m_Value: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1175,6 +1187,7 @@ MonoBehaviour:
     m_Target: 22.316004
     speed: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Value: 22.316004
 =======
     m_Value: 10
@@ -1190,6 +1203,9 @@ MonoBehaviour:
     m_Value: 17.42958
 >>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
+=======
+    m_Value: 10
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1379,6 +1395,7 @@ MonoBehaviour:
 <<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< Updated upstream
       m_ExpandedIDs: d8f9ffff
 =======
       m_SelectedIDs: d61b0100
@@ -1386,6 +1403,9 @@ MonoBehaviour:
       m_ExpandedIDs: c29cf9ff149df9ffbab9f9ff94bcf9ff36c0f9ff56c6f9ff30c9f9ff76cdf9ff30d1f9ffd8d1f9ff94d2f9ffa0d5f9ff6ad8f9ff26dcf9ffdedff9ff00e0f9ff38e1f9ff8e31faff2636faff2a43faff1c44faff9845faff3646faffde4afaffd65dfaffd85dfaff4662faff5cbcfaffdec2fbffa8c4fbff2ec6fbff12d2fbff10bffcff3cc3fcff40c3fcff34c5fcffc4c8fcfffc54fdffe25bfdff7a5ffdffac63fdff2865fdff7ae5feffa8e5feff6aeafeff14effeff9e43ffff7ee4ffffd6e6ffff7eeaffff06eeffff18f4ffffc8830000b6940000c8aa0000deaa000016ca00002cca000056ca000092ca00009cca000002ea0000c0f00000f809010040120100
 >>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
+=======
+      m_ExpandedIDs: 98f1fffff8f2ffff16f4ffff9cf5ffff22f7ffffd8f9ffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2465,7 +2485,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< Updated upstream
     - Assets/Scenes
+=======
+    - Assets
+>>>>>>> Stashed changes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2473,6 +2497,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
+<<<<<<< Updated upstream
   - Assets/Scenes
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Users\Studio 404B\Desktop\penitence
@@ -2483,6 +2508,18 @@ MonoBehaviour:
     m_SelectedIDs: 6c7c0000
     m_LastClickedID: 31852
     m_ExpandedIDs: 000000008e7a0000907a000000ca9a3bffffff7f
+=======
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\Studio 406\Desktop\penitence
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: a0720000
+    m_LastClickedID: 29344
+    m_ExpandedIDs: 00000000a072000000ca9a3bffffff7f
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2510,7 +2547,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 000000008e7a0000907a0000
+=======
+    m_ExpandedIDs: 00000000a0720000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2537,8 +2578,13 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+<<<<<<< Updated upstream
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 8c750000a87300006e750000
+=======
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: 8c750000a8730000ac360000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
