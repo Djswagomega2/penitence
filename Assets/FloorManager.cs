@@ -37,17 +37,5 @@ public class FloorManager : MonoBehaviour
 			floorTwo.SetActive(true);
 			floorThree.SetActive(false);
 		}
-		else if(collision.gameObject.CompareTag("Player"))
-		{
-			floorOne.SetActive(false);
-			floorTwo.SetActive(false);
-			floorThree.SetActive(true);
-		}
-		else
-		{
-			floorOne.SetActive(true);
-			floorTwo.SetActive(false);
-			floorThree.SetActive(false);
-		}
 	}
 }
