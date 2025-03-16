@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         if (isSpawningEnemy)
         {
             GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);
-            //spawnedEnemy.GetComponent<Enemy>().spanwerID = this.gameObject;
+            spawnedEnemy.GetComponent<Enemy>().spawner = gameObject;
             spawnedEnemies.Add(spawnedEnemy);
             enemyCount++;
             isSpawningEnemy = false;

@@ -14,9 +14,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     #region General Variables
     [Header("General")]
     public int ammo;
-    public int spawnerID;
     public float health;
-    [SerializeField] private int floorCounter;
 	[SerializeField] private float speed;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;

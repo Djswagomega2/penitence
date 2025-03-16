@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public float _currentHealth;
 
-    public float knockback; 
+    public GameObject spawner;
 
     [SerializeField] private GameObject bloodSpray;
     [SerializeField] private GameObject bloodDrop;
@@ -39,7 +39,8 @@ public class Enemy : MonoBehaviour,IDamageable
         if(_currentHealth <= 0)
         {
             Destroy(gameObject);
-        }
+            spawner.GetComponent<Spawner>().spawnedEnemies.Remove(gameObject);
+		}
     }
     public void UpdateHealth(float newHealthValue)
     {
