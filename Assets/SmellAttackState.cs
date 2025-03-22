@@ -39,6 +39,8 @@ public class SmellAttackState : State
 
     private void Start()
     {
+        //NOTE: Once done with other enenmies, try adding astate called smellRetreat where the smell enemy moves in the opposite direction of the player, and shoots projectiles a them,
+        //if the distance between player and enemy is too small. However, if the distance between player and smell enemy is large enough again, it transitions back to smellAttackState.
         fov = enemy.GetComponent<FOV>();
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiLerp = enemy.GetComponent<AILerp>();

@@ -14,6 +14,9 @@ public class Spawner : MonoBehaviour
     public int enemyCount;
     public int maxEnemies;
     public bool isSpawningEnemy;
+    public float radius;
+    [SerializeField] float minPositionShift;
+    [SerializeField] float maxPositionShift;
 
     // Update is called once per frame
     void Update()
@@ -23,14 +26,20 @@ public class Spawner : MonoBehaviour
 
     public void Spawn()
     {
+        float angleStep = 360 / maxEnemies;
+        float startAngle = 0;
         if (isSpawningEnemy)
         {
-            GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);
+            //float angle = startAngle + (enemyCount * angleStep);
+            float angle = startAngle + (enemyCount % maxEnemies) * angleStep;
+            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            GameObject spawnedEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)],
+                                      transform.position + (Vector3)(direction * Random.Range(minPositionShift, maxPositionShift)),
+                                      Quaternion.identity);
             spawnedEnemy.GetComponent<Enemy>().spawner = gameObject;
             spawnedEnemies.Add(spawnedEnemy);
             enemyCount++;
             isSpawningEnemy = false;
-
         }
 
         if (!isSpawningEnemy)

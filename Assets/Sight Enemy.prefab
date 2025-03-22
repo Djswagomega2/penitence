@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2491479450414601692}
   - component: {fileID: 912267990412470607}
   - component: {fileID: -3382419448225064713}
+  - component: {fileID: 324920037108513424}
   m_Layer: 0
   m_Name: Sight Enemy
   m_TagString: Enemy
@@ -104,6 +105,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   visualDisorient: {fileID: 5520603155469732172, guid: d63d48395947dab43ab2a2a229e30c4e, type: 3}
+  spanwerScript: {fileID: 0}
 --- !u!58 &912267990412470607
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6796713372382137919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5e6b5ef83c17a34084ab7611c2e8d02, type: 3}
   m_Name: 
@@ -156,3 +158,26 @@ MonoBehaviour:
   destroyTimer: 0
   lengthOfDisorient: 3
   sightEnemy: {fileID: 6796713372382137919}
+--- !u!114 &324920037108513424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796713372382137919}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a68c28d619ebc4d9326044fd8a20e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  spawnedEnemies: []
+  enemySpawnCoolDown: 0
+  enemySpawnCoolTime: 0
+  enemyCount: 0
+  maxEnemies: 6
+  isSpawningEnemy: 0
+  radius: 4
+  minPositionShift: 1
+  maxPositionShift: 1.5

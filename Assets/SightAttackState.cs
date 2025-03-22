@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class SightAttackState : MonoBehaviour
 {
-    [SerializeField] private float radius;
+    [SerializeField] public float radius;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private VisualDisorientScript visualDisorient;
-    //[SerializeField] private float destroyTimer;
-    //[SerializeField] private float deathTime;
-    //[SerializeField] private bool canSpawnDisorient = true;
+    [SerializeField] private Spawner spawnerScript;
 
     private void Start()
     {
         visualDisorient = GetComponent<VisualDisorientScript>();
         visualDisorient.enabled = false;
+        spawnerScript = GetComponent<Spawner>();
+        spawnerScript.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isInRadius())
+        {
+            visualDisorient.enabled = true;
+            spawnerScript.enabled = true;
+        }
+
         /*
         if ((GameObject.Find("VisualDisorient") == false) && canSpawnDisorient == false)
         {
@@ -28,11 +34,6 @@ public class SightAttackState : MonoBehaviour
             Destroy(gameObject);
         }
         */
-        if (isInRadius())
-        {
-            visualDisorient.enabled = true;
-            //Edit stuff so that a enabling and disabling script approach works
-        }
 
     }
 
