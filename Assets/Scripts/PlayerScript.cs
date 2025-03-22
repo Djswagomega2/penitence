@@ -15,7 +15,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
     [Header("General")]
     public int ammo;
     public float health;
-    [SerializeField] private int floorCounter;
 	[SerializeField] private float speed;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
@@ -322,22 +321,16 @@ public class PlayerScript : MonoBehaviour,IDamageable
 			ReceiveDamage(enemy.EnemyDmg);
 
 			/* This code below is technically useless as the enemies rigidbodies are static, and cannot apply a force
-			Maybe we find someway for the player to do it instead? /*
+			Maybe we find someway for the player to do it instead? */
 
 			/*
             Transform enemyTransform = collision.gameObject.GetComponent<Transform>();
             Vector2 direction = (rb.position - (Vector2)enemyTransform.position).normalized;
             Debug.Log(direction);
-            ApplyKnockBack(direction, 9000f)
-            ;*/
+            ApplyKnockBack(direction, 9000f);*/
 
 		}
 	}
-	private void ApplyKnockBack(Vector2 direction, float strength)
-    {
-        Debug.Log("Applying Knockback");
-        this.rb.AddForce(direction * strength,ForceMode2D.Impulse);
-    }
     #endregion
 
     private void OnDrawGizmos()
