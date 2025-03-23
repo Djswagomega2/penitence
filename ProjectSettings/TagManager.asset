@@ -11,6 +11,7 @@ TagManager:
   - Destination
   - Projectile
   - Obstacle
+  - Effect
   layers:
   - Default
   - TransparentFX
