@@ -1,48 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.Video;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class VisualDisorientScript : MonoBehaviour
 {
-    //public CameraShake cameraShake;
-    //[SerializeField] private float shakeMagnitude;
-    [SerializeField] private float destroyTimer;
-    [SerializeField] private float lengthOfDisorient;
-    [SerializeField] private GameObject sightEnemy;
+    [SerializeField] private float destroyTimer = 5f;
     [SerializeField] private GameObject disorientEffect;
-    [SerializeField] private Volume volume;
-    private ChromaticAberration chromer;
+    [SerializeField] private GameObject panelFlash;
+    [SerializeField] private Image flash;
+    private Volume postProcessingVolume;
 
-    private void Start()
+    void Start()
     {
-        destroyTimer = 10f;
         disorientEffect.SetActive(true);
-        volume = disorientEffect.GetComponent<Volume>();
-        
-       /* if (volume.profile.HasSettings<ChromaticAberration>())
-        {
-            ppv.profile.TryGetSettings(out chromer);
-        }
-        ppv.enabled = true;*/
+        panelFlash.SetActive(true);
+        postProcessingVolume = disorientEffect.GetComponent<Volume>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         destroyTimer -= Time.deltaTime;
-        //chromer.intensity.value = Mathf.Max(0, chromer.intensity.value - destroyTimer * 1.2f);
-        
-        if (chromer != null)
+        Color currentColor = flash.color;
+        currentColor.a -= Time.deltaTime / destroyTimer;
+        currentColor.a = Mathf.Max(currentColor.a, 0);
+        flash.color = currentColor;
+        if (postProcessingVolume != null)
         {
-            chromer.intensity.value -= destroyTimer * 10f;
-            Debug.Log("This is being refercened dumb jew bitch");
+            if (postProcessingVolume.profile.TryGet(out ChromaticAberration chromaticAberration))
+            {
+                chromaticAberration.intensity.Override(destroyTimer);
+            }
+            if (postProcessingVolume.profile.TryGet(out LensDistortion lensDistortion))
+            {
+                lensDistortion.intensity.Override(destroyTimer);
+            }
         }
-        Debug.Log(chromer.intensity.value);
 
-        if (chromer.intensity.value <= 0)
+        if (destroyTimer <= 0)
         {
             Destroy(gameObject);
         }
