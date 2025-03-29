@@ -438,7 +438,7 @@ MonoBehaviour:
   gunShot: {fileID: 8300000, guid: 4f0eae3930f88364f879fb8a2ded7166, type: 3}
   gunNoAmmo: {fileID: 8300000, guid: 4f4ddc228792c524899df992d6ce1725, type: 3}
   bulletCasing: {fileID: 8300000, guid: 5e504d17ec331e447920905338487cad, type: 3}
-  audioSource: {fileID: 2085687854735642901}
+  audioSource: {fileID: 0}
   spawner: {fileID: 0}
   spawnerMask:
     serializedVersion: 2
@@ -542,7 +542,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d44158fa3ff6ed4494e827220416c85, type: 3}
   - {fileID: 8300000, guid: fabf996984fd9d54e85e73b385915739, type: 3}
   footstepInterval: 1
-  audioSourcePrefab: {fileID: 2085687854735642901}
+  audioSourcePrefab: {fileID: 0}
 --- !u!114 &8950719905531816999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: 37154
+  m_InstanceId: -165186
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}
@@ -799,11 +799,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ace5fcbc97e58fa428c77254caafb625, type: 3}
---- !u!82 &2085687854735642901 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 803656558693280944, guid: ace5fcbc97e58fa428c77254caafb625, type: 3}
-  m_PrefabInstance: {fileID: 1717827955143359909}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8617433216456292426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6936025794280506863, guid: ace5fcbc97e58fa428c77254caafb625, type: 3}

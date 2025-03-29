@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class WanderState : State
 {
-	//TODO: Maybe find a way to pool the waypoints the enemies have to go towards
-	//TODO: Find a way to fix the "bunching" issue that happen when AI either has the same point or on top of each other
-	//TODO: Fix the freezing issue that happens with random Distance Factor
-	//TODO: Have it so it can detect the player if it attacked <-- On Hold: Might have to tinker around with the State Manager
-	#region General
-	[Header("General")]
+    //TODO: Fix the find new point function in order to have so it doesn't crash, and keeps spawning points
+    //TODO: Maybe find a way to pool the waypoints the enemies have to go towards
+    //TODO: Find a way to fix the "bunching" issue that happen when AI either has the same point or on top of each other
+    //TODO: Fix the freezing issue that happens with random Distance Factor
+    //TODO: Have it so it can detect the player if it attacked <-- On Hold: Might have to tinker around with the State Manager
+    #region General
+    [Header("General")]
 	[SerializeField] private GameObject enemy;
 	[SerializeField] private Transform enemyTransform;
 	#endregion
