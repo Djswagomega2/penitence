@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - Obstacle
   - Effect
+  - interactable
   layers:
   - Default
   - TransparentFX

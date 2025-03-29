@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Camera Variables
 	[Header("Camera")]
     private Camera _cam;
-    private Vector3 mouseWorldPosition;
+    public Vector3 mouseWorldPosition;
     private float lookAngle;
     public float smooth = 0.5f;
     public AnimationCurve curve;
@@ -41,16 +41,16 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Attacking Variables
 	[Header("Attacking")]
 	[SerializeField]private float enemyDamage;
-	[SerializeField] private Transform firePoint;
+	[SerializeField] public Transform firePoint;
     public Transform muzzle;
 	#endregion
 
 	#region Audio and SFX Variables
 	[Header("Audio and SFX")]
-    [SerializeField] private AudioClip gunShot;
-    [SerializeField] private AudioClip gunNoAmmo;
-    [SerializeField] private AudioClip bulletCasing;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] public AudioClip gunShot;
+    [SerializeField] public AudioClip gunNoAmmo;
+    [SerializeField] public AudioClip bulletCasing;
+    [SerializeField] public AudioSource audioSource;
     private ObjectPooler<AudioSource> gsPool;
     private ObjectPooler<AudioSource> gnsPool;
     private ObjectPooler<AudioSource> bcPool;
@@ -219,7 +219,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         _cam.transform.position = Vector3.SmoothDamp(_cam.transform.position, new Vector3(transform.position.x + xMidpoint, transform.position.y + yMidpoint, -1f), ref velocity, smooth);
 
     }
-    IEnumerator Shake()
+    public IEnumerator Shake()
     {
         Vector2 startPosition = (Vector2)_cam.transform.position;
         float elapsedTime = 0f;
