@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new Weapon Class", menuName = "Item/Weapon")]
 public class WeapClass : ItemClass
 {
+    //TODO; Switch over the Audio stuff to Object Pooling
     // old weapon shit (Nam)
     [Header("Weapon")]
     public WeaponType weaponType;
@@ -59,20 +60,22 @@ public class WeapClass : ItemClass
             {
                 playerScript.StartCoroutine(playerScript.Shake());
                 playerScript.muzzleflash.intensity = 50f;
-                AudioSource.PlayClipAtPoint(playerScript.gunShot, playerScript.transform.position, 1f);
+                playerScript.PlayGunShot();
                 RaycastHit2D hit = Physics2D.Raycast(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
                 if (hit)
                 {
                     Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.gameObject.tag == "Enemy")
                     {
-                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(30);
+                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(playerScript.enemyDamage);
                     }
                 }
+                playerScript.StartCoroutine(playerScript.bulletShellSound());
+                playerScript.ammo--;
             }
             else
             {
-                AudioSource.PlayClipAtPoint(playerScript.gunNoAmmo, playerScript.transform.position, 1f);
+                playerScript.PlayNoAmmo();
             }
         
         //yes, I did just rip this from the player script, and no I am not fixing it.

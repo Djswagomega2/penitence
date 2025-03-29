@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Attacking Variables
 	[Header("Attacking")]
-	[SerializeField]private float enemyDamage;
+	public float enemyDamage;
 	[SerializeField] public Transform firePoint;
     public Transform muzzle;
 	#endregion
@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
     }
 
-    private void PlayGunShot()
+    public void PlayGunShot()
     {
         AudioSource audioSource = gsPool.Get(transform.position,Quaternion.identity);
         audioSource.clip = gunShot; // Ensure the correct sound is assigned
@@ -173,7 +173,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         StartCoroutine(ReturnToGunShotPool(audioSource, audioSource.clip.length)); // Return after sound finishes
     }
 
-    private void PlayNoAmmo()
+    public void PlayNoAmmo()
     {
 		AudioSource audioSource = gnsPool.Get(transform.position,Quaternion.identity);
         audioSource.clip = gunNoAmmo; // Ensure the correct sound is assigned
