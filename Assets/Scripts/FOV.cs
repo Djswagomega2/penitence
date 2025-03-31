@@ -66,7 +66,7 @@ public class FOV : MonoBehaviour
 			Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
 
 			// Perform the raycast and store results in the hitsBuffer
-			int hitCount = Physics2D.RaycastNonAlloc(rb.position, direction, hitsBuffer, distance, layerMask);
+			int hitCount = Physics2D.RaycastNonAlloc(transform.position, direction, hitsBuffer, distance, layerMask);
 
 			// Visualize the FOV rays (Red)
 			Debug.DrawRay(rb.position, direction * distance, Color.red);
@@ -77,8 +77,18 @@ public class FOV : MonoBehaviour
 				RaycastHit2D hit = hitsBuffer[j];
 				if (hit.collider != null && hit.collider.gameObject == player)
 				{
-					canSeePlayer = true;
-					return true; // Player detected, break out of FOV check
+					// Perform another raycast to ensure no walls block the view
+					RaycastHit2D wallCheck = Physics2D.Raycast(rb.position,
+																((Vector2)player.transform.position - rb.position).normalized,
+																hit.distance,
+																layerMask);
+
+					// Only set canSeePlayer to true if there's no wall blocking the view
+					if (wallCheck.collider == null || wallCheck.collider.gameObject == player)
+					{
+						canSeePlayer = true;
+						return true; // Stop checking once the player is confirmed visible
+					}
 				}
 			}
 		}
@@ -108,8 +118,18 @@ public class FOV : MonoBehaviour
 				RaycastHit2D smallHit = hitsBuffer[j];
 				if (smallHit.collider != null && smallHit.collider.gameObject == player)
 				{
-					canSeePlayer = true;
-					return; // Player detected near enemy, break out of smaller ray check
+					// Perform another raycast to ensure no walls block the view
+					RaycastHit2D wallCheck = Physics2D.Raycast(transform.position,
+																(player.transform.position - transform.position).normalized,
+																smallHit.distance,
+																layerMask);
+
+					// Only set canSeePlayer to true if there's no wall blocking the view
+					if (wallCheck.collider == null || wallCheck.collider.gameObject == player)
+					{
+						canSeePlayer = true;
+						return; // Stop checking once the player is confirmed visible
+					}
 				}
 			}
 		}

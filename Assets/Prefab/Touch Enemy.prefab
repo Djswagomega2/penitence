@@ -413,11 +413,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0606fa52535524543affc2dc0c3f4616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 90
+  fov: 110
   distance: 8
   rayCount: 135
   smallerRaysCount: 135
-  smallerRayDistance: 2
+  smallerRayDistance: 4
   aiPath: {fileID: 661271319971675768}
   player: {fileID: 0}
   layerMask:
@@ -586,7 +586,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -321988
+  m_InstanceId: 64220
   m_LocalBounds:
     m_Center: {x: 0, y: 0.000000059604645, z: 0}
     m_Extent: {x: 0.5, y: 0.50000006, z: 0}
@@ -660,9 +660,9 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   player: {fileID: 0}
   hasTouchAttacked: 0
-  coolDownSeconds: 2
+  coolDownSeconds: 1
   coolLungeSecond: 0.02
-  touchAttackSpeed: 6
+  touchAttackSpeed: 8
   ps: {fileID: 0}
   aiDestinationSetter: {fileID: 0}
   aiPath: {fileID: 0}
@@ -722,7 +722,7 @@ MonoBehaviour:
   aiDestinationSetter: {fileID: 0}
   wanderState: {fileID: 1636837618307462755}
   attackState: {fileID: 7061886800606499882}
-  attackRange: 1
+  attackRange: 2
 --- !u!1 &8220742183341135487
 GameObject:
   m_ObjectHideFlags: 0
