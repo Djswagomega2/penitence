@@ -46,17 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showGizmos: 0
   animator: {fileID: 0}
-  attackState: {fileID: 810916918320315521}
-  enemy: {fileID: 0}
-  enemyTransform: {fileID: 0}
-  playerRadius: 2
-  rayCount: 32
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  pursuitState: {fileID: 810916918320315521}
+  enemy: {fileID: 4550992984807298893}
+  fov: {fileID: 0}
 --- !u!1001 &1933255485551135552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,14 +60,30 @@ PrefabInstance:
     - target: {fileID: 1266841058362259393, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
       propertyPath: wanderState
       value: 
+      objectReference: {fileID: 3195172426260589022}
+    - target: {fileID: 1266841058362259393, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 5253783249609671637}
+    - target: {fileID: 1266841058362259393, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+      propertyPath: playerTransform
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1558393477149040482, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
       propertyPath: currentState
       value: 
+      objectReference: {fileID: 3195172426260589022}
+    - target: {fileID: 1647640448149729267, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+      propertyPath: distance
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647640448149729267, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+      propertyPath: smallerRayDistance
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2637165251331394862, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
       propertyPath: m_InstanceId
-      value: -210436
+      value: -1672
       objectReference: {fileID: 0}
     - target: {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
       propertyPath: m_Name
@@ -141,6 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd8e73210d523541a8eae92c1d0e5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4550992984807298893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  m_PrefabInstance: {fileID: 1933255485551135552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5253783249609671637 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5926030778956253333, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  m_PrefabInstance: {fileID: 1933255485551135552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6007403769143300827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5299285927073995163, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
