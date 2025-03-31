@@ -67,7 +67,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region UI Variables
 	[Header("UI")]
-    public TextMeshProUGUI healthText; 
     [SerializeField] public InventoryManager inventory;
 	#endregion
 
@@ -90,9 +89,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
-        healthText.text = "";
         health = 100f;
-		audioSource = GetComponentInChildren<AudioSource>();
 		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
         gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
         bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
