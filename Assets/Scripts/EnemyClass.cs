@@ -5,7 +5,6 @@ public class Enemy : MonoBehaviour,IDamageable
 {
 	//TODO: Find a way to pool less blood objects (maybe make it so the know how may enemies are on the stage, and divde it by their health?)
 	//TODO: Make scriptable objects for enemyDamage,MaxHp, and potentially speed?
-    //TODO: Instead of poly collider make multiple cirlce and box collider --> Circle is the cheapest and Box is second cheapest 
     //TODO: Camera does more damage, but doesn't stun. Bat does decent damage, but does stun. 
 
 	public int MaxHp;
@@ -14,7 +13,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public float _currentHealth;
 
-    public float knockback; 
+    public GameObject spawner;
 
     [SerializeField] private GameObject bloodSpray;
     [SerializeField] private GameObject bloodDrop;
@@ -40,7 +39,8 @@ public class Enemy : MonoBehaviour,IDamageable
         if(_currentHealth <= 0)
         {
             Destroy(gameObject);
-        }
+            spawner.GetComponent<Spawner>().spawnedEnemies.Remove(gameObject);
+		}
     }
     public void UpdateHealth(float newHealthValue)
     {
@@ -60,7 +60,6 @@ public class Enemy : MonoBehaviour,IDamageable
         for (int i = 0; i < amount; i++)
         {
             GameObject blood = bloodDropPool.Get((Vector2)(transform.position + Random.insideUnitSphere * spread), Quaternion.identity);
-            //StartCoroutine(ReturnBloodToPool(blood,5.1f));
         }
     }
 

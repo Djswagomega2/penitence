@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class disgustingFuckingFlashlightScript : WeapClass
 {
     public Ray2D flashRayShooter; //the ray being used
@@ -55,3 +55,5 @@ public class disgustingFuckingFlashlightScript : WeapClass
         //}
     }
 }
+
+*/

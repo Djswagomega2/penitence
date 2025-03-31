@@ -7,10 +7,11 @@ public class IdleState : State
     #region General
     [Header("General")]
     public bool showGizmos;
-    #endregion
+    [SerializeField] private Animator animator;
+	#endregion
 
-    #region States to transition to
-    [Header("States to transition to")]
+	#region States to transition to
+	[Header("States to transition to")]
     public State attackState;
     #endregion
 
@@ -22,19 +23,27 @@ public class IdleState : State
     [SerializeField] private int rayCount;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask obstacleLayer;
-    #endregion
+	#endregion
 
-    public override State RunCurrentState()
+	public void Start()
+	{
+		animator = enemy.GetComponent<Animator>();
+        animator.enabled = false;
+	}
+
+	public override State RunCurrentState()
     {
         if (isPlayerNear())
         {
             showGizmos = false;
-            return attackState;
+            animator.enabled = true;
+			return attackState;
         }
         else 
         {
            showGizmos = true;
-        }
+            animator.enabled = false;
+		}
 
         return this;
     }

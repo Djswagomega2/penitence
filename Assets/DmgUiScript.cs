@@ -20,6 +20,7 @@ public class DmgUiScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        health = GameObject.Find("Player").GetComponent<PlayerScript>().health;
         alpha = 1 - (health / 100f);
         outerBlood.color = new Color(outerBlood.color.r, outerBlood.color.g, outerBlood.color.b, alpha);
         fillBlood.color = new Color(outerBlood.color.r, outerBlood.color.g, outerBlood.color.b, alpha-0.25f);

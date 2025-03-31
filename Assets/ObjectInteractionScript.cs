@@ -11,6 +11,8 @@ public class ObjectInteractionScript : MonoBehaviour
     public Vector3 offsetVector;
     public float fromEditorOffsetMod = 10f;
     public bool isTextInteractable;
+    public string interactableText;
+    //public text
 
     // Start is called before the first frame update
     void Start()

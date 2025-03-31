@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new Weapon Class", menuName = "Item/Weapon")]
 public class WeapClass : ItemClass
 {
+    //TODO; Switch over the Audio stuff to Object Pooling
     // old weapon shit (Nam)
     [Header("Weapon")]
     public WeaponType weaponType;
@@ -31,6 +32,11 @@ public class WeapClass : ItemClass
     public Vector3 offsetVector; //used to offset insantiation position of weaponobject.
     public float maxRange; //for editing from unity
     public Ray hitscanRay;
+    public float blockDecimal;
+    public bool isBlocking;
+
+    //shit to make the ripped out code work
+    public PlayerScript playerScript;
 
 
     //I just want to make something clear. The weapon object is separate from the weapon itself.
@@ -48,45 +54,73 @@ public class WeapClass : ItemClass
     }
     public virtual void Shoot()
     {
-        /*
         if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
         {
-            if (ammo > 0)
+            if (playerScript.ammo > 0)
             {
-                StartCoroutine(Shake());
-                muzzleflash.intensity = 50f;
-                AudioSource.PlayClipAtPoint(gunShot, transform.position, 1f);
-                RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
+                playerScript.StartCoroutine(playerScript.Shake());
+                playerScript.muzzleflash.intensity = 50f;
+                playerScript.PlayGunShot();
+                RaycastHit2D hit = Physics2D.Raycast(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
                 if (hit)
                 {
                     Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.gameObject.tag == "Enemy")
                     {
-                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(30);
+                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(playerScript.enemyDamage);
                     }
                 }
+                playerScript.StartCoroutine(playerScript.bulletShellSound());
+                playerScript.ammo--;
             }
             else
             {
-                AudioSource.PlayClipAtPoint(gunNoAmmo, transform.position, 1f);
+                playerScript.PlayNoAmmo();
             }
         
-        //yes, I did just rip this from the player script, and no I am not fixing it. I need to talk to nam first about moving this since it was all hard coded for some reason and I need to know why
+        //yes, I did just rip this from the player script, and no I am not fixing it.
+        //Why the fuck was everything private. 
         }
-        */
+        
     }
     //public override WeapClass GetWeap() { return this; }
 
     public virtual IEnumerator playWeaponAnim(string animName)
     {
+        bool isPlayingAnim = true; ; //used to yield the time to the anim so it doesnt instantly destroy the anim object.
+        offsetVector.x = weaponObject.transform.parent.position.x;
+        offsetVector.y = weaponObject.transform.parent.position.y;
+        offsetVector.z = weaponObject.transform.parent.position.z;
+        gameObjectTransform.position = offsetVector;
+        Instantiate(weaponObject, gameObjectTransform);  
+        if (isPlayingAnim)
+        {
+            weaponAnimController.Play(animName);
+            isPlayingAnim = false;
+            yield break;
+        }
+        Destroy(weaponObject);
+        yield return null;
+    }
+
+    public virtual IEnumerator playBlockAnim(string animName)
+    {
+        bool isPlayingAnim = true; ; //used to yield the time to the anim so it doesnt instantly destroy the anim object.
         offsetVector.x = weaponObject.transform.parent.position.x;
         offsetVector.y = weaponObject.transform.parent.position.y;
         offsetVector.z = weaponObject.transform.parent.position.z;
         gameObjectTransform.position = offsetVector;
         Instantiate(weaponObject, gameObjectTransform);
-        weaponAnimController.Play(animName);
+        if (isPlayingAnim)
+        {
+            isBlocking = true;
+            weaponAnimController.Play(animName);
+            isPlayingAnim = false;
+            yield break;
+        }
         Destroy(weaponObject);
-        return null;
+        isBlocking = false;
+        yield return null; //I thought of doing an event but realized that you can do that and I don't care. Good luck!
     }
 
     public virtual IEnumerator playWeaponSound(AudioClip audioClipName)
@@ -95,5 +129,4 @@ public class WeapClass : ItemClass
         weaponAudioSource.Play();
         return null;
     }
-
 }

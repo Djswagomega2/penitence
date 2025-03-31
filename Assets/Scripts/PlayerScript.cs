@@ -9,14 +9,15 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
-
-    //TODO: Switch the Rigidbody to be Countinous
+    //Make Level 3 One floor
+    //Fix the lighting
     #region General Variables
     [Header("General")]
     public int ammo;
     public float health;
-    [SerializeField] private float speed;
+	[SerializeField] private float speed;
     private Rigidbody2D rb;
+    private CircleCollider2D playerCol;
 	#endregion
 
 	#region Movement Variables
@@ -30,7 +31,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Camera Variables
 	[Header("Camera")]
     private Camera _cam;
-    private Vector3 mouseWorldPosition;
+    public Vector3 mouseWorldPosition;
     private float lookAngle;
     public float smooth = 0.5f;
     public AnimationCurve curve;
@@ -39,18 +40,17 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Attacking Variables
 	[Header("Attacking")]
-	[SerializeField]private float enemyDamage;
-	[SerializeField] private Transform firePoint;
+	public float enemyDamage;
+	[SerializeField] public Transform firePoint;
     public Transform muzzle;
 	#endregion
 
-
 	#region Audio and SFX Variables
 	[Header("Audio and SFX")]
-    [SerializeField] private AudioClip gunShot;
-    [SerializeField] private AudioClip gunNoAmmo;
-    [SerializeField] private AudioClip bulletCasing;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] public AudioClip gunShot;
+    [SerializeField] public AudioClip gunNoAmmo;
+    [SerializeField] public AudioClip bulletCasing;
+    [SerializeField] public AudioSource audioSource;
     private ObjectPooler<AudioSource> gsPool;
     private ObjectPooler<AudioSource> gnsPool;
     private ObjectPooler<AudioSource> bcPool;
@@ -67,7 +67,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region UI Variables
 	[Header("UI")]
-    public TextMeshProUGUI healthText; 
     [SerializeField] public InventoryManager inventory;
 	#endregion
 
@@ -86,13 +85,12 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-		audioSource = GetComponentInChildren<AudioSource>();
+        playerCol = GetComponent<CircleCollider2D>();
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
-        healthText.text = "";
         health = 100f;
-        gsPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
+		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
         gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
         bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
 
@@ -118,7 +116,9 @@ public class PlayerScript : MonoBehaviour,IDamageable
         RespawnParse();
         Respawn();
         InstantiateDroplet(this.transform.position);
-        healthText.text = "Health: " + health;
+        //healthText.text = "Health: " + health;
+        //remove line above
+
     }
     private void LateUpdate()
     {
@@ -141,11 +141,12 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 muzzleflash.intensity = 50f;
                 PlayGunShot();
                 RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
-                if (hit)
+				if (hit)
                 {
-                    if (hit.collider.gameObject.tag == "Enemy")
+                    if (hit.collider.gameObject.CompareTag("Enemy"))
                     {
-                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
+                        Debug.Log("Hit Enemy");
+						hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
 
 					}
                 }
@@ -161,16 +162,16 @@ public class PlayerScript : MonoBehaviour,IDamageable
         muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
     }
 
-    private void PlayGunShot()
+    public void PlayGunShot()
     {
-        AudioSource audioSource = gsPool.Get(transform.position,Quaternion.identity);
-        audioSource.clip = gunShot; // Ensure the correct sound is assigned
+        AudioSource audioSource = gsPool.Get(transform.position, Quaternion.identity);
+		audioSource.clip = gunShot; // Ensure the correct sound is assigned
         audioSource.Play();
         
         StartCoroutine(ReturnToGunShotPool(audioSource, audioSource.clip.length)); // Return after sound finishes
     }
 
-    private void PlayNoAmmo()
+    public void PlayNoAmmo()
     {
 		AudioSource audioSource = gnsPool.Get(transform.position,Quaternion.identity);
         audioSource.clip = gunNoAmmo; // Ensure the correct sound is assigned
@@ -216,7 +217,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         _cam.transform.position = Vector3.SmoothDamp(_cam.transform.position, new Vector3(transform.position.x + xMidpoint, transform.position.y + yMidpoint, -1f), ref velocity, smooth);
 
     }
-    IEnumerator Shake()
+    public IEnumerator Shake()
     {
         Vector2 startPosition = (Vector2)_cam.transform.position;
         float elapsedTime = 0f;
@@ -281,7 +282,16 @@ public class PlayerScript : MonoBehaviour,IDamageable
    {
         var updatedHealth = health - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
-   }
+        StartCoroutine(Invincablity());
+    }
+
+    private IEnumerator Invincablity() 
+    {
+        playerCol.enabled = false;
+        Debug.Log("Player is invincible for 1 second");
+        yield return new WaitForSeconds(1f);
+        playerCol.enabled = true;
+    }
 	#endregion;
 
 	#region Player Tracking Methods
@@ -309,26 +319,22 @@ public class PlayerScript : MonoBehaviour,IDamageable
 			ReceiveDamage(enemy.EnemyDmg);
 
 			/* This code below is technically useless as the enemies rigidbodies are static, and cannot apply a force
-			Maybe we find someway for the player to do it instead? /*
+			Maybe we find someway for the player to do it instead? */
 
 			/*
             Transform enemyTransform = collision.gameObject.GetComponent<Transform>();
             Vector2 direction = (rb.position - (Vector2)enemyTransform.position).normalized;
             Debug.Log(direction);
-            ApplyKnockBack(direction, 9000f)
-            ;*/
+            ApplyKnockBack(direction, 9000f);*/
 
 		}
 	}
-	private void ApplyKnockBack(Vector2 direction, float strength)
-    {
-        Debug.Log("Applying Knockback");
-        this.rb.AddForce(direction * strength,ForceMode2D.Impulse);
-    }
     #endregion
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
+        Gizmos.color = UnityEngine.Color.red;
+		Debug.DrawRay(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
+		Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
     }
 }
