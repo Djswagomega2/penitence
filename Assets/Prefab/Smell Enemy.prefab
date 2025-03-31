@@ -138,18 +138,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showGizmos: 0
   enemy: {fileID: 6089152072636876634}
-  enemyTransform: {fileID: 0}
-  playerTransform: {fileID: 2349888712729575547}
-  fov: {fileID: 0}
-  pursuitSpeed: 3
-  aiDestinationSetter: {fileID: 0}
-  aiLerp: {fileID: 0}
+  enemyTransform: {fileID: 2349888712729575547}
+  playerTransform: {fileID: 3461587141043710812, guid: cd0fc0935f611834484f88f6cee963d5, type: 3}
+  fov: {fileID: 7515472154469774952}
+  pursuitSpeed: 2.5
+  aiDestinationSetter: {fileID: 2550261753813830271}
+  aiLerp: {fileID: 6080708877206317312}
   wanderState: {fileID: 7227504815323241374}
   goopTimer: 0
   goopRespawn: 2
   goop: {fileID: 2424771508600995456, guid: bb2877b05fb7a41bab802d0ebb805af7, type: 3}
   goopSpeed: 10
   goopSpawnDistance: 1.5
+  distanceToRetreat: 6
+  retreatBuffer: 0.5
+  retreatSpeed: 3.5
+  stateCommitTime: 0.5
 --- !u!1 &6089152072636876634
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +327,7 @@ MonoBehaviour:
   MaxHp: 100
   EnemyDmg: 10
   _currentHealth: 0
-  knockback: 0
+  spawner: {fileID: 0}
   bloodSpray: {fileID: 6122068742976237884, guid: f7ed74695a60d4d4b83e7fb95475d27a, type: 3}
   bloodDrop: {fileID: 2883353509993904058, guid: 3567e8daf5a60d144a0b5542f8febb85, type: 3}
   _audioSource: {fileID: 0}
@@ -354,10 +358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov: 90
-  distance: 8
+  distance: 12
   rayCount: 135
   smallerRaysCount: 135
-  smallerRayDistance: 2
+  smallerRayDistance: 3
   aiPath: {fileID: 0}
   player: {fileID: 0}
   layerMask:
@@ -526,7 +530,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1688
+  m_InstanceId: 35946
   m_LocalBounds:
     m_Center: {x: 0, y: 0.000000059604645, z: 0}
     m_Extent: {x: 0.5, y: 0.50000006, z: 0}
