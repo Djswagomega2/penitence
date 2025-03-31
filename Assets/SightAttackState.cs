@@ -44,6 +44,7 @@ public class SightAttackState : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, radius);
+        Gizmos.color = Color.red;  
+		Gizmos.DrawWireSphere(this.transform.position, radius);
     }
 }
