@@ -17,7 +17,9 @@ public class SightAttackState : MonoBehaviour
         visualDisorient.enabled = false;
         spawnerScript = GetComponent<Spawner>();
         spawnerScript.enabled = false;
-    }
+        warningLight = GetComponentInChildren<Light2D>();
+        warningLight.pointLightOuterRadius = radius;
+	}
 
     // Update is called once per frame
     void Update()
