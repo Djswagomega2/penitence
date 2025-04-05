@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Attacking Variables
 	[Header("Attacking")]
-	[SerializeField]private float enemyDamage;
+	public float enemyDamage;
 	[SerializeField] public Transform firePoint;
     public Transform muzzle;
 	#endregion
@@ -67,7 +67,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region UI Variables
 	[Header("UI")]
-    public TextMeshProUGUI healthText; 
     [SerializeField] public InventoryManager inventory;
 	#endregion
 
@@ -87,13 +86,11 @@ public class PlayerScript : MonoBehaviour,IDamageable
     {
         rb = GetComponent<Rigidbody2D>();
         playerCol = GetComponent<CircleCollider2D>();
-        audioSource = GetComponentInChildren<AudioSource>();
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
-        healthText.text = "";
         health = 100f;
-        gsPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
+		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
         gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
         bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
 
@@ -144,11 +141,11 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 muzzleflash.intensity = 50f;
                 PlayGunShot();
                 RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
-                if (hit)
+				if (hit)
                 {
-                    if (hit.collider.gameObject.tag == "Enemy")
+                    if (hit.collider.gameObject.CompareTag("Enemy"))
                     {
-                        hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
+						hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
 
 					}
                 }
@@ -164,16 +161,16 @@ public class PlayerScript : MonoBehaviour,IDamageable
         muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
     }
 
-    private void PlayGunShot()
+    public void PlayGunShot()
     {
-        AudioSource audioSource = gsPool.Get(transform.position,Quaternion.identity);
-        audioSource.clip = gunShot; // Ensure the correct sound is assigned
+        AudioSource audioSource = gsPool.Get(transform.position, Quaternion.identity);
+		audioSource.clip = gunShot; // Ensure the correct sound is assigned
         audioSource.Play();
         
         StartCoroutine(ReturnToGunShotPool(audioSource, audioSource.clip.length)); // Return after sound finishes
     }
 
-    private void PlayNoAmmo()
+    public void PlayNoAmmo()
     {
 		AudioSource audioSource = gnsPool.Get(transform.position,Quaternion.identity);
         audioSource.clip = gunNoAmmo; // Ensure the correct sound is assigned
@@ -335,6 +332,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
+		Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
     }
 }
