@@ -13,7 +13,6 @@ public class SmellAttackState : State
     [SerializeField] private Transform playerTransform;
     [SerializeField] private FOV fov;
     [SerializeField] private float pursuitSpeed;
-    [SerializeField] private float retreatThreshold;
     #endregion
 
     #region AStarGrid and Scripts
@@ -25,8 +24,6 @@ public class SmellAttackState : State
     #region States to Transition to
     [Header("States to Transition to")]
     [SerializeField] private State wanderState;
-    [SerializeField] private State retreatState;
-
     #endregion
 
     #region Shooting Goop
@@ -117,7 +114,6 @@ public class SmellAttackState : State
         shootAttack();
         Debug.Log(distanceToPlayer);
     }
-
     public void shootAttack()
     {
         if (fov.canSeePlayer)
@@ -125,7 +121,7 @@ public class SmellAttackState : State
             goopTimer += Time.deltaTime;
             if (goopTimer >= goopRespawn)
             {
-                direction = (playerTransform.position - enemyTransform.position).normalized;
+                Vector2 direction = (playerTransform.position - enemyTransform.position).normalized;
                 GameObject newGoop = Instantiate(goop, enemyTransform.position + (Vector3)(direction * goopSpawnDistance), Quaternion.identity);
                 Rigidbody2D goopRb = newGoop.GetComponent<Rigidbody2D>();
                 if (goopRb != null)
@@ -134,30 +130,6 @@ public class SmellAttackState : State
                 }
                 goopTimer = 0;
             }
-            //FIX THIS SO THAT THE ENEMY MOVES BACKWARDS WHEN TOO CLOSE
-            if (Vector2.Distance(playerTransform.position, gameObject.transform.position) <= retreatThreshold)
-            {
-                aiLerp.speed = Mathf.Lerp(pursuitSpeed,-pursuitSpeed, Time.deltaTime/10);
-            }
-            else
-            {
-                aiLerp.speed = pursuitSpeed;
-            }
-            Debug.Log(Vector2.Distance(playerTransform.position, gameObject.transform.position));
         }
-
-        aiDestinationSetter.target = playerTransform;
-        if (!fov.canSeePlayer)
-        {
-            aiDestinationSetter.target = null;
-            return wanderState;
-        }
-        /*
-        if (Vector2.Distance(playerTransform.position, gameObject.transform.position) >= retreatThreshold)
-        {
-            return retreatState;
-        }
-        */
-        return this;
     }
 }
