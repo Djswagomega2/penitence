@@ -2654,17 +2654,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &359403593 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4792023028437803406, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-  m_PrefabInstance: {fileID: 5375824034956807409}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &360055636
 GameObject:
   m_ObjectHideFlags: 0
@@ -21571,70 +21560,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: fill
-      value: 
-      objectReference: {fileID: 359403593}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.ctime0
-      value: 21823
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.ctime1
-      value: 43646
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key0.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key0.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key1.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key1.r
-      value: 0.95137477
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key2.b
-      value: 0.7830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key2.g
-      value: 0.74941176
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.key2.r
-      value: 0.054663554
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467566644509995755, guid: 2af604879eb95d84693f85474f78312a, type: 3}
-      propertyPath: ammoGradient.m_NumColorKeys
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3613099503099803615, guid: 2af604879eb95d84693f85474f78312a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -21726,6 +21651,14 @@ PrefabInstance:
     - target: {fileID: 5541192233600358584, guid: 2af604879eb95d84693f85474f78312a, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349300293001734216, guid: 2af604879eb95d84693f85474f78312a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349300293001734216, guid: 2af604879eb95d84693f85474f78312a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
