@@ -145,7 +145,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 {
                     if (hit.collider.gameObject.CompareTag("Enemy"))
                     {
-                        Debug.Log("Hit Enemy");
 						hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
 
 					}
@@ -333,8 +332,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = UnityEngine.Color.red;
-		Debug.DrawRay(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
 		Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
     }
 }

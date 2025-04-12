@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class SightAttackState : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SightAttackState : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private VisualDisorientScript visualDisorient;
     [SerializeField] private Spawner spawnerScript;
+    [SerializeField] private Light2D warningLight;
 
     private void Start()
     {
@@ -15,7 +17,9 @@ public class SightAttackState : MonoBehaviour
         visualDisorient.enabled = false;
         spawnerScript = GetComponent<Spawner>();
         spawnerScript.enabled = false;
-    }
+        warningLight = GetComponentInChildren<Light2D>();
+        warningLight.pointLightOuterRadius = radius;
+	}
 
     // Update is called once per frame
     void Update()
