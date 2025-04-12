@@ -17,7 +17,6 @@ MonoBehaviour:
   description: 
   isStackable: 1
   isDroppable: 0
-  itemObject: {fileID: 0}
   equipSpeed: 0
   weaponType: 0
   weaponDamage: 20

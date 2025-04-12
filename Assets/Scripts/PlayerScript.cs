@@ -262,7 +262,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Inventory Methods
 	private void InventoryHandler()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             if (inventory.selectedItem != null)
                 inventory.selectedItem.Use(this);

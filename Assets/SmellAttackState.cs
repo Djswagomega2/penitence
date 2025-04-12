@@ -114,7 +114,6 @@ public class SmellAttackState : State
         shootAttack();
         Debug.Log(distanceToPlayer);
     }
-
     public void shootAttack()
     {
         if (fov.canSeePlayer)

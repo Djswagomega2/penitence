@@ -1,9 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Pathfinding.Examples {
 	/// <summary>Example script used in the example scenes</summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_door_controller.php")]
-	public class DoorController : MonoBehaviour {
+	public class DoorController : MonoBehaviour
+    {
 		private bool open = false;
 
 		public int opentag = 1;
@@ -21,9 +24,14 @@ namespace Pathfinding.Examples {
 			SetState(open);
 		}
 
-		void OnGUI () {
+		public void OnGUI()
+		{
 			// Show a UI button for opening and closing the door
-			if (GUI.Button(new Rect(5, yOffset, 100, 22), "Toggle Door")) {
+			/*if (GUI.Button(new Rect(5, yOffset, 100, 22), "Toggle Door")) {
+			SetState(!open);
+			}*/
+			if (Input.GetKeyDown(KeyCode.E))
+			{
 				SetState(!open);
 			}
 		}
