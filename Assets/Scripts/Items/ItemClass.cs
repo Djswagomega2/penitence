@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemClass : ScriptableObject
@@ -11,10 +10,8 @@ public class ItemClass : ScriptableObject
     public string description;
     public bool isStackable = true;
     public bool isDroppable;
+    public GameObject itemObject;
     public float equipSpeed;
-
-    private GameObject inventoryManager;
-    private GameObject itemGameObject;
 
     public virtual void Use(PlayerScript caller) // rename method
     {

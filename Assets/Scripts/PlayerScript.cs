@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
@@ -17,6 +18,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     public float health;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
+    [SerializeField] private GameObject flashlight;
 	#endregion
 
 	#region Movement Variables
@@ -78,7 +80,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Light2D Variables
 	[Header("Light2D")]
-	public UnityEngine.Rendering.Universal.Light2D muzzleflash;
+	public Light2D muzzleflash;
+    [SerializeField] private Light2D flashlightLight;
 	#endregion
 
 	//[SerializeField] private Sprite normalJohn;
@@ -94,8 +97,9 @@ public class PlayerScript : MonoBehaviour,IDamageable
         playerCol = GetComponent<CircleCollider2D>();
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
-        muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
-        health = 100f;
+        muzzleflash = muzzle.GetComponent<Light2D>();
+		flashlightLight = flashlight.GetComponent<Light2D>();
+		health = 100f;
 		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
         gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
         bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
@@ -124,8 +128,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
             StartCoroutine(dashing());
 		}
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            flashlight.SetActive(!flashlight.activeSelf);
+        }
+        
+ 
 
-        ShootHandler();
+
+		//ShootHandler();
         InventoryHandler();
         RespawnParse();
         Respawn();
@@ -262,7 +273,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Inventory Methods
 	private void InventoryHandler()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (inventory.selectedItem != null)
                 inventory.selectedItem.Use(this);
