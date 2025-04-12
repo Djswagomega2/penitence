@@ -1,6 +1,5 @@
 using Pathfinding;
 using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,29 +26,41 @@ public class SmellAttackState : State
     [SerializeField] private State wanderState;
     #endregion
 
-    #region AStarGrid and Scripts
+    #region Shooting Goop
     [Header("Shooting Goop")]
-    [SerializeField] float goopTimer;
-    [SerializeField] float goopRespawn;
-    [SerializeField] GameObject goop;
-    [SerializeField] float goopSpeed;
-    [SerializeField] float goopSpawnDistance;
+    [SerializeField] private float goopTimer;
+    [SerializeField] private float goopRespawn;
+    [SerializeField] private GameObject goop;
+    [SerializeField] private float goopSpeed;
+    [SerializeField] private float goopSpawnDistance;
+    #endregion
 
+    #region Retreating
+    [Header("Retreating")]
+    private Rigidbody2D playerRb;
+    private Transform retreatTarget;
+    [SerializeField] private float distanceToRetreat;
+    [SerializeField] private float retreatBuffer = 0.5f;
+    [SerializeField] private float retreatSpeed;
+    private bool isRetreating = false;
+
+    [SerializeField] private float stateCommitTime = 1.0f; // Prevents rapid switching
+    private float stateTimer = 0f;
     #endregion
 
     private void Start()
     {
-        //NOTE: Once done with other enenmies, try adding astate called smellRetreat where the smell enemy moves in the opposite direction of the player, and shoots projectiles a them,
-        //if the distance between player and enemy is too small. However, if the distance between player and smell enemy is large enough again, it transitions back to smellAttackState.
         fov = enemy.GetComponent<FOV>();
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiLerp = enemy.GetComponent<AILerp>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         enemyTransform = enemy.GetComponent<Transform>();
+        playerRb = playerTransform.GetComponent<Rigidbody2D>();
+        retreatTarget = new GameObject("RetreatTarget").transform;
     }
+
     public override State RunCurrentState()
     {
-        aiLerp.speed = pursuitSpeed;
         aiDestinationSetter.target = playerTransform;
         if (!fov.canSeePlayer)
         {
@@ -58,7 +69,52 @@ public class SmellAttackState : State
         }
         return this;
     }
-    void Update()
+
+    private void Update()
+    {
+        float distanceToPlayer = Vector2.Distance(playerTransform.position, enemyTransform.position);
+        Vector2 directionToPlayer = (playerTransform.position - enemyTransform.position).normalized;
+        float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+        enemyTransform.rotation = Quaternion.Euler(0, 0, angle);
+
+        stateTimer -= Time.deltaTime; // Decrease commit timer
+
+        if (isRetreating)
+        {
+            if (distanceToPlayer > distanceToRetreat + retreatBuffer && stateTimer <= 0)
+            {
+                isRetreating = false;
+                stateTimer = stateCommitTime; // Reset commit timer
+            }
+        }
+        else
+        {
+            if (distanceToPlayer <= distanceToRetreat && stateTimer <= 0)
+            {
+                isRetreating = true;
+                stateTimer = stateCommitTime; // Reset commit timer
+            }
+        }
+
+        if (isRetreating)
+        {
+            Debug.Log("Retreating!");
+            Vector2 retreatDirection = -directionToPlayer;
+            retreatTarget.position = (Vector2)enemyTransform.position + retreatDirection * 3;
+            aiDestinationSetter.target = retreatTarget;
+            aiLerp.speed = retreatSpeed;
+        }
+        else
+        {
+            Debug.Log("Chasing Player!");
+            aiDestinationSetter.target = playerTransform;
+            aiLerp.speed = pursuitSpeed;
+        }
+
+        shootAttack();
+        Debug.Log(distanceToPlayer);
+    }
+    public void shootAttack()
     {
         if (fov.canSeePlayer)
         {
