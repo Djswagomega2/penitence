@@ -405,7 +405,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: 1000
   health: 100
-  speed: 300
+  speed: 0
+  sprintSpeed: 0
+  defaultSpeed: 300
+  speedMultiplyer: 1.8
+  sprintButtons: 300100002f010000
+  stamina: 10
   mouseWorldPosition: {x: 0, y: 0, z: 0}
   smooth: 0.5
   curve:
@@ -436,6 +441,7 @@ MonoBehaviour:
   enemyDamage: 30
   firePoint: {fileID: 19577958439261943}
   muzzle: {fileID: 9174900055166283598}
+  ammoBar: {fileID: 0}
   gunShot: {fileID: 8300000, guid: 4f0eae3930f88364f879fb8a2ded7166, type: 3}
   gunNoAmmo: {fileID: 8300000, guid: 4f4ddc228792c524899df992d6ce1725, type: 3}
   bulletCasing: {fileID: 8300000, guid: 5e504d17ec331e447920905338487cad, type: 3}
@@ -446,8 +452,7 @@ MonoBehaviour:
     m_Bits: 64
   spawnerRadius: 2
   droplet: {fileID: 0}
-  healthText: {fileID: 0}
-  inventory: {fileID: 0}
+  inventory: {fileID: 4308695573029083042, guid: 537e7d09c9ba5954781ed5c0542eaf13, type: 3}
   muzzleflash: {fileID: 5094108714208807529}
 --- !u!50 &8560729919795105479
 Rigidbody2D:
@@ -542,7 +547,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bf43f09c72e832944a7ab40fe3891567, type: 3}
   - {fileID: 8300000, guid: 7d44158fa3ff6ed4494e827220416c85, type: 3}
   - {fileID: 8300000, guid: fabf996984fd9d54e85e73b385915739, type: 3}
-  footstepInterval: 1
+  footstepInterval: 0.5
   audioSourcePrefab: {fileID: 0}
 --- !u!114 &8950719905531816999
 MonoBehaviour:
@@ -575,7 +580,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1592
+  m_InstanceId: -155728
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}

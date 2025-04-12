@@ -15,14 +15,19 @@ public class PlayerScript : MonoBehaviour,IDamageable
     [Header("General")]
     public int ammo;
     public float health;
-	[SerializeField] private float speed;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
 	#endregion
 
 	#region Movement Variables
 	[Header("Movement")]
-    private float hor;
+	[SerializeField] private float speed;
+	[SerializeField] private float sprintSpeed;
+	[SerializeField] private float defaultSpeed;
+	[SerializeField] private float speedMultiplyer;
+	[SerializeField] private KeyCode[] sprintButtons;
+    [SerializeField] private float stamina; 
+	private float hor;
     private float vert;
     private Vector2 dir;
     private Vector3 velocity = Vector3.zero;
@@ -30,7 +35,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Camera Variables
 	[Header("Camera")]
-    private Camera _cam;
+	private Camera _cam;
     public Vector3 mouseWorldPosition;
     private float lookAngle;
     public float smooth = 0.5f;
@@ -43,6 +48,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	public float enemyDamage;
 	[SerializeField] public Transform firePoint;
     public Transform muzzle;
+    [SerializeField] private AmmoBar ammoBar;
 	#endregion
 
 	#region Audio and SFX Variables
@@ -93,8 +99,11 @@ public class PlayerScript : MonoBehaviour,IDamageable
 		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
         gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
         bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
+        speed = defaultSpeed;
+        sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
+        ammoBar.setMaxAmmo(ammo);
 
-    }
+	}
 
     #region Update Methods
     // Update is called once per frame
@@ -110,7 +119,12 @@ public class PlayerScript : MonoBehaviour,IDamageable
         lookAngle = Mathf.Atan2(mouseWorldPosition.y - transform.position.y, mouseWorldPosition.x - transform.position.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(lookAngle - 90f, Vector3.forward);
 
-        
+        if (Input.GetKey(sprintButtons[0]) || Input.GetKey(sprintButtons[1]))
+        {
+            StartCoroutine(dashing());
+		}
+
+
         ShootHandler();
         InventoryHandler();
         RespawnParse();
@@ -133,6 +147,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     #region Shooting Methods
     private void ShootHandler()
     {
+        //Add cool down
         if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
         {
             if (ammo > 0)
@@ -151,7 +166,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 }
                 StartCoroutine(bulletShellSound());
                 ammo--;
-            }
+                ammoBar.setAmmo(ammo);
+			}
             else
             {
                 PlayNoAmmo();
@@ -204,6 +220,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
         yield return new WaitForSeconds(delay);
         bcPool.ReturnToPool(source);
     }
+	#endregion
+
+	#region Movement Methods
+    private IEnumerator dashing()
+	{
+		speed = sprintSpeed;
+		yield return new WaitForSeconds(stamina);
+		speed = defaultSpeed;
+	}
 	#endregion
 
 	#region Camera Methods
