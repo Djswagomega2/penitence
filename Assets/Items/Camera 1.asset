@@ -27,7 +27,7 @@ MonoBehaviour:
   damageFalloffRange: 0
   damageFalloff: 0
   reloadSpeed: 0
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 4f0eae3930f88364f879fb8a2ded7166, type: 3}
   reloadSound: {fileID: 0}
   weaponAnimController: {fileID: 0}
   weaponDurability: 0

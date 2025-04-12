@@ -15,17 +15,19 @@ public class PlayerScript : MonoBehaviour,IDamageable
     [Header("General")]
     public int ammo;
     public float health;
-	[SerializeField] private float speed;
-    [SerializeField] private float sprintSpeed;
-    [SerializeField] private float defaultSpeed;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
-    [SerializeField] private KeyCode[] sprintButtons;
 	#endregion
 
 	#region Movement Variables
 	[Header("Movement")]
-    private float hor;
+	[SerializeField] private float speed;
+	[SerializeField] private float sprintSpeed;
+	[SerializeField] private float defaultSpeed;
+	[SerializeField] private float speedMultiplyer;
+	[SerializeField] private KeyCode[] sprintButtons;
+    [SerializeField] private float stamina; 
+	private float hor;
     private float vert;
     private Vector2 dir;
     private Vector3 velocity = Vector3.zero;
@@ -33,7 +35,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Camera Variables
 	[Header("Camera")]
-    private Camera _cam;
+	private Camera _cam;
     public Vector3 mouseWorldPosition;
     private float lookAngle;
     public float smooth = 0.5f;
@@ -97,7 +99,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
         gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
         bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
-        sprintSpeed = defaultSpeed * 2; //These can be changed
+        speed = defaultSpeed;
+        sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
         ammoBar.setMaxAmmo(ammo);
 
 	}
@@ -118,12 +121,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
         if (Input.GetKey(sprintButtons[0]) || Input.GetKey(sprintButtons[1]))
         {
-            speed = sprintSpeed;
-        }
-        else 
-        {
-            speed = defaultSpeed; 
-        }
+            StartCoroutine(dashing());
+		}
+
+
         ShootHandler();
         InventoryHandler();
         RespawnParse();
@@ -219,6 +220,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
         yield return new WaitForSeconds(delay);
         bcPool.ReturnToPool(source);
     }
+	#endregion
+
+	#region Movement Methods
+    private IEnumerator dashing()
+	{
+		speed = sprintSpeed;
+		yield return new WaitForSeconds(stamina);
+		speed = defaultSpeed;
+	}
 	#endregion
 
 	#region Camera Methods

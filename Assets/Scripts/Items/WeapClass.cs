@@ -45,7 +45,7 @@ public class WeapClass : ItemClass
     //Also, I am aware of itemobject. I don't know what it use cases that was intended for, so this will have to do. If bloat just remove and Ill rewrite. 
     //Also, I've only set it up for melee since I presume we're just doing hitscan since projectiles aren't really necessary.
 
-    public enum WeaponType { gun, melee }//why tf do we have this
+    public enum WeaponType { gun, melee, throwable}//why tf do we have this
 
     public override void Use(PlayerScript caller)
     {
