@@ -13,6 +13,11 @@ TagManager:
   - Obstacle
   - Effect
   - interactable
+  - Inventory
+  - Blocking
+  - Weapon
+  - Puddle
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

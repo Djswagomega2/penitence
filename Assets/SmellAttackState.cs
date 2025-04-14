@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SmellAttackState : State
 {
+    //Direct hit 1/10th player's health
+    //Puddle 1 tick of damage every second
     #region General
     [Header("General")]
     [SerializeField] private bool showGizmos;
@@ -112,7 +114,6 @@ public class SmellAttackState : State
         }
 
         shootAttack();
-        Debug.Log(distanceToPlayer);
     }
 
     public void shootAttack()

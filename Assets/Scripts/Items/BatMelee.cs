@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class BatMelee : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public WeaponObjectScript weaponObjectScript;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start()
+	{
+		weaponObjectScript = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponObjectScript>();
+	}
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy"))
+		{
+			Debug.Log("I've been hit");
+			collision.gameObject.GetComponent<Enemy>().ReceiveDamage(weaponObjectScript.WeapClassScript.weaponDamage);
+		}
+	}
 }

@@ -9,6 +9,7 @@ public class Goop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
+            puddle.tag = "Puddle";
             Instantiate(puddle, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

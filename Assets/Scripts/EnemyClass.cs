@@ -94,9 +94,9 @@ public class Enemy : MonoBehaviour,IDamageable
     }*/
 
    private IEnumerator ReturnSoundToPool(GameObject soundObj, float delay)
-    {
+   {
         yield return new WaitForSeconds(delay);
         soundObj.SetActive(false);
         hurtSoundPool.ReturnToPool(soundObj);
-    }
+   }
 } 
