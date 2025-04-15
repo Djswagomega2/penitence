@@ -9,7 +9,7 @@ public class AmmoBar : MonoBehaviour
     [SerializeField] private Slider slider;
 	[SerializeField] private Gradient ammoGradient;
 	[SerializeField] private Image fill;
-	[SerializeField] private Image currentWeapon;
+	public Image currentWeapon;
 	[SerializeField] private Sprite fist;
 	[SerializeField] private ScriptableObject item;
 	[SerializeField] private InventoryManager inventoryManager;

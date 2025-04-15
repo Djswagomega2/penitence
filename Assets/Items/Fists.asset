@@ -19,13 +19,15 @@ MonoBehaviour:
   isDroppable: 0
   equipSpeed: 0
   weaponType: 1
-  weaponDamage: 10
+  throwableType: 0
+  weaponDamage: 5
   ammoCapacity: 0
   _fireRate: 0
   firingError: 0
   damageFalloffRange: 0
   damageFalloff: 0
   reloadSpeed: 0
+  throwSpeed: 0
   attackSound: {fileID: 0}
   reloadSound: {fileID: 0}
   emptySound: {fileID: 0}
@@ -33,4 +35,4 @@ MonoBehaviour:
   offsetVector: {x: 1.5, y: 0}
   maxRange: 0
   blockDecimal: 0
-  isBlocking: 0
+  isBlocking: 1

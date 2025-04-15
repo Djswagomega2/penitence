@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
     //Fix the lighting
     #region General Variables
     [Header("General")]
-    public int ammo;
     public float health;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
@@ -47,10 +46,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Attacking Variables
 	[Header("Attacking")]
-	public float enemyDamage;
 	[SerializeField] public Transform firePoint;
     public Transform muzzle;
-    public AmmoBar ammoBar;
 	#endregion
 
 	#region Respawning Variables
@@ -90,7 +87,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
 		health = 100f;
         speed = defaultSpeed;
         sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
-        ammoBar.setMaxAmmo(ammo);
 
 	}
 
@@ -235,7 +231,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         playerCol.enabled = true;
     }
 
-    private IEnumerator puddleHealth() 
+    private IEnumerator puddleDamage() 
     {
         ReceiveDamage(1);
 		yield return new WaitForSeconds(1f);
@@ -277,7 +273,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	{
 		if(collision.gameObject.CompareTag("Puddle"))
 		{
-			StartCoroutine(puddleHealth());
+			StartCoroutine(puddleDamage());
 		}
 	}
 

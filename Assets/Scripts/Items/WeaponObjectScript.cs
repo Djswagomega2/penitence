@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponObjectScript : MonoBehaviour
@@ -13,6 +14,8 @@ public class WeaponObjectScript : MonoBehaviour
 	[Header("Weapon Data")]
 	public WeapClass WeapClassScript;
 	public ScriptableObject item;
+	public ScriptableObject lastEquippedItem;
+	private Dictionary<ScriptableObject, int> weaponAmmoDict = new Dictionary<ScriptableObject, int>();
 	public ScriptableObject fists;
 	[SerializeField] private InventoryManager inventoryManager;
 	//public Dictionary<string, AnimationClip> weaponAnimList;
@@ -27,12 +30,13 @@ public class WeaponObjectScript : MonoBehaviour
 	#region Weapon Variables
 	[Header("Weapon Variables")]
 	[SerializeField] private int ammo;
+	[SerializeField] private bool ammoInitialized;
 	[SerializeField] private GameObject weaponObject;
 	[SerializeField] private GameObject fist;
 	[SerializeField] private GameObject blockingObject;
 	[SerializeField]  private GameObject projectile;
-	[SerializeField] private float stunSeconds;
-	[SerializeField] private float coolDownSeconds;
+	[SerializeField] private float stunSeconds; //Can potentially be moved to weap class
+	[SerializeField] private float coolDownSeconds; //Can potentially be moved to weap class
 	#endregion
 
 	#region Audio and SFX 
@@ -43,8 +47,14 @@ public class WeaponObjectScript : MonoBehaviour
 	private ObjectPooler<AudioSource> bcPool;
 	#endregion
 
+	#region UI
+	[Header("Weapon Variables")]
+	public AmmoBar ammoBar;
+	#endregion
+
 	#region Animation Variables
 	[SerializeField] private Animator weaponAnimator;
+	
 	#endregion
 	// Start is called before the first frame update
 	void Start()
@@ -56,25 +66,44 @@ public class WeaponObjectScript : MonoBehaviour
 		gsPool = new ObjectPooler<AudioSource>(weaponAudioSource, ammo);
 		gnsPool = new ObjectPooler<AudioSource>(weaponAudioSource, 20, null);
 		bcPool = new ObjectPooler<AudioSource>(weaponAudioSource, ammo, null);
+		WeapClassScript = (WeapClass)fists;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		item = inventoryManager.selectedItem;
-		if (item is WeapClass weap)
+
+		if (item != lastEquippedItem)
 		{
-			WeapClassScript = weap;
-		}
-		else
-		{
-			WeapClassScript = (WeapClass)fists;
+			if (item is WeapClass weap)
+			{
+				WeapClassScript = weap;
+				ammoBar.currentWeapon.sprite = WeapClassScript.itemIcon;
+
+				// If we haven't tracked ammo for this weapon yet, initialize it
+				if (!weaponAmmoDict.ContainsKey(item))
+				{
+					weaponAmmoDict[item] = weap.ammoCapacity;
+				}
+				ammo = weaponAmmoDict[item];
+				ammoBar.setMaxAmmo(weap.ammoCapacity);
+				ammoBar.setAmmo(ammo);
+			}
+			else
+			{
+				WeapClassScript = (WeapClass)fists;
+				ammoBar.currentWeapon.sprite = WeapClassScript.itemIcon;
+				ammo = 0;
+				ammoBar.setMaxAmmo(0);
+				ammoBar.setAmmo(0);
+			}
+
+			lastEquippedItem = item;
 		}
 
-		ammo = WeapClassScript.ammoCapacity; //fix this to not be in void update, that's a future me problem...
 		weaponAction();
 	}
-
 	public void weaponAction()
 	{
 		switch (WeapClassScript.weaponType)
@@ -116,7 +145,8 @@ public class WeaponObjectScript : MonoBehaviour
 				}
 				StartCoroutine(bulletShellSound());
 				ammo--;
-				playerScript.ammoBar.setAmmo(ammo);
+				weaponAmmoDict[item] = ammo; // <-- persist the ammo change
+				ammoBar.setAmmo(ammo);
 			}
 			else
 			{
@@ -192,8 +222,6 @@ public class WeaponObjectScript : MonoBehaviour
 			{
 				
 			}*/ //<-- Prelim when we eventually have animation
-
-
 			StartCoroutine(playWeaponAnim(null));
 
 		}
@@ -248,7 +276,7 @@ public class WeaponObjectScript : MonoBehaviour
 	}
 	#endregion
 
-	#region throwable Methods
+	#region Throwable Methods
 	private void throwAction()
 	{
 		if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
@@ -298,23 +326,16 @@ public class WeaponObjectScript : MonoBehaviour
 		{
 			projectileRb.velocity = direction * WeapClassScript.throwSpeed;
 		}
+
 		ObjectDestory objectDestory = newProjectile.GetComponent<ObjectDestory>();
 		Destroy(objectDestory);
 
-		//Imma be honest, this shit can probably be it's own script <-- again, future me figure this out
-		float spawnerRadius = 2f;
-		Collider2D[] enemies = Physics2D.OverlapCircleAll(newProjectile.transform.position, spawnerRadius, LayerMask.GetMask("Enemy"));
-		Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
-		foreach (Collider2D hit in enemies)
-		{
-			Pathfinding.AIDestinationSetter aiDestinationSetter = hit.GetComponent<Pathfinding.AIDestinationSetter>();
-			if (aiDestinationSetter != null)
-			{
-				aiDestinationSetter.target = newProjectile.transform;
-			}
-		}
+		ThrowableTracker tracker = newProjectile.AddComponent<ThrowableTracker>();
+		tracker.newProjectile = newProjectile;
+		tracker.spawnerRadius = 5f;
 
 	}
+
 	#endregion
 
 

@@ -17,26 +17,22 @@ MonoBehaviour:
   description: Take a picture with it
   isStackable: 0
   isDroppable: 0
-  itemObject: {fileID: 0}
   equipSpeed: 0
   weaponType: 0
-  weaponDamage: 30
+  throwableType: 0
+  weaponDamage: 0
   ammoCapacity: 5
   _fireRate: 0
   firingError: 0
   damageFalloffRange: 0
   damageFalloff: 0
   reloadSpeed: 0
+  throwSpeed: 0
   attackSound: {fileID: 8300000, guid: 4f0eae3930f88364f879fb8a2ded7166, type: 3}
   reloadSound: {fileID: 8300000, guid: 5e504d17ec331e447920905338487cad, type: 3}
   emptySound: {fileID: 8300000, guid: 4f4ddc228792c524899df992d6ce1725, type: 3}
-  weaponAnimController: {fileID: 0}
   weaponDurability: 0
-  weaponObject: {fileID: 0}
-  weaponAudioSource: {fileID: 0}
-  gameObjectTransform: {fileID: 0}
-  offsetVector: {x: 0, y: 0, z: 0}
+  offsetVector: {x: 0, y: 0}
   maxRange: 0
   blockDecimal: 0
   isBlocking: 0
-  playerScript: {fileID: 0}
