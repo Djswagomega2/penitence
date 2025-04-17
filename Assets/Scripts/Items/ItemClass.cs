@@ -17,7 +17,12 @@ public class ItemClass : ScriptableObject
     {
         Debug.Log("used item");
     }
-    public virtual ItemClass GetItem() { return this; }
+
+	/*public virtual void Use<T>(T caller) where T : MonoBehaviour// rename method
+	{
+		Debug.Log("used item");
+	}*/
+	public virtual ItemClass GetItem() { return this; }
     public virtual MeleeClass GetMelee() { return null; }
 	public virtual WeapClass GetWeap() { return null; }
 	public virtual RangedClass GetRanged() { return null; }

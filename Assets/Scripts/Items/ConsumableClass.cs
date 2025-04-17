@@ -11,8 +11,9 @@ public class ConsumableClass : ItemClass
     public override void Use(PlayerScript caller)
     {
         base.Use(caller);
-        Debug.Log("use consumable");
-        caller.inventory.UsedSelected();
+        caller.Heal(placeholder);
+		Debug.Log("use consumable");
+        //caller.inventory.UsedSelected();
     }
     public override ConsumableClass GetConsumable() { return this; }
 }

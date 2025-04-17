@@ -94,7 +94,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
     // Update is called once per frame
     void Update()
     {
-
         hor = Input.GetAxisRaw("Horizontal");
         vert = Input.GetAxisRaw("Vertical");
 
@@ -114,17 +113,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
             flashlight.SetActive(!flashlight.activeSelf);
         }
         
- 
-
-
-		//ShootHandler();
         InventoryHandler();
         RespawnParse();
         Respawn();
         InstantiateDroplet(this.transform.position);
-        //healthText.text = "Health: " + health;
-        //remove line above
-
     }
     private void LateUpdate()
     {
@@ -223,7 +215,13 @@ public class PlayerScript : MonoBehaviour,IDamageable
         //StartCoroutine(Invincablity());
    }
 
-    private IEnumerator Invincablity() 
+	public void Heal(float healAmount)
+	{
+		var updatedHealth = health + healAmount;
+		UpdateHealth(updatedHealth < 100 ? updatedHealth : 100);
+	}
+
+	private IEnumerator Invincablity() 
     {
         playerCol.enabled = false;
         Debug.Log("Player is invincible for 1 second");
@@ -234,7 +232,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     private IEnumerator puddleDamage() 
     {
         ReceiveDamage(1);
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(2f);
 	}
 	#endregion;
 

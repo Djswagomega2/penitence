@@ -24,7 +24,7 @@ public class Goop : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(collision.gameObject.tag == "Blocking")
+        if(collision.gameObject.tag == "Blocking" || collision.gameObject.tag == "BatMelee")
 		{
 		    goopRb.velocity = -smellAttack.direction * smellAttack.goopSpeed;
 		}

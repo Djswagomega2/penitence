@@ -13,15 +13,10 @@ public class WeaponDataEditor : Editor
 
 		WeapClass.WeaponType weaponType = (WeapClass.WeaponType)weaponTypeProp.enumValueIndex;
 
-		// Always show:
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("weaponDamage"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("attackSound"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("reloadSound"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("emptySound"));
-
 		// Conditional fields:
 		if (weaponType == WeapClass.WeaponType.gun)
 		{
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("weaponDamage"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("ammoCapacity"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("_fireRate"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("firingError"));
@@ -32,14 +27,30 @@ public class WeaponDataEditor : Editor
 		else if (weaponType == WeapClass.WeaponType.throwable)
 		{
 			//Fix it so that if throwable type is bottle it shows weapon damage
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("throwableType"));
+			var throwTypeProp = serializedObject.FindProperty("throwableType");
+			EditorGUILayout.PropertyField(throwTypeProp);
+			WeapClass.ThrowType throwType = (WeapClass.ThrowType)throwTypeProp.enumValueIndex;
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("throwSpeed"));
+
+			if (throwType == WeapClass.ThrowType.bottle)
+			{
+				EditorGUILayout.PropertyField(serializedObject.FindProperty("weaponDamage"));
+			}
+
+			
+
 		}
 		else if (weaponType == WeapClass.WeaponType.melee)
 		{
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("weaponDamage"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("firingError"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("damageFalloffRange"));
 		}
+
+		// Always show:
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("attackSound"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("reloadSound"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("emptySound"));
 
 		serializedObject.ApplyModifiedProperties();
 	}
