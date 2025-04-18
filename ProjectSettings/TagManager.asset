@@ -13,17 +13,22 @@ TagManager:
   - Obstacle
   - Effect
   - interactable
+  - Inventory
+  - Blocking
+  - Weapon
+  - Puddle
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactable
   - Water
   - UI
   - Spawner
   - Player
   - Obstacle
-  - 
+  - Enemy
   - 
   - 
   - 

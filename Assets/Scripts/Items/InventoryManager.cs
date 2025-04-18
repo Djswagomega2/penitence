@@ -110,13 +110,25 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            selectedSlotIndex = Mathf.Clamp(selectedSlotIndex+1, 0, hotbarSlots.Length-1);
+            selectedSlotIndex = 0;
         }
-        else if(Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            selectedSlotIndex = Mathf.Clamp(selectedSlotIndex - 1, 0, hotbarSlots.Length-1);
+            selectedSlotIndex = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            selectedSlotIndex = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            selectedSlotIndex = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            selectedSlotIndex = 4;
         }
 
         hotbarSelector.transform.position = hotbarSlots[selectedSlotIndex].transform.position;
@@ -223,10 +235,13 @@ public class InventoryManager : MonoBehaviour
         RefreshUI();
         return true;
     }
-
+    //im 69 percent sure that items[selectedSlotIndex +(hotbarSlots.Length*2)] might be the selected slot?
     public void UsedSelected()
     {
-        items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
+		ItemClass itemUsed = items[selectedSlotIndex + (hotbarSlots.Length * 2)].GetItem();
+		//itemUsed.Use();
+		items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
+        
         RefreshUI();
     }
     public SlotClass Contains(ItemClass item)

@@ -48,7 +48,6 @@ public class TouchAttackState : State
             aiDestinationSetter.enabled = false;
             aiPath.enabled = false;
             StartCoroutine(TouchAttack());
-            Debug.Log("I am lunging");
         }
         else
         {

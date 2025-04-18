@@ -42,11 +42,7 @@ public class WanderState : State
 	public FOV fov;
 	#endregion
 
-	#region Animation
-	[Header("Animation")]
-	[SerializeField] private Animator animatior;
-	[SerializeField] private Animation animation;
-	#endregion
+	
 
 	private void Start()
 	{
