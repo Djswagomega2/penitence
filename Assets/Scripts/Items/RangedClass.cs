@@ -15,11 +15,11 @@ public class RangedClass : ItemClass
     public AudioClip attackSound;
     public enum WeaponType { bat, crowbar }
 
-    public override void Use(PlayerScript caller)
+   /* public override void Use(PlayerScript caller)
     {
         base.Use(caller);
         Debug.Log("Attack");
-    }
-    public override RangedClass GetRanged() { return this; }
+    }*/
+    //public override RangedClass GetRanged() { return this; }
 
 }
