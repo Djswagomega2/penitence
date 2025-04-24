@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Canvas pauseScreen;
     [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
 	[SerializeField] private bool isPaused;
+	[SerializeField] private int notePiecesCollected;
+	[SerializeField] private bool allPiecesCollected;
+	
 
 	private void Start()
 	{

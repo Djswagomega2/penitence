@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
@@ -13,16 +14,21 @@ public class PlayerScript : MonoBehaviour,IDamageable
     //Fix the lighting
     #region General Variables
     [Header("General")]
-    public int ammo;
     public float health;
-	[SerializeField] private float speed;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
+    [SerializeField] private GameObject flashlight;
 	#endregion
 
 	#region Movement Variables
 	[Header("Movement")]
-    private float hor;
+	[SerializeField] private float speed;
+	[SerializeField] private float sprintSpeed;
+	[SerializeField] private float defaultSpeed;
+	[SerializeField] private float speedMultiplyer;
+	[SerializeField] private KeyCode[] sprintButtons;
+    [SerializeField] private float stamina; 
+	private float hor;
     private float vert;
     private Vector2 dir;
     private Vector3 velocity = Vector3.zero;
@@ -30,7 +36,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Camera Variables
 	[Header("Camera")]
-    private Camera _cam;
+	private Camera _cam;
     public Vector3 mouseWorldPosition;
     private float lookAngle;
     public float smooth = 0.5f;
@@ -40,21 +46,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Attacking Variables
 	[Header("Attacking")]
-	public float enemyDamage;
 	[SerializeField] public Transform firePoint;
     public Transform muzzle;
-	#endregion
-
-	#region Audio and SFX Variables
-	[Header("Audio and SFX")]
-    [SerializeField] public AudioClip gunShot;
-    [SerializeField] public AudioClip gunNoAmmo;
-    [SerializeField] public AudioClip bulletCasing;
-    [SerializeField] public AudioSource audioSource;
-    private ObjectPooler<AudioSource> gsPool;
-    private ObjectPooler<AudioSource> gnsPool;
-    private ObjectPooler<AudioSource> bcPool;
-
 	#endregion
 
 	#region Respawning Variables
@@ -72,7 +65,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Light2D Variables
 	[Header("Light2D")]
-	public UnityEngine.Rendering.Universal.Light2D muzzleflash;
+	public Light2D muzzleflash;
+    [SerializeField] private Light2D flashlightLight;
 	#endregion
 
 	//[SerializeField] private Sprite normalJohn;
@@ -88,19 +82,18 @@ public class PlayerScript : MonoBehaviour,IDamageable
         playerCol = GetComponent<CircleCollider2D>();
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
-        muzzleflash = muzzle.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
-        health = 100f;
-		gsPool = new ObjectPooler<AudioSource>(audioSource,ammo);
-        gnsPool = new ObjectPooler<AudioSource>(audioSource,20,null);
-        bcPool = new ObjectPooler<AudioSource>(audioSource,ammo,null);
+        muzzleflash = muzzle.GetComponent<Light2D>();
+		flashlightLight = flashlight.GetComponent<Light2D>();
+		health = 100f;
+        speed = defaultSpeed;
+        sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
 
-    }
+	}
 
     #region Update Methods
     // Update is called once per frame
     void Update()
     {
-
         hor = Input.GetAxisRaw("Horizontal");
         vert = Input.GetAxisRaw("Vertical");
 
@@ -110,15 +103,20 @@ public class PlayerScript : MonoBehaviour,IDamageable
         lookAngle = Mathf.Atan2(mouseWorldPosition.y - transform.position.y, mouseWorldPosition.x - transform.position.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(lookAngle - 90f, Vector3.forward);
 
+        if (Input.GetKey(sprintButtons[0]) || Input.GetKey(sprintButtons[1]))
+        {
+            StartCoroutine(dashing());
+		}
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            flashlight.SetActive(!flashlight.activeSelf);
+        }
         
-        ShootHandler();
         InventoryHandler();
         RespawnParse();
         Respawn();
         InstantiateDroplet(this.transform.position);
-        //healthText.text = "Health: " + health;
-        //remove line above
-
     }
     private void LateUpdate()
     {
@@ -130,80 +128,13 @@ public class PlayerScript : MonoBehaviour,IDamageable
     }
     #endregion
 
-    #region Shooting Methods
-    private void ShootHandler()
-    {
-        if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
-        {
-            if (ammo > 0)
-            {
-                StartCoroutine(Shake());
-                muzzleflash.intensity = 50f;
-                PlayGunShot();
-                RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (Vector2)mouseWorldPosition - (Vector2)firePoint.position);
-				if (hit)
-                {
-                    if (hit.collider.gameObject.CompareTag("Enemy"))
-                    {
-						hit.collider.gameObject.GetComponent<Enemy>().ReceiveDamage(enemyDamage); //<-- enemyDamage variable can be changed later to be dynamic changeable based off enemy type (maybe with a scriptable object?)
-
-					}
-                }
-                StartCoroutine(bulletShellSound());
-                ammo--;
-            }
-            else
-            {
-                PlayNoAmmo();
-            }
-        }
-        muzzleflash.intensity -= 2f;
-        muzzleflash.intensity = Mathf.Clamp(muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
-    }
-
-    public void PlayGunShot()
-    {
-        AudioSource audioSource = gsPool.Get(transform.position, Quaternion.identity);
-		audioSource.clip = gunShot; // Ensure the correct sound is assigned
-        audioSource.Play();
-        
-        StartCoroutine(ReturnToGunShotPool(audioSource, audioSource.clip.length)); // Return after sound finishes
-    }
-
-    public void PlayNoAmmo()
-    {
-		AudioSource audioSource = gnsPool.Get(transform.position,Quaternion.identity);
-        audioSource.clip = gunNoAmmo; // Ensure the correct sound is assigned
-        audioSource.Play();
-        
-        StartCoroutine(ReturnToGunNoAmmoPool(audioSource, audioSource.clip.length)); // Return after sound finishes
-    }
-
-    public IEnumerator bulletShellSound()
-    {
-        yield return new WaitForSeconds(0.25f);
-        AudioSource audioSource  = bcPool.Get(transform.position,Quaternion.identity);
-        audioSource.clip = bulletCasing;
-        audioSource.Play();
-        StartCoroutine(ReturnToBulletCasePool(audioSource, audioSource.clip.length));
-
-    }
-    IEnumerator ReturnToGunShotPool(AudioSource source, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        gsPool.ReturnToPool(source);
-    }
-
-    IEnumerator ReturnToGunNoAmmoPool(AudioSource source, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        gnsPool.ReturnToPool(source);
-    }
-    IEnumerator ReturnToBulletCasePool(AudioSource source, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        bcPool.ReturnToPool(source);
-    }
+	#region Movement Methods
+    private IEnumerator dashing()
+	{
+		speed = sprintSpeed;
+		yield return new WaitForSeconds(stamina);
+		speed = defaultSpeed;
+	}
 	#endregion
 
 	#region Camera Methods
@@ -237,7 +168,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Inventory Methods
 	private void InventoryHandler()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (inventory.selectedItem != null)
                 inventory.selectedItem.Use(this);
@@ -274,23 +205,35 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	#region Health Methods
 	public void UpdateHealth(float newHealthValue)
-   {
+    {
         health = newHealthValue;
-   }
+    }
    public void ReceiveDamage(float damage)
    {
         var updatedHealth = health - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
-        StartCoroutine(Invincablity());
-    }
+        //StartCoroutine(Invincablity());
+   }
 
-    private IEnumerator Invincablity() 
+	public void Heal(float healAmount)
+	{
+		var updatedHealth = health + healAmount;
+		UpdateHealth(updatedHealth < 100 ? updatedHealth : 100);
+	}
+
+	private IEnumerator Invincablity() 
     {
         playerCol.enabled = false;
         Debug.Log("Player is invincible for 1 second");
         yield return new WaitForSeconds(1f);
         playerCol.enabled = true;
     }
+
+    private IEnumerator puddleDamage() 
+    {
+        ReceiveDamage(1);
+		yield return new WaitForSeconds(2f);
+	}
 	#endregion;
 
 	#region Player Tracking Methods
@@ -312,26 +255,32 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Collision Methods
 	private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")) 
+        switch (collision.gameObject.tag)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-			ReceiveDamage(enemy.EnemyDmg);
-
-			/* This code below is technically useless as the enemies rigidbodies are static, and cannot apply a force
-			Maybe we find someway for the player to do it instead? */
-
-			/*
-            Transform enemyTransform = collision.gameObject.GetComponent<Transform>();
-            Vector2 direction = (rb.position - (Vector2)enemyTransform.position).normalized;
-            Debug.Log(direction);
-            ApplyKnockBack(direction, 9000f);*/
-
+			case "Enemy":
+				Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+				ReceiveDamage(enemy.EnemyDmg);
+				break;
+			case "Projectile":
+                ReceiveDamage(10);
+				break;
 		}
 	}
-    #endregion
 
-    private void OnDrawGizmos()
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if(collision.gameObject.CompareTag("Puddle"))
+		{
+			StartCoroutine(puddleDamage());
+		}
+	}
+
+	#endregion
+
+	private void OnDrawGizmos()
     {
 		Gizmos.DrawWireSphere(this.transform.position, spawnerRadius);
     }
+
+    
 }

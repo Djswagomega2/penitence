@@ -238,9 +238,9 @@ public class InventoryManager : MonoBehaviour
     //im 69 percent sure that items[selectedSlotIndex +(hotbarSlots.Length*2)] might be the selected slot?
     public void UsedSelected()
     {
-        ItemClass itemUsed = items[selectedSlotIndex + (hotbarSlots.Length * 2)].GetItem();
-        itemUsed.Use();
-        items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
+		ItemClass itemUsed = items[selectedSlotIndex + (hotbarSlots.Length * 2)].GetItem();
+		//itemUsed.Use();
+		items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
         
         RefreshUI();
     }

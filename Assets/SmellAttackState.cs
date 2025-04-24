@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SmellAttackState : State
 {
+    //Direct hit 1/10th player's health
+    //Puddle 1 tick of damage every second
     #region General
     [Header("General")]
     [SerializeField] private bool showGizmos;
@@ -31,12 +33,13 @@ public class SmellAttackState : State
     [SerializeField] private float goopTimer;
     [SerializeField] private float goopRespawn;
     [SerializeField] private GameObject goop;
-    [SerializeField] private float goopSpeed;
+    public float goopSpeed;
     [SerializeField] private float goopSpawnDistance;
-    #endregion
+    public Vector2 direction;
+	#endregion
 
-    #region Retreating
-    [Header("Retreating")]
+	#region Retreating
+   [Header("Retreating")]
     private Rigidbody2D playerRb;
     private Transform retreatTarget;
     [SerializeField] private float distanceToRetreat;
@@ -112,8 +115,8 @@ public class SmellAttackState : State
         }
 
         shootAttack();
-        Debug.Log(distanceToPlayer);
     }
+
     public void shootAttack()
     {
         if (fov.canSeePlayer)
@@ -121,10 +124,12 @@ public class SmellAttackState : State
             goopTimer += Time.deltaTime;
             if (goopTimer >= goopRespawn)
             {
-                Vector2 direction = (playerTransform.position - enemyTransform.position).normalized;
+                direction = (playerTransform.position - enemyTransform.position).normalized;
                 GameObject newGoop = Instantiate(goop, enemyTransform.position + (Vector3)(direction * goopSpawnDistance), Quaternion.identity);
                 Rigidbody2D goopRb = newGoop.GetComponent<Rigidbody2D>();
-                if (goopRb != null)
+                Goop goopScript = newGoop.GetComponent<Goop>();
+                goopScript.smellAttack = this;
+				if (goopRb != null)
                 {
                     goopRb.velocity = direction * goopSpeed;
                 }
