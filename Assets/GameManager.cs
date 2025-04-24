@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +12,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private bool allPiecesCollected;
 	
 
-    private void Start()
+	private void Start()
 	{
 		pauseScreen.enabled = false;
 	}
@@ -35,11 +34,6 @@ public class GameManager : MonoBehaviour
 			Time.timeScale = 1;
 			pauseScreen.enabled = false;
 		}
-
-		if (pbCounter <= 3) 
-		{
-			tsCollider.enabled = false;
-        }
 	}
 
 }
