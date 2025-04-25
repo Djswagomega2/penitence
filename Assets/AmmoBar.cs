@@ -10,9 +10,6 @@ public class AmmoBar : MonoBehaviour
 	[SerializeField] private Gradient ammoGradient;
 	[SerializeField] private Image fill;
 	public Image currentWeapon;
-	[SerializeField] private Sprite fist;
-	[SerializeField] private ScriptableObject item;
-	[SerializeField] private InventoryManager inventoryManager;
 
 	private void Start()
 	{
@@ -29,23 +26,6 @@ public class AmmoBar : MonoBehaviour
 	{
 		slider.value = ammo;
 		fill.color = ammoGradient.Evaluate(slider.normalizedValue);
-	}
-
-	public void Update()
-	{
-		item = inventoryManager.selectedItem;
-		if (item is WeapClass weap)
-		{
-			currentWeapon.sprite = weap.itemIcon;
-/*			setMaxAmmo(weap.ammoCapacity);
-			setAmmo(weap.ammoCapacity);*/
-		}
-		else
-		{
-			currentWeapon.sprite = fist;	
-			/*setMaxAmmo(0);
-			setAmmo(0);*/
-		}
 	}
 
 }

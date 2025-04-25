@@ -406,9 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffa560f8528c264f98e21d2b3505900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
   health: 100
-  flashlight: {fileID: 880130156690826191}
   speed: 0
   sprintSpeed: 0
   defaultSpeed: 300
@@ -442,9 +440,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 0.12
+  flashlight: {fileID: 880130156690826191}
+  isFlashlightOn: 1
   firePoint: {fileID: 19577958439261943}
   muzzle: {fileID: 9174900055166283598}
-  ammoBar: {fileID: 0}
   spawner: {fileID: 0}
   spawnerMask:
     serializedVersion: 2
@@ -453,7 +452,9 @@ MonoBehaviour:
   droplet: {fileID: 0}
   inventory: {fileID: 0}
   muzzleflash: {fileID: 5094108714208807529}
-  flashlightLight: {fileID: 0}
+  flashlightLights:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &8560729919795105479
 Rigidbody2D:
   serializedVersion: 4
@@ -580,7 +581,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1636
+  m_InstanceId: -1592
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}
@@ -617,11 +618,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeapClassScript: {fileID: 0}
   item: {fileID: 0}
+  lastEquippedItem: {fileID: 0}
   fists: {fileID: 11400000, guid: f1d65e970b7777345b0ab8a21f9b6191, type: 2}
   inventoryManager: {fileID: 0}
   playerScript: {fileID: 0}
   playerTransform: {fileID: 0}
   ammo: 0
+  ammoInitialized: 0
   weaponObject: {fileID: 4063855473373865108, guid: 31d6304ce97f66a4bba978be904606bc, type: 3}
   fist: {fileID: 6184510514758950063, guid: 2deca79043c1bb34daab67a89b356df0, type: 3}
   blockingObject: {fileID: 5173538698159292605, guid: aed235962a0c26b47ba1556f396682c6, type: 3}

@@ -6,12 +6,12 @@ using UnityEngine;
 public class ConsumableClass : ItemClass
 {
     [Header("Consumable")]
-    public float placeholder;
+    public float restoreHealth;
 
     public override void Use(PlayerScript caller)
     {
         base.Use(caller);
-        caller.Heal(placeholder);
+        caller.Heal(restoreHealth);
 		Debug.Log("use consumable");
         //caller.inventory.UsedSelected();
     }
