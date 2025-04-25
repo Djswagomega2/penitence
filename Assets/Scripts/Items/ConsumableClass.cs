@@ -6,14 +6,34 @@ using UnityEngine;
 public class ConsumableClass : ItemClass
 {
     [Header("Consumable")]
-    public float restoreHealth;
-
+    public float amount;
+    public ConsumableType consumableType;
+    public enum ConsumableType
+    {
+        Health,
+        Ammo
+    }
     public override void Use(PlayerScript caller)
     {
         base.Use(caller);
-        caller.Heal(restoreHealth);
+        switch(consumableType)
+        {
+            case ConsumableType.Health:
+                caller.Heal(amount);
+                break;
+            case ConsumableType.Ammo:
+                // Add ammo to the weapon
+                //AddAmmo();
+                break;
+        }
+        caller.Heal(amount);
 		Debug.Log("use consumable");
-        //caller.inventory.UsedSelected();
+    }
+
+    public void AddAmmo(WeaponObjectScript weapCaller)
+    {
+        weapCaller.AddAmmo((int)amount);
+
     }
     public override ConsumableClass GetConsumable() { return this; }
 }

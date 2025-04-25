@@ -18,6 +18,8 @@ TagManager:
   - Weapon
   - Puddle
   - PlayerProjectile
+  - OpenedDoor
+  - ClosedDoor
   layers:
   - Default
   - TransparentFX

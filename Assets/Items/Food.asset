@@ -18,4 +18,5 @@ MonoBehaviour:
   isStackable: 1
   isDroppable: 0
   equipSpeed: 0
-  placeholder: 10
+  amount: 12
+  consumableType: 0

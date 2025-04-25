@@ -207,6 +207,11 @@ public class WeaponObjectScript : MonoBehaviour
 		yield return new WaitForSeconds(delay);
 		bcPool.ReturnToPool(source);
 	}
+
+	public void AddAmmo(int additionalAmmo) 
+	{
+		ammo += additionalAmmo;
+    }
 	#endregion
 
 	#region Melee Methods
