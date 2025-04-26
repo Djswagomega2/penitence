@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Camera 1
   m_EditorClassIdentifier: 
   itemName: Camera
-  itemIcon: {fileID: 21300000, guid: c585352f955cfcf4bac51800dd6138d3, type: 3}
+  itemIcon: {fileID: 21300000, guid: 1b2f2ca681dbf7343802af616bd235ff, type: 3}
   description: Take a picture with it
   isStackable: 0
   isDroppable: 0

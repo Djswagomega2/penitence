@@ -249,6 +249,7 @@ public class InventoryManager : MonoBehaviour
         if (itemUsed is ConsumableClass consumable) 
         {
             consumable.MultiUse(player, weap);
+            //Make batery increase both the light and the camera 
 		}
 		
 

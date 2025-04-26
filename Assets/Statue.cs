@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class Statue : MonoBehaviour, IInteractable
 {
     //Resize Statue 
-    //Fix whatever dialouge issue is going on right now
+    //Add a decidated dialouge box
+    //Fix the head not popping up
+    //Change dialouge to be array based 
+    //Add new evil statue
+
     public Queue<string> textQueue = new Queue<string>();
-    public enum StatueType
-    {
-        Statue,
-        EvilStatue
-    }
+    public enum StatueType{Statue,EvilStatue}
     public StatueType statueType;
     public DialogueScript dialogueScript;
     [SerializeField] private GameManager gameManager;

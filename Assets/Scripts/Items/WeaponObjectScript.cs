@@ -6,10 +6,6 @@ using UnityEngine;
 public class WeaponObjectScript : MonoBehaviour
 {
 	//TODO: Fix ammo issue
-	//TODO: Add Meleee
-	//TODO: Make melee enum with bat and fist?
-	//TOOD: Make different throwable class?
-	//TODO: Fix Consumable objects
 	#region Weapon Data
 	[Header("Weapon Data")]
 	public WeapClass WeapClassScript;
@@ -90,11 +86,11 @@ public class WeaponObjectScript : MonoBehaviour
 				ammoBar.setMaxAmmo(weap.ammoCapacity);
 				ammoBar.setAmmo(ammo);
 			}
-			/*else if (item is ConsumableClass consumable) 
+			else if (item is ConsumableClass consumable) 
 			{
 				ammoBar.currentWeapon.sprite = WeapClassScript.itemIcon;
 				ammoBar.setAmmo(ammo);
-			}*/
+			}
 			else
 			{
 				WeapClassScript = (WeapClass)fists;
@@ -213,14 +209,34 @@ public class WeaponObjectScript : MonoBehaviour
 		bcPool.ReturnToPool(source);
 	}
 
-	public void AddAmmo(int additionalAmmo) 
-	{
-		ammo += additionalAmmo;
-    }
-	#endregion
+    public void AddAmmo(int additionalAmmo)
+    {
+        if (item == null) return; // Safety check
 
-	#region Melee Methods
-	public void MeleeAttack()
+        ammo += additionalAmmo;
+
+        if (weaponAmmoDict.ContainsKey(item))
+        {
+            weaponAmmoDict[item] = ammo;
+        }
+        else
+        {
+            weaponAmmoDict.Add(item, ammo);
+        }
+
+        // Update the UI immediately
+        ammoBar.setAmmo(ammo);
+
+        // Force re-initialize if needed
+        lastEquippedItem = null;
+
+        Debug.Log("Ammo added: " + additionalAmmo + ". New ammo count: " + ammo);
+    }
+
+    #endregion
+
+    #region Melee Methods
+    public void MeleeAttack()
 	{
 		if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
 		{
