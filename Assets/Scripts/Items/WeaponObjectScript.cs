@@ -90,6 +90,11 @@ public class WeaponObjectScript : MonoBehaviour
 				ammoBar.setMaxAmmo(weap.ammoCapacity);
 				ammoBar.setAmmo(ammo);
 			}
+			/*else if (item is ConsumableClass consumable) 
+			{
+				ammoBar.currentWeapon.sprite = WeapClassScript.itemIcon;
+				ammoBar.setAmmo(ammo);
+			}*/
 			else
 			{
 				WeapClassScript = (WeapClass)fists;
@@ -207,6 +212,11 @@ public class WeaponObjectScript : MonoBehaviour
 		yield return new WaitForSeconds(delay);
 		bcPool.ReturnToPool(source);
 	}
+
+	public void AddAmmo(int additionalAmmo) 
+	{
+		ammo += additionalAmmo;
+    }
 	#endregion
 
 	#region Melee Methods

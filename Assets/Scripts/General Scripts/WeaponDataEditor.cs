@@ -1,15 +1,22 @@
 using UnityEditor;
 using UnityEngine;
-
 [CustomEditor(typeof(WeapClass))]
 public class WeaponDataEditor : Editor
 {
 	public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
+		// Draw base ItemClass fields first
+        EditorGUILayout.LabelField("Item Info", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("itemName"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("itemIcon"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("isStackable"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("isDroppable"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("equipSpeed"));
 
 		var weaponTypeProp = serializedObject.FindProperty("weaponType");
-		EditorGUILayout.PropertyField(weaponTypeProp);
+        EditorGUILayout.PropertyField(weaponTypeProp);
 
 		WeapClass.WeaponType weaponType = (WeapClass.WeaponType)weaponTypeProp.enumValueIndex;
 

@@ -133,7 +133,12 @@ public class InventoryManager : MonoBehaviour
 
         hotbarSelector.transform.position = hotbarSlots[selectedSlotIndex].transform.position;
         selectedItem = items[selectedSlotIndex + (hotbarSlots.Length*2)].GetItem(); // add a var for hotbar rows + correct index
-    }
+
+        if(Input.GetKeyDown(KeyCode.E))
+		{
+            UsedSelected();
+		}
+	}
     #region inv utility
     public void RefreshUI()
     {
@@ -238,9 +243,16 @@ public class InventoryManager : MonoBehaviour
     //im 69 percent sure that items[selectedSlotIndex +(hotbarSlots.Length*2)] might be the selected slot?
     public void UsedSelected()
     {
+        PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
+		WeaponObjectScript weap = GameObject.FindObjectOfType<WeaponObjectScript>();
 		ItemClass itemUsed = items[selectedSlotIndex + (hotbarSlots.Length * 2)].GetItem();
-		//itemUsed.Use();
-		items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
+        if (itemUsed is ConsumableClass consumable) 
+        {
+            consumable.MultiUse(player, weap);
+		}
+		
+
+       items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
         
         RefreshUI();
     }

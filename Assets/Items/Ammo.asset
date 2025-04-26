@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4992f6a1da345a4b8b825170f9e3dbe, type: 3}
-  m_Name: Food
+  m_Name: Ammo
   m_EditorClassIdentifier: 
-  itemName: Food
-  itemIcon: {fileID: 21300000, guid: f8dc7be0493bf4342b7a3cf32eef0041, type: 3}
-  description: Yummers
+  itemName: Flim
+  itemIcon: {fileID: 21300000, guid: a9ef668fa95460f4d85f2c053f7e6dfe, type: 3}
+  description: Add to the Camera
   isStackable: 1
   isDroppable: 0
   equipSpeed: 0
-  amount: 12
-  consumableType: 0
+  amount: 2
+  consumableType: 1

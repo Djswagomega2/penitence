@@ -17,7 +17,6 @@ public class PlayerScript : MonoBehaviour,IDamageable
     public float health;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
-    [SerializeField] private GameObject flashlight;
 	#endregion
 
 	#region Movement Variables
@@ -44,6 +43,12 @@ public class PlayerScript : MonoBehaviour,IDamageable
     public float duration = 1f;
 	#endregion
 
+	#region Flashlight Variables
+	[Header("Flashlight")]
+	[SerializeField] private GameObject flashlight;
+	[SerializeField] private bool isFlashlightOn;
+	#endregion
+
 	#region Attacking Variables
 	[Header("Attacking")]
 	[SerializeField] public Transform firePoint;
@@ -66,7 +71,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Light2D Variables
 	[Header("Light2D")]
 	public Light2D muzzleflash;
-    [SerializeField] private Light2D flashlightLight;
+    [SerializeField] private Light2D[] flashlightLights;
 	#endregion
 
 	//[SerializeField] private Sprite normalJohn;
@@ -83,7 +88,8 @@ public class PlayerScript : MonoBehaviour,IDamageable
 		_cam = Camera.main;
         InstantiateDroplet(this.transform.position);
         muzzleflash = muzzle.GetComponent<Light2D>();
-		flashlightLight = flashlight.GetComponent<Light2D>();
+        flashlightLights[0] = flashlight.GetComponent<Light2D>();
+        flashlightLights[1] = flashlight.transform.GetChild(0).GetComponent<Light2D>();
 		health = 100f;
         speed = defaultSpeed;
         sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
@@ -111,13 +117,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
         if (Input.GetKeyDown(KeyCode.Q))
         {
             flashlight.SetActive(!flashlight.activeSelf);
-        }
+            isFlashlightOn = !isFlashlightOn;
+		}
         
         InventoryHandler();
         RespawnParse();
         Respawn();
         InstantiateDroplet(this.transform.position);
-    }
+		//FlashlightDecrease();
+	}
     private void LateUpdate()
     {
         CameraHandler();
@@ -134,6 +142,27 @@ public class PlayerScript : MonoBehaviour,IDamageable
 		speed = sprintSpeed;
 		yield return new WaitForSeconds(stamina);
 		speed = defaultSpeed;
+	}
+	#endregion
+
+	#region Flashlight Methods
+    private void FlashlightDecrease()
+	{
+		if (isFlashlightOn)
+		{ 
+			for (int i = 0; i < flashlightLights.Length; i++)
+			{
+				flashlightLights[i].intensity -= Time.deltaTime/10;
+
+				if (flashlightLights[i].intensity <= 0)
+				{
+					flashlightLights[i].intensity = 0;
+					flashlight.SetActive(false);
+					isFlashlightOn = false;
+				}
+			}
+		}
+		
 	}
 	#endregion
 
