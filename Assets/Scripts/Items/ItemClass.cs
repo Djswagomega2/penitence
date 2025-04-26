@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemClass : ScriptableObject
@@ -17,6 +18,11 @@ public class ItemClass : ScriptableObject
     {
         Debug.Log("used item");
     }
+
+    public virtual void MultiUse(PlayerScript caller, WeaponObjectScript weapCaller) // rename method
+	{
+		Debug.Log("used item");
+	}
 
 	/*public virtual void Use<T>(T caller) where T : MonoBehaviour// rename method
 	{

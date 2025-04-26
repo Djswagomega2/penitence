@@ -90,6 +90,11 @@ public class WeaponObjectScript : MonoBehaviour
 				ammoBar.setMaxAmmo(weap.ammoCapacity);
 				ammoBar.setAmmo(ammo);
 			}
+			/*else if (item is ConsumableClass consumable) 
+			{
+				ammoBar.currentWeapon.sprite = WeapClassScript.itemIcon;
+				ammoBar.setAmmo(ammo);
+			}*/
 			else
 			{
 				WeapClassScript = (WeapClass)fists;
