@@ -8,7 +8,7 @@ public class EnemyTriggerScript : MonoBehaviour
     public GameObject enemies;
     void Start()
     {
-        
+        enemies.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,6 +19,9 @@ public class EnemyTriggerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        enemies.SetActive(true);
+        if (gameObject.tag == "Player")
+        {
+            enemies.SetActive(true);
+        }
     }
 }
