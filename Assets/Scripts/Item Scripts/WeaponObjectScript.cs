@@ -238,7 +238,7 @@ public class WeaponObjectScript : MonoBehaviour
 
 		if (weaponAmmoDict.ContainsKey(item))
 		{
-			weaponAmmoDict[item] = ammo;
+			weaponAmmoDict[item] += additionalAmmo;
 		}
 		else
 		{
@@ -248,14 +248,9 @@ public class WeaponObjectScript : MonoBehaviour
 		// IMMEDIATELY update the ammo bar to match the new value
 		ammoBar.setAmmo(ammo);
 
-		// OPTIONAL: RefreshAmmo() if needed
-		// RefreshAmmo(); <-- only if your ammoBar is funky
 
 		Debug.Log("Ammo added: " + additionalAmmo + ". New ammo count: " + ammo);
 	}
-
-
-
 	#endregion
 
 	#region Melee Methods

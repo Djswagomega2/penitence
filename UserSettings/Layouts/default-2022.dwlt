@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 139
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 20
+  controlID: 30
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -784,9 +784,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.5403893, y: 37.14306, z: -0.4245873}
+    m_Target: {x: -9.074282, y: 75.019585, z: -0.025593655}
     speed: 2
-    m_Value: {x: 1.7970126, y: 37.451996, z: -0.44553703}
+    m_Value: {x: -8.927648, y: 75.00744, z: -0.023710845}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -836,9 +836,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 44.459908
+    m_Target: 4.372323
     speed: 2
-    m_Value: 46.55488
+    m_Value: 4.184041
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -900,23 +900,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 461df7ff501df7fffc1df7ffacfcf9ff30abfaff3aabfaff2eaffaff8ab9faffe002fbff2604fbff52f9ffffa2f9ffffb8ed000046f200002e350100a49c0100
+      m_SelectedIDs: 9ccff3ff
+      m_LastClickedID: -798820
+      m_ExpandedIDs: 9ccff3ff50d2f3ff46ecf3ff6057fbffbe57fbffc659fbffd059fbff125afbff36e3ffff0aeeffffd8f9ffff0c850000a4f00000dcf0000052f10000b49b0100b89b0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Level2Statue (1)
+        m_OriginalName: Level2Statue (1)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 105200
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -1928,7 +1928,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: level2
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1938,24 +1938,24 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Sprites/Close Ups
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: level2
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets
+  - Assets/Sprites/Close Ups
   m_LastFoldersGridSize: 57
   m_LastProjectPath: C:\Users\nycsu\Desktop\Game Development\Unity\Unity Projects\penitence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: 3c8b0000
-    m_LastClickedID: 35644
-    m_ExpandedIDs: 000000003c8b00003e8b0000408b0000428b0000448b0000468b0000488b00004a8b00004c8b00004e8b0000508b0000528b000000ca9a3b
+    scrollPos: {x: 0, y: 452}
+    m_SelectedIDs: 2e980000
+    m_LastClickedID: 38958
+    m_ExpandedIDs: 000000009491000096910000989100009a9100009c9100009e910000a0910000a2910000a4910000a6910000a8910000aa9100001098000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1983,7 +1983,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c8b00003e8b0000408b0000428b0000448b0000468b0000488b00004a8b00004c8b00004e8b0000508b0000528b0000
+    m_ExpandedIDs: 000000009491000096910000989100009a9100009c9100009e910000a0910000a2910000a4910000a6910000a8910000aa910000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2035,7 +2035,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 471}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 57
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 121

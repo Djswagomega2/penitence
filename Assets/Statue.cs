@@ -19,13 +19,16 @@ public class Statue : MonoBehaviour, IInteractable
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Image statueImage;
     [SerializeField] private GameObject staute;
-    [SerializeField] private Collider2D interactCollider;
+	[SerializeField] private GameObject dialougeBox;
+	[SerializeField] private Sprite[] statueCloseUps;
+	[SerializeField] private Collider2D interactCollider;
 
     private bool isTalking = false;
 
     void Start()
     {
         gameManager = GameObject.Find("GameController").GetComponent<GameManager>();
+        dialougeBox.GetComponentInChildren<Image>().sprite = null;
     }
 
     public void Interact()
@@ -60,14 +63,25 @@ public class Statue : MonoBehaviour, IInteractable
                 textQueue.Enqueue("AND OVER AGAIN!");
             }
         }
-    }
+
+        if (statueType == StatueType.Statue)
+        {
+            statueImage.sprite = statueCloseUps[0];
+        }
+        else if (statueType == StatueType.EvilStatue)
+        {
+            statueImage.sprite = statueCloseUps[1];
+		}
+		
+	}
 
     private IEnumerator PlayDialogue()
     {
         isTalking = true;
         statueImage.enabled = true;
+        dialougeBox.SetActive(true);
 
-        while (textQueue.Count > 0)
+		while (textQueue.Count > 0)
         {
             string text = textQueue.Dequeue();
             dialogueScript.dialogue(text, 0.01f);
@@ -93,7 +107,8 @@ public class Statue : MonoBehaviour, IInteractable
             staute.layer = LayerMask.NameToLayer("Default");
         }
 
-        statueImage.enabled = false;
+        dialougeBox.SetActive(false);
+		statueImage.enabled = false;
         isTalking = false;
     }
 
