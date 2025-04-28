@@ -6,7 +6,8 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private GameObject itemCursor;
+	//TODO: Fix Misc items in order to show note or unlock doors based off of the key or note
+	[SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject inventoryPanel;
 
 
@@ -245,16 +246,34 @@ public class InventoryManager : MonoBehaviour
     {
         PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
 		WeaponObjectScript weap = GameObject.FindObjectOfType<WeaponObjectScript>();
+        imageCloseUp imageCloseUp = GameObject.FindObjectOfType<imageCloseUp>();
 		ItemClass itemUsed = items[selectedSlotIndex + (hotbarSlots.Length * 2)].GetItem();
-        if (itemUsed is ConsumableClass consumable) 
+        if (itemUsed is ConsumableClass consumable)
         {
             consumable.MultiUse(player, weap);
             //Make batery increase both the light and the camera 
+        }
+        else if (itemUsed is MiscClass misc) 
+        {
+            if(misc.miscType == MiscClass.MiscType.Note)
+			{
+				misc.showNote(imageCloseUp);
+			}
+			else if (misc.miscType == MiscClass.MiscType.Key)
+			{
+				//Unlock door
+			}
 		}
-		
 
-       items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
-        
+
+        if (itemUsed is not WeapClass)
+        {
+            if (itemUsed is not MiscClass)
+            {
+                items[selectedSlotIndex + (hotbarSlots.Length * 2)].SubQuantity(1);
+            }
+
+        }
         RefreshUI();
     }
     public SlotClass Contains(ItemClass item)

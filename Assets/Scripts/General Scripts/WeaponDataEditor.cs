@@ -13,7 +13,6 @@ public class WeaponDataEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("isStackable"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("isDroppable"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("equipSpeed"));
 
 		var weaponTypeProp = serializedObject.FindProperty("weaponType");
         EditorGUILayout.PropertyField(weaponTypeProp);
@@ -30,6 +29,8 @@ public class WeaponDataEditor : Editor
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("damageFalloffRange"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("damageFalloff"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("reloadSpeed"));
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("reloadSound"));
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("emptySound"));
 		}
 		else if (weaponType == WeapClass.WeaponType.throwable)
 		{
@@ -50,14 +51,11 @@ public class WeaponDataEditor : Editor
 		else if (weaponType == WeapClass.WeaponType.melee)
 		{
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("weaponDamage"));
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("firingError"));
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("damageFalloffRange"));
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("offsetVector"));
 		}
 
 		// Always show:
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("attackSound"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("reloadSound"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("emptySound"));
 
 		serializedObject.ApplyModifiedProperties();
 	}

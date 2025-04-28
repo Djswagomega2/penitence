@@ -42,7 +42,6 @@ public class WeapClass : ItemClass
     public bool isBlocking;
 
     public enum WeaponType { gun, melee, throwable }//why tf do we have this
-
     public enum ThrowType { bottle, rock }
 
 }

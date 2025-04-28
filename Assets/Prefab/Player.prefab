@@ -581,7 +581,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1592
+  m_InstanceId: -394866
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}
@@ -603,7 +603,7 @@ MonoBehaviour:
   selectedIndex: 0
   _layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1032
 --- !u!114 &3178449936653499668
 MonoBehaviour:
   m_ObjectHideFlags: 0

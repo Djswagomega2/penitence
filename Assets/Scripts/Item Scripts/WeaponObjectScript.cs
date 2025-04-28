@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class WeaponObjectScript : MonoBehaviour
 {
 	//TODO: Fix ammo issue
+	    //Make damage trigger based
+    //Fix position of the weapon to be based of the mouse click for melee
 	#region Weapon Data
 	[Header("Weapon Data")]
 	public WeapClass WeapClassScript;
@@ -100,11 +103,16 @@ public class WeaponObjectScript : MonoBehaviour
 				ammoBar.setAmmo(0);
 			}
 
-			lastEquippedItem = item;
+			if (item != lastEquippedItem)
+			{
+				RefreshAmmo();
+				lastEquippedItem = item;
+			}
 		}
 
 		weaponAction();
 	}
+
 	public void weaponAction()
 	{
 		switch (WeapClassScript.weaponType)
@@ -209,34 +217,49 @@ public class WeaponObjectScript : MonoBehaviour
 		bcPool.ReturnToPool(source);
 	}
 
-    public void AddAmmo(int additionalAmmo)
-    {
-        if (item == null) return; // Safety check
+	private void RefreshAmmo()
+	{
+		if (item == null) return;
 
-        ammo += additionalAmmo;
+		if (!weaponAmmoDict.ContainsKey(item))
+		{
+			weaponAmmoDict.Add(item, 0);
+		}
 
-        if (weaponAmmoDict.ContainsKey(item))
-        {
-            weaponAmmoDict[item] = ammo;
-        }
-        else
-        {
-            weaponAmmoDict.Add(item, ammo);
-        }
+		ammo = weaponAmmoDict[item];
+		ammoBar.setAmmo(ammo);
+	}
 
-        // Update the UI immediately
-        ammoBar.setAmmo(ammo);
+	public void AddAmmo(int additionalAmmo)
+	{
+		if (item == null) return;
 
-        // Force re-initialize if needed
-        lastEquippedItem = null;
+		ammo += additionalAmmo;
 
-        Debug.Log("Ammo added: " + additionalAmmo + ". New ammo count: " + ammo);
-    }
+		if (weaponAmmoDict.ContainsKey(item))
+		{
+			weaponAmmoDict[item] = ammo;
+		}
+		else
+		{
+			weaponAmmoDict.Add(item, ammo);
+		}
 
-    #endregion
+		// IMMEDIATELY update the ammo bar to match the new value
+		ammoBar.setAmmo(ammo);
 
-    #region Melee Methods
-    public void MeleeAttack()
+		// OPTIONAL: RefreshAmmo() if needed
+		// RefreshAmmo(); <-- only if your ammoBar is funky
+
+		Debug.Log("Ammo added: " + additionalAmmo + ". New ammo count: " + ammo);
+	}
+
+
+
+	#endregion
+
+	#region Melee Methods
+	public void MeleeAttack()
 	{
 		if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
 		{
@@ -264,7 +287,7 @@ public class WeaponObjectScript : MonoBehaviour
 	private IEnumerator playWeaponAnim(string animName)
 	{
 		bool isPlayingAnim = true;//used to yield the time to the anim so it doesnt instantly destroy the anim object.
-		Vector2 weaponPos = new Vector2(playerTransform.position.x + WeapClassScript.offsetVector.x, playerTransform.position.y + WeapClassScript.offsetVector.y);
+		Vector2 weaponPos = new Vector2(playerTransform.position.x + WeapClassScript.offsetVector.x, playerTransform.position.y + WeapClassScript.offsetVector.y); // fix this to be more accurate 
 		if (WeapClassScript == fists)
 		{
 			Instantiate(fist, weaponPos, Quaternion.Euler(0, 0, playerTransform.rotation.eulerAngles.z));
