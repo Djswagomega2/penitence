@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Bottle
   m_EditorClassIdentifier: 
   itemName: Bottle
-  itemIcon: {fileID: 21300000, guid: 09f60cc8b7e71604c965b282f7259898, type: 3}
+  itemIcon: {fileID: 21300000, guid: 737ea71e02f14cd4aa30dbe5049048fa, type: 3}
   description: Drink it, or throw it
   isStackable: 1
   isDroppable: 0
-  equipSpeed: 0
   weaponType: 2
   throwableType: 0
   weaponDamage: 10
@@ -28,7 +27,6 @@ MonoBehaviour:
   damageFalloff: 0
   reloadSpeed: 0
   throwSpeed: 5
-  throwTime: 2
   attackSound: {fileID: 0}
   reloadSound: {fileID: 0}
   emptySound: {fileID: 0}

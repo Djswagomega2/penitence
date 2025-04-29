@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1218783300f69f8478e21de599463e63
+guid: 21804138aca3c714bafcb377a90230cc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,97 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: John_punch_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1659
-        width: 509
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47cc558df32998e46a000ce543a323ac
-      internalID: 1674415697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1657
-        width: 494
-        height: 391
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90c0662c1e2be6c4a9b7aaa08be5e07f
-      internalID: -819042114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_2
-      rect:
-        serializedVersion: 2
-        x: 1009
-        y: 1653
-        width: 535
-        height: 395
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b75b9c1d819856e4d8913cf6e4e514e6
-      internalID: 1001428400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_3
-      rect:
-        serializedVersion: 2
-        x: 1544
-        y: 1651
-        width: 504
-        height: 397
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a3777faa35db0a49ad21b8cac89d496
-      internalID: -535976839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_8
+      name: John_batswing_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1025
+        y: 2048
         width: 512
-        height: 472
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6036113d40406d5438cbee4f39bf05b1
-      internalID: -1691165346
+      spriteID: 25bfd011668fa85498c54d5f80e0d2e3
+      internalID: -611723047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_9
+      name: John_batswing_1
       rect:
         serializedVersion: 2
         x: 512
-        y: 1025
+        y: 2048
         width: 512
-        height: 471
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f760a682fdc21f45aaa28ed1e0a0c0f
-      internalID: 699326817
+      spriteID: cdfcc17916f560747b21798b0659d4fb
+      internalID: 1037372710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_10
+      name: John_batswing_2
       rect:
         serializedVersion: 2
         x: 1024
-        y: 1025
+        y: 2048
         width: 512
-        height: 471
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce02b1974f29154380a91e530c6492b
-      internalID: -239885102
+      spriteID: ddae1330cdc984c4cb4b5d34312ec63c
+      internalID: 1310933738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_11
+      name: John_batswing_3
       rect:
         serializedVersion: 2
         x: 1536
-        y: 1025
+        y: 2048
         width: 512
-        height: 468
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +200,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d784d012727867b40b995c6946e3c4d7
-      internalID: 1607855418
+      spriteID: 07f7e3fd692e84e4da62e13c2b3a5d71
+      internalID: -151072171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_12
+      name: John_batswing_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec85dabd64177f04dbdc9381dc34542d
+      internalID: 1484000548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 651
+        y: 1536
         width: 512
-        height: 374
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9269e9f6db627c47b068173ec8c706e
-      internalID: -256380652
+      spriteID: d268cc4bfe4de914dbfb2fd4e73ad63e
+      internalID: 913129929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_13
+      name: John_batswing_6
       rect:
         serializedVersion: 2
         x: 512
-        y: 649
+        y: 1536
         width: 512
-        height: 376
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aff3e2089218004383b5b493127fb4c
-      internalID: 1622421757
+      spriteID: 9f37231d67761bc45980700e8729a989
+      internalID: -2111760190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_14
+      name: John_batswing_7
       rect:
         serializedVersion: 2
         x: 1024
-        y: 649
+        y: 1536
         width: 512
-        height: 377
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d5c90ef2dc71294298866b5dd48eb67
-      internalID: 818172536
+      spriteID: 3cd40d1f4ff87fc4f938b9b67cf23f45
+      internalID: -185239921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_15
+      name: John_batswing_8
       rect:
         serializedVersion: 2
         x: 1536
-        y: 647
+        y: 1536
         width: 512
-        height: 378
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +305,251 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6716f2de60d1704c83a3fc7375c3055
-      internalID: 770467154
+      spriteID: 57b4dd8b1fb1cf140830c6a574f32c1e
+      internalID: 1230122311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_20
+      name: John_batswing_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5293c435f9663c469ce1c525596e6bb
+      internalID: -1169267433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a2f05fbb2c0e64d97af85b0fa60c99
+      internalID: -947161260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c420388badaaf645a716692c49f048b
+      internalID: -1923269621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c79c95c6d59e034b9c1ca1813daff27
+      internalID: -2117217304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76deb5c80ebdf134cb4d96cfded8a3cc
+      internalID: 1644912938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c0d174799211a47bace5907fa9a6d0
+      internalID: -1595126088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c221b3b3c6ac142b9708b0342ac3eb
+      internalID: 807236226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f74497cae642754296c0b3fadd01035
+      internalID: 816520794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed7fcc8bb5688a428a704600637e048
+      internalID: 1660997242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d0e2723a3110349bcea68e3cea9686
+      internalID: 1530974907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f993d27e6b3154a9abc0317ab221f1
+      internalID: 1721888530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_batswing_20
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 512
-        height: 466
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,29 +557,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0e3c615c010c164289acb62279e0ddc
-      internalID: 914434008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_21
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 2
-        width: 512
-        height: 460
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fcb4450cead07a409a4b985941ccf7a
-      internalID: -1076420374
+      spriteID: dc83f1a7a07f8d54ebc0cee55a742f47
+      internalID: 1483520832
       vertices: []
       indices: 
       edges: []
@@ -427,28 +574,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      John_punch_0: 1674415697
-      John_punch_1: -819042114
-      John_punch_10: -239885102
-      John_punch_11: 1607855418
-      John_punch_12: -256380652
-      John_punch_13: 1622421757
-      John_punch_14: 818172536
-      John_punch_15: 770467154
-      John_punch_16: -93868523
-      John_punch_17: -2028847346
-      John_punch_18: -1268784486
-      John_punch_19: 353577717
-      John_punch_2: 1001428400
-      John_punch_20: 914434008
-      John_punch_21: -1076420374
-      John_punch_3: -535976839
-      John_punch_4: 1339573638
-      John_punch_5: 1809294205
-      John_punch_6: -798835069
-      John_punch_7: -881354229
-      John_punch_8: -1691165346
-      John_punch_9: 699326817
+      John_batswing_0: -611723047
+      John_batswing_1: 1037372710
+      John_batswing_10: -947161260
+      John_batswing_11: -1923269621
+      John_batswing_12: -2117217304
+      John_batswing_13: 1644912938
+      John_batswing_14: -1595126088
+      John_batswing_15: 807236226
+      John_batswing_16: 816520794
+      John_batswing_17: 1660997242
+      John_batswing_18: 1530974907
+      John_batswing_19: 1721888530
+      John_batswing_2: 1310933738
+      John_batswing_20: 1483520832
+      John_batswing_3: -151072171
+      John_batswing_4: 1484000548
+      John_batswing_5: 913129929
+      John_batswing_6: -2111760190
+      John_batswing_7: -185239921
+      John_batswing_8: 1230122311
+      John_batswing_9: -1169267433
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

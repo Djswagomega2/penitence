@@ -221,35 +221,22 @@ public class WeaponObjectScript : MonoBehaviour
 	{
 		if (item == null) return;
 
+		// Ensure the dictionary contains the current item
 		if (!weaponAmmoDict.ContainsKey(item))
 		{
 			weaponAmmoDict.Add(item, 0);
 		}
 
+		// Update the local ammo variable from the dictionary
 		ammo = weaponAmmoDict[item];
 		ammoBar.setAmmo(ammo);
 	}
 
 	public void AddAmmo(int additionalAmmo)
 	{
-		if (item == null) return;
-
 		ammo += additionalAmmo;
-
-		if (weaponAmmoDict.ContainsKey(item))
-		{
-			weaponAmmoDict[item] += additionalAmmo;
-		}
-		else
-		{
-			weaponAmmoDict.Add(item, ammo);
-		}
-
-		// IMMEDIATELY update the ammo bar to match the new value
+		weaponAmmoDict[item] = ammo; 
 		ammoBar.setAmmo(ammo);
-
-
-		Debug.Log("Ammo added: " + additionalAmmo + ". New ammo count: " + ammo);
 	}
 	#endregion
 

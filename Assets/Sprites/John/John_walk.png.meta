@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1218783300f69f8478e21de599463e63
+guid: 02535e6a7f4cef443abb93aaea4c3b53
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,97 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: John_punch_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1659
-        width: 509
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47cc558df32998e46a000ce543a323ac
-      internalID: 1674415697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1657
-        width: 494
-        height: 391
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90c0662c1e2be6c4a9b7aaa08be5e07f
-      internalID: -819042114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_2
-      rect:
-        serializedVersion: 2
-        x: 1009
-        y: 1653
-        width: 535
-        height: 395
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b75b9c1d819856e4d8913cf6e4e514e6
-      internalID: 1001428400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_3
-      rect:
-        serializedVersion: 2
-        x: 1544
-        y: 1651
-        width: 504
-        height: 397
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a3777faa35db0a49ad21b8cac89d496
-      internalID: -535976839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: John_punch_8
+      name: John_walk_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1025
+        y: 1536
         width: 512
-        height: 472
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6036113d40406d5438cbee4f39bf05b1
-      internalID: -1691165346
+      spriteID: 347c97c7c112c9f4bb4745216108314b
+      internalID: 1189651618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_9
+      name: John_walk_1
       rect:
         serializedVersion: 2
         x: 512
-        y: 1025
+        y: 1536
         width: 512
-        height: 471
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f760a682fdc21f45aaa28ed1e0a0c0f
-      internalID: 699326817
+      spriteID: bd8fa448d37a54942a60bddb680d443c
+      internalID: -1021519810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_10
+      name: John_walk_2
       rect:
         serializedVersion: 2
         x: 1024
-        y: 1025
+        y: 1536
         width: 512
-        height: 471
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce02b1974f29154380a91e530c6492b
-      internalID: -239885102
+      spriteID: 44c59e6c09cce904abc781f42e8cefd1
+      internalID: 1655755188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_11
+      name: John_walk_3
       rect:
         serializedVersion: 2
         x: 1536
-        y: 1025
+        y: 1536
         width: 512
-        height: 468
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d784d012727867b40b995c6946e3c4d7
-      internalID: 1607855418
+      spriteID: 3451350c07595bd4fbe834b647244f98
+      internalID: 2010578160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_12
+      name: John_walk_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 651
+        y: 1024
         width: 512
-        height: 374
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9269e9f6db627c47b068173ec8c706e
-      internalID: -256380652
+      spriteID: 0117861e41c8a75409db02e130bcaa83
+      internalID: 1317690135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_13
+      name: John_walk_5
       rect:
         serializedVersion: 2
         x: 512
-        y: 649
+        y: 1024
         width: 512
-        height: 376
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aff3e2089218004383b5b493127fb4c
-      internalID: 1622421757
+      spriteID: 3794e1ba624e0c44aa8ec160e31ecf88
+      internalID: 1811902741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_14
+      name: John_walk_6
       rect:
         serializedVersion: 2
         x: 1024
-        y: 649
+        y: 1024
         width: 512
-        height: 377
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d5c90ef2dc71294298866b5dd48eb67
-      internalID: 818172536
+      spriteID: 51aef874e6af1894289b5ebc51b95f31
+      internalID: 1862655144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_15
+      name: John_walk_7
       rect:
         serializedVersion: 2
         x: 1536
-        y: 647
+        y: 1024
         width: 512
-        height: 378
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +284,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6716f2de60d1704c83a3fc7375c3055
-      internalID: 770467154
+      spriteID: 54d6464ddeefb604a85f3267c9badcb6
+      internalID: 356524898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_20
+      name: John_walk_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d2f83fdb0567d4d85bcef6107366a3
+      internalID: 302815814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_walk_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64594b9f2b5f2d4bb52d898081cc7f3
+      internalID: 1612586303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_walk_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a833dc956c077164bb4453eadf010744
+      internalID: -141007234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_walk_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f851277b866370a4a87c9874cce0f745
+      internalID: 460751661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_walk_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 512
-        height: 466
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0e3c615c010c164289acb62279e0ddc
-      internalID: 914434008
+      spriteID: 9e6a327f4fad7354c842fe6ec820605e
+      internalID: 411796385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: John_punch_21
+      name: John_walk_13
       rect:
         serializedVersion: 2
         x: 512
-        y: 2
+        y: 0
         width: 512
-        height: 460
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +410,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fcb4450cead07a409a4b985941ccf7a
-      internalID: -1076420374
+      spriteID: 3ab2a5d6ed6dee04bbe0b1708af5c756
+      internalID: 1827266510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_walk_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a949aa80c022149aab9738d7f09af5
+      internalID: -290976219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: John_walk_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be0eb131d8c67447935c0b3d64704ca
+      internalID: -604892504
       vertices: []
       indices: 
       edges: []
@@ -427,28 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      John_punch_0: 1674415697
-      John_punch_1: -819042114
-      John_punch_10: -239885102
-      John_punch_11: 1607855418
-      John_punch_12: -256380652
-      John_punch_13: 1622421757
-      John_punch_14: 818172536
-      John_punch_15: 770467154
-      John_punch_16: -93868523
-      John_punch_17: -2028847346
-      John_punch_18: -1268784486
-      John_punch_19: 353577717
-      John_punch_2: 1001428400
-      John_punch_20: 914434008
-      John_punch_21: -1076420374
-      John_punch_3: -535976839
-      John_punch_4: 1339573638
-      John_punch_5: 1809294205
-      John_punch_6: -798835069
-      John_punch_7: -881354229
-      John_punch_8: -1691165346
-      John_punch_9: 699326817
+      John_walk_0: 1189651618
+      John_walk_1: -1021519810
+      John_walk_10: -141007234
+      John_walk_11: 460751661
+      John_walk_12: 411796385
+      John_walk_13: 1827266510
+      John_walk_14: -290976219
+      John_walk_15: -604892504
+      John_walk_2: 1655755188
+      John_walk_3: 2010578160
+      John_walk_4: 1317690135
+      John_walk_5: 1811902741
+      John_walk_6: 1862655144
+      John_walk_7: 356524898
+      John_walk_8: 302815814
+      John_walk_9: 1612586303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

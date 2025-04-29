@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 912267990412470607}
   - component: {fileID: -3382419448225064713}
   - component: {fileID: 324920037108513424}
+  - component: {fileID: 3997074772098359774}
   m_Layer: 0
   m_Name: Sight Enemy
   m_TagString: Enemy
@@ -308,6 +309,27 @@ MonoBehaviour:
   radius: 4
   minPositionShift: 1
   maxPositionShift: 1.5
+--- !u!95 &3997074772098359774
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796713372382137919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8676687744155289434
 GameObject:
   m_ObjectHideFlags: 0
