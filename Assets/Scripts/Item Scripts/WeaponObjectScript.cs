@@ -234,9 +234,23 @@ public class WeaponObjectScript : MonoBehaviour
 
 	public void AddAmmo(int additionalAmmo)
 	{
-		ammo += additionalAmmo;
-		weaponAmmoDict[item] = ammo; 
-		ammoBar.setAmmo(ammo);
+		ScriptableObject temp = item;
+		Debug.Log(temp);
+        //for each through the action bar to find the camera 
+        foreach (var entry in weaponAmmoDict)
+        {
+			Debug.Log(entry);
+            if (entry.Value == 4)
+            {
+                weaponAmmoDict[entry.Key] += additionalAmmo;
+                Debug.Log($"Updated ammo for {entry.Key.name} to {weaponAmmoDict[entry.Key]}");
+                break; // Exit loop after updating the first item with ammo 0  
+            }
+        }
+
+        //foreach through the action bar again to find temp 
+        //reduce temp stack size by one
+        ammoBar.setAmmo(ammo);
 	}
 	#endregion
 
