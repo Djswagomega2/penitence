@@ -235,6 +235,7 @@ MonoBehaviour:
   visualDisorient: {fileID: 5520603155469732172, guid: d63d48395947dab43ab2a2a229e30c4e, type: 3}
   spawnerScript: {fileID: 0}
   warningLight: {fileID: 6356275620627168500}
+  animator: {fileID: 0}
 --- !u!58 &912267990412470607
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -319,7 +320,7 @@ Animator:
   m_GameObject: {fileID: 6796713372382137919}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 881bf7b675f685649838a5b5d0f6ab53, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
