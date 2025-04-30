@@ -19,9 +19,10 @@ public class EnemyTriggerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             enemies.SetActive(true);
+            Debug.Log("Yes");
         }
     }
 }
