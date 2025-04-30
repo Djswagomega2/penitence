@@ -17,7 +17,6 @@ MonoBehaviour:
   description: You have hands, turn them into fists and use them!
   isStackable: 0
   isDroppable: 0
-  equipSpeed: 0
   weaponType: 1
   throwableType: 0
   weaponDamage: 5

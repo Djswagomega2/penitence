@@ -46,8 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
-  pauseKey: 27
+  pauseKey: 112
   isPaused: 0
+  notePiecesCollected: 0
+  allPiecesCollected: 0
+  statuesInteracted: 0
+  allStatuesInteracted: 0
 --- !u!114 &4345298570770166951
 MonoBehaviour:
   m_ObjectHideFlags: 0

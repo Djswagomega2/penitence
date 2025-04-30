@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1040
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1d47b136337434dbad725f140a980e
+      internalID: 1504262190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1040
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f1b28687a57444e898f68ac34868e3
+      internalID: 1073880728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1040
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8925c993ddab4524aa5f23541526327b
+      internalID: 608432478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1040
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419341957aab714469385f1d8c3e1a60
+      internalID: -1436890795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6155a04bd51e941b777e06d44c91c5
+      internalID: -1873306740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 780
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5aa8a0b9d5c7c945ba52d9f2354d9b0
+      internalID: 1513223296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 780
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971878a64148d6a4c8c12e2a5987c064
+      internalID: -257767640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 780
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447406a5274e02d479f07a0c1b850faa
+      internalID: 1878959668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9574edf44cc9e64ca0c1a214cef0525
+      internalID: 1887714911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 520
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9a5dae02a20104685744e1ac8e1706
+      internalID: 1093829242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 520
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14efa70810db7941868b6f84c75ef4a
+      internalID: 1611144888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 520
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d574577599a4ac745b8262ef42c147c0
+      internalID: 2098383925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 260
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be063a7e63f83134984e3112982fe363
+      internalID: -1152214891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 260
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e181bd9c25fd71140be2207c6f445d7e
+      internalID: 302194194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 260
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d008871d2f8106142b095670f7dd62c4
+      internalID: 1921672630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight explosion animation spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 260
+        width: 260
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0024a21bcbed11c4fb4e2c2d18c05fc6
+      internalID: 1210739350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +468,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sight explosion animation spritesheet_0: 1504262190
+      sight explosion animation spritesheet_1: 1073880728
+      sight explosion animation spritesheet_10: 1611144888
+      sight explosion animation spritesheet_11: 2098383925
+      sight explosion animation spritesheet_12: -1152214891
+      sight explosion animation spritesheet_13: 302194194
+      sight explosion animation spritesheet_14: 1921672630
+      sight explosion animation spritesheet_15: 1210739350
+      sight explosion animation spritesheet_16: -356721760
+      sight explosion animation spritesheet_2: 608432478
+      sight explosion animation spritesheet_3: -1436890795
+      sight explosion animation spritesheet_4: -1873306740
+      sight explosion animation spritesheet_5: 1513223296
+      sight explosion animation spritesheet_6: -257767640
+      sight explosion animation spritesheet_7: 1878959668
+      sight explosion animation spritesheet_8: 1887714911
+      sight explosion animation spritesheet_9: 1093829242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

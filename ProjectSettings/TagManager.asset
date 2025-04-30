@@ -20,6 +20,7 @@ TagManager:
   - PlayerProjectile
   - OpenedDoor
   - ClosedDoor
+  - Statue
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Player
   - Obstacle
   - Enemy
-  - 
+  - Door
   - 
   - 
   - 

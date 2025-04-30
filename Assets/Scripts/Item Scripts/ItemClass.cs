@@ -11,9 +11,6 @@ public class ItemClass : ScriptableObject
     public string description;
     public bool isStackable = true;
     public bool isDroppable;
-    //public GameObject itemObject; //CANNOT USE
-	public float equipSpeed;
-
     public virtual void Use(PlayerScript caller) // rename method
     {
         Debug.Log("used item");

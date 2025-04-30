@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,10 +7,8 @@ using UnityEngine;
 public class WeaponObjectScript : MonoBehaviour
 {
 	//TODO: Fix ammo issue
-	//TODO: Add Meleee
-	//TODO: Make melee enum with bat and fist?
-	//TOOD: Make different throwable class?
-	//TODO: Fix Consumable objects
+	    //Make damage trigger based
+    //Fix position of the weapon to be based of the mouse click for melee
 	#region Weapon Data
 	[Header("Weapon Data")]
 	public WeapClass WeapClassScript;
@@ -90,11 +89,11 @@ public class WeaponObjectScript : MonoBehaviour
 				ammoBar.setMaxAmmo(weap.ammoCapacity);
 				ammoBar.setAmmo(ammo);
 			}
-			/*else if (item is ConsumableClass consumable) 
+			else if (item is ConsumableClass consumable) 
 			{
 				ammoBar.currentWeapon.sprite = WeapClassScript.itemIcon;
 				ammoBar.setAmmo(ammo);
-			}*/
+			}
 			else
 			{
 				WeapClassScript = (WeapClass)fists;
@@ -104,11 +103,16 @@ public class WeaponObjectScript : MonoBehaviour
 				ammoBar.setAmmo(0);
 			}
 
-			lastEquippedItem = item;
+			if (item != lastEquippedItem)
+			{
+				RefreshAmmo();
+				lastEquippedItem = item;
+			}
 		}
 
 		weaponAction();
 	}
+
 	public void weaponAction()
 	{
 		switch (WeapClassScript.weaponType)
@@ -139,6 +143,7 @@ public class WeaponObjectScript : MonoBehaviour
 			{
 				StartCoroutine(playerScript.Shake());
 				playerScript.muzzleflash.intensity = 50f;
+				weaponAnimator.Play("Jonh_Camera");
 				PlayGunShot();
 				RaycastHit2D hit = Physics2D.Raycast(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
 				if (hit)
@@ -213,10 +218,43 @@ public class WeaponObjectScript : MonoBehaviour
 		bcPool.ReturnToPool(source);
 	}
 
-	public void AddAmmo(int additionalAmmo) 
+	private void RefreshAmmo()
 	{
-		ammo += additionalAmmo;
-    }
+		if (item == null) return;
+
+		// Ensure the dictionary contains the current item
+		if (!weaponAmmoDict.ContainsKey(item))
+		{
+			weaponAmmoDict.Add(item, 0);
+		}
+
+		// Update the local ammo variable from the dictionary
+		ammo = weaponAmmoDict[item];
+		ammoBar.setAmmo(ammo);
+	}
+
+	public void AddAmmo(int additionalAmmo)
+	{
+		//add a check to see if it's within ammo capactiy
+		foreach (var entry in weaponAmmoDict)
+		{
+			if (entry.Key is WeapClass weap && weap.weaponType == WeapClass.WeaponType.gun)
+			{
+				weaponAmmoDict[entry.Key] += additionalAmmo;
+
+				// If the equipped item is the same gun, update the local ammo and UI
+				if (item == entry.Key)
+				{
+					ammo = weaponAmmoDict[entry.Key];
+					ammoBar.setAmmo(ammo);
+				}
+
+				Debug.Log($"Added {additionalAmmo} ammo to {entry.Key.name}. New ammo count: {weaponAmmoDict[entry.Key]}");
+				break;
+			}
+		}
+	}
+
 	#endregion
 
 	#region Melee Methods
@@ -224,15 +262,15 @@ public class WeaponObjectScript : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
 		{
-			/*if (WeapClassScript == fists)
+			if (WeapClassScript == fists)
 			{
-
+				StartCoroutine(playWeaponAnim("John_Punch"));
 			}
 			else
 			{
-				
-			}*/ //<-- Prelim when we eventually have animation
-			StartCoroutine(playWeaponAnim(null));
+				StartCoroutine(playWeaponAnim("John_BatSwing"));
+			} 
+			
 
 		}
 	}
@@ -248,7 +286,7 @@ public class WeaponObjectScript : MonoBehaviour
 	private IEnumerator playWeaponAnim(string animName)
 	{
 		bool isPlayingAnim = true;//used to yield the time to the anim so it doesnt instantly destroy the anim object.
-		Vector2 weaponPos = new Vector2(playerTransform.position.x + WeapClassScript.offsetVector.x, playerTransform.position.y + WeapClassScript.offsetVector.y);
+		Vector2 weaponPos = new Vector2(playerTransform.position.x + WeapClassScript.offsetVector.x, playerTransform.position.y + WeapClassScript.offsetVector.y); // fix this to be more accurate 
 		if (WeapClassScript == fists)
 		{
 			Instantiate(fist, weaponPos, Quaternion.Euler(0, 0, playerTransform.rotation.eulerAngles.z));

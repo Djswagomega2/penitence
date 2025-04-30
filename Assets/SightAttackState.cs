@@ -10,6 +10,7 @@ public class SightAttackState : MonoBehaviour
     [SerializeField] private VisualDisorientScript visualDisorient;
     [SerializeField] private Spawner spawnerScript;
     [SerializeField] private Light2D warningLight;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class SightAttackState : MonoBehaviour
         spawnerScript.enabled = false;
         warningLight = GetComponentInChildren<Light2D>();
         warningLight.pointLightOuterRadius = radius;
+        animator = GetComponent<Animator>();
 	}
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class SightAttackState : MonoBehaviour
         {
             visualDisorient.enabled = true;
             spawnerScript.enabled = true;
+            //animator.Play("Sight_Explodsion"); <-- fix this for later
         }
 
         /*

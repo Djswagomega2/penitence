@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DialogueScript : MonoBehaviour
 {
     private RectTransform rectTransform;
-    private TextMeshProUGUI textDisplay;
+    public TextMeshProUGUI textDisplay;
     private Image img;
     public string fullText;
     private string curText = "";
@@ -18,7 +18,7 @@ public class DialogueScript : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        textDisplay = GetComponentInChildren<TextMeshProUGUI>();
+        //textDisplay = GetComponentInChildren<TextMeshProUGUI>();
         img = GetComponentInChildren<Image>();
         isTextPlaying = false;
     }
