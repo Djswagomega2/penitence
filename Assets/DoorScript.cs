@@ -34,6 +34,11 @@ public class DoorScript : MonoBehaviour,IInteractable
 			{
 				isClosed = false;
 			}
+			//else say "you need a key to open this door"
+			else
+			{
+				Debug.Log("You need a key to open this door.");
+			}
 		}
 	}
 
