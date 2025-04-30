@@ -143,6 +143,7 @@ public class WeaponObjectScript : MonoBehaviour
 			{
 				StartCoroutine(playerScript.Shake());
 				playerScript.muzzleflash.intensity = 50f;
+				weaponAnimator.Play("Jonh_Camera");
 				PlayGunShot();
 				RaycastHit2D hit = Physics2D.Raycast(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
 				if (hit)
@@ -234,6 +235,7 @@ public class WeaponObjectScript : MonoBehaviour
 
 	public void AddAmmo(int additionalAmmo)
 	{
+		//add a check to see if it's within ammo capactiy
 		foreach (var entry in weaponAmmoDict)
 		{
 			if (entry.Key is WeapClass weap && weap.weaponType == WeapClass.WeaponType.gun)
@@ -260,15 +262,15 @@ public class WeaponObjectScript : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1") && InventoryManager.isInventoryOpened == false)
 		{
-			/*if (WeapClassScript == fists)
+			if (WeapClassScript == fists)
 			{
-
+				StartCoroutine(playWeaponAnim("John_Punch"));
 			}
 			else
 			{
-				
-			}*/ //<-- Prelim when we eventually have animation
-			StartCoroutine(playWeaponAnim(null));
+				StartCoroutine(playWeaponAnim("John_BatSwing"));
+			} 
+			
 
 		}
 	}
