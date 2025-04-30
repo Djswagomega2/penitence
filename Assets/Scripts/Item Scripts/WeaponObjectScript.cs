@@ -234,24 +234,25 @@ public class WeaponObjectScript : MonoBehaviour
 
 	public void AddAmmo(int additionalAmmo)
 	{
-		ScriptableObject temp = item;
-		Debug.Log(temp);
-        //for each through the action bar to find the camera 
-        foreach (var entry in weaponAmmoDict)
-        {
-			Debug.Log(entry);
-            if (entry.Value == 4)
-            {
-                weaponAmmoDict[entry.Key] += additionalAmmo;
-                Debug.Log($"Updated ammo for {entry.Key.name} to {weaponAmmoDict[entry.Key]}");
-                break; // Exit loop after updating the first item with ammo 0  
-            }
-        }
+		foreach (var entry in weaponAmmoDict)
+		{
+			if (entry.Key is WeapClass weap && weap.weaponType == WeapClass.WeaponType.gun)
+			{
+				weaponAmmoDict[entry.Key] += additionalAmmo;
 
-        //foreach through the action bar again to find temp 
-        //reduce temp stack size by one
-        ammoBar.setAmmo(ammo);
+				// If the equipped item is the same gun, update the local ammo and UI
+				if (item == entry.Key)
+				{
+					ammo = weaponAmmoDict[entry.Key];
+					ammoBar.setAmmo(ammo);
+				}
+
+				Debug.Log($"Added {additionalAmmo} ammo to {entry.Key.name}. New ammo count: {weaponAmmoDict[entry.Key]}");
+				break;
+			}
+		}
 	}
+
 	#endregion
 
 	#region Melee Methods
