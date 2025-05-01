@@ -204,7 +204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 70db52de050e0bc4bb5db494aca4f443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90c47230963052a4e9d8226d127f9547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 4
+  radius: 2.71
   playerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -301,11 +301,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
   spawnedEnemies: []
   enemySpawnCoolDown: 0
   enemySpawnCoolTime: 0
   enemyCount: 0
-  maxEnemies: 6
+  maxEnemies: 2
   isSpawningEnemy: 0
   radius: 4
   minPositionShift: 1
@@ -378,9 +380,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0
+  m_FalloffIntensity: 0.23
   m_Color: {r: 0.5188679, g: 0.090557136, b: 0.090557136, a: 1}
-  m_Intensity: 40
+  m_Intensity: 5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000

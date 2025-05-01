@@ -90,7 +90,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         muzzleflash = muzzle.GetComponent<Light2D>();
         flashlightLights[0] = flashlight.GetComponent<Light2D>();
         flashlightLights[1] = flashlight.transform.GetChild(0).GetComponent<Light2D>();
-		health = 100f;
+		//health = 100f;
         speed = defaultSpeed;
         sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
 

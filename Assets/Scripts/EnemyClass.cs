@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour,IDamageable
     {
         _currentHealth = MaxHp;
         _audioSource = GetComponentInChildren<AudioSource>();
-		bloodDropPool = new ObjectPooler<GameObject>(bloodDrop,21,null);
+		bloodDropPool = new ObjectPooler<GameObject>(bloodDrop,10,null);
         hurtSoundPool = new ObjectPooler<GameObject>(_audioSource.gameObject,5,null);
 		//bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
 		aiLerp = GetComponent<AILerp>();
