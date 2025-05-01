@@ -17,6 +17,5 @@ MonoBehaviour:
   description: Add to the Camera
   isStackable: 1
   isDroppable: 0
-  equipSpeed: 0
-  amount: 2
+  amount: 3
   consumableType: 1

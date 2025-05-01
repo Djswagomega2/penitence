@@ -7,6 +7,8 @@ public class DoorScript : MonoBehaviour,IInteractable
     public InventoryManager inventoryManager;
     private ScriptableObject item;
 	[SerializeField] private bool isClosed = true;
+	[SerializeField] private AudioSource doorSource;
+	[SerializeField] private AudioClip doorOpenSound;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -22,6 +24,7 @@ public class DoorScript : MonoBehaviour,IInteractable
 			// Open the door
 			// Add your door opening logic here
 			Destroy(gameObject);
+
 		}
 	}
 

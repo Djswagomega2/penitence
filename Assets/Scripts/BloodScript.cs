@@ -27,7 +27,7 @@ public class BloodScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      /*  despawnTime -= Time.deltaTime;
+        despawnTime -= Time.deltaTime;
         if (despawnTime < 0)
         {
             newColor.a -= 0.001f;
@@ -35,6 +35,6 @@ public class BloodScript : MonoBehaviour
 
 
             if (newColor.a <= 0) pooler.ReturnToPool(gameObject);
-        }*/
+        }
     }
 }
