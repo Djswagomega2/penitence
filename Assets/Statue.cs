@@ -20,20 +20,24 @@ public class Statue : MonoBehaviour, IInteractable
 	[SerializeField] private Sprite[] statueCloseUps;
 	[SerializeField] private Collider2D interactCollider;
     [SerializeField] private List<string[]> statueDialogues = new List<string[]>();
-    [SerializeField] private int dialougeIndex; // Index to track which statue dialogue to use
 
 	private bool isTalking = false;
 
     void Start()
     {
-        gameManager = GameObject.Find("GameController").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameController").GetComponent<GameManager>();
         dialougeBox.GetComponentInChildren<Image>().sprite = null;
 		// Only setup multiple dialogues for regular Statue
 		if (statueType == StatueType.Statue)
 		{
-			statueDialogues.Add(new string[] {"I am a statue.","I have stood here for centuries.","My purpose is unknown."});
-			statueDialogues.Add(new string[] {"Time flows differently for me.","Still as the stone I’m carved from."});
-			statueDialogues.Add(new string[] {"This world changes.","But I remain."});
+			statueDialogues.Add(new string[] {"this face, it looks familiar" });
+			statueDialogues.Add(new string[] { "This one looks familiar too" });
+			statueDialogues.Add(new string[] { "this one too." });
+            statueDialogues.Add(new string[] { "what..." });
+            statueDialogues.Add(new string[] { "no…" });
+            statueDialogues.Add(new string[] { "it can’t be…" }); 
+            statueDialogues.Add(new string[] { "how..." });
+
 		}
 
 	}
@@ -50,13 +54,13 @@ public class Statue : MonoBehaviour, IInteractable
     private void PopulateTextQueue()
     {
         //fix this queue is being cleared 
-		textQueue.Clear(); 
+		//textQueue.Clear();
 
 		if (statueType == StatueType.Statue)
 		{
-			if (dialougeIndex < statueDialogues.Count)
+			if (gameManager.statuesInteracted < statueDialogues.Count)
 			{
-				foreach (string line in statueDialogues[dialougeIndex])
+				foreach (string line in statueDialogues[gameManager.statuesInteracted])
 				{
 					textQueue.Enqueue(line);
 				}
@@ -66,8 +70,6 @@ public class Statue : MonoBehaviour, IInteractable
 				// Optional fallback if dialogueIndex exceeds defined dialogues
 				textQueue.Enqueue("I have nothing more to say.");
 			}
-
-			statueImage.sprite = statueCloseUps[0];
 		}
 		else if (statueType == StatueType.EvilStatue)
 		{
@@ -109,8 +111,7 @@ public class Statue : MonoBehaviour, IInteractable
 
         if (statueType == StatueType.Statue)
         {
-            gameManager.statuesInteracted++;
-			dialougeIndex++;
+			gameManager.statuesInteracted++;
 			yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
             interactCollider.enabled = false; // Disable the collider after interaction
             staute.layer = LayerMask.NameToLayer("Default"); //fix this past the first statue
@@ -125,7 +126,7 @@ public class Statue : MonoBehaviour, IInteractable
             staute.layer = LayerMask.NameToLayer("Default");
         }
 
-        dialougeBox.SetActive(false);
+		dialougeBox.SetActive(false);
 		statueImage.enabled = false;
         isTalking = false;
     }
