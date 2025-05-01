@@ -13,6 +13,7 @@ public class DoorScript : MonoBehaviour,IInteractable
 	void Start()
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
+		doorSource = GetComponent<AudioSource>();
 		isClosed = true;
 	}
 
@@ -24,6 +25,8 @@ public class DoorScript : MonoBehaviour,IInteractable
 			// Open the door
 			// Add your door opening logic here
 			Destroy(gameObject);
+			doorSource.clip = doorOpenSound;
+			doorSource.Play();
 
 		}
 	}

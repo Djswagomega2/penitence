@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 	public int notePiecesCollected;
 	[SerializeField] private bool allPiecesCollected;
 	public int statuesInteracted;
-	[SerializeField] private bool allStatuesInteracted;
+	public bool allStatuesInteracted;
 
 
     private void Start()
