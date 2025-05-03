@@ -74,11 +74,15 @@ public class InventoryManager : MonoBehaviour
             {
                 inventoryPanel.SetActive(false);
                 isInventoryOpened = false;
+                hotbarSlotHolder.SetActive(true);
+                hotbarSelector.SetActive(true);
             }
             else
             {
                 inventoryPanel.SetActive(true);
                 isInventoryOpened = true;
+                hotbarSlotHolder.SetActive(false);
+                hotbarSelector.SetActive(false);
             }
         }
         if (inventoryPanel.activeSelf)
