@@ -7,10 +7,14 @@ public class GeneratorScript : MonoBehaviour,IInteractable
     public LevelOneManager levelOneManager;
     public GameObject generator;
     public Sprite activeGenerator;
-
+    public AudioSource audioSource;
+    public GameObject trainLights;
+    public GameObject trainNoise;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        trainLights.SetActive(false);
+        trainNoise.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,6 +28,8 @@ public class GeneratorScript : MonoBehaviour,IInteractable
         levelOneManager.generatorAmountTurnedOn++;
         generator.layer = LayerMask.NameToLayer("Default");
         generator.GetComponent<SpriteRenderer>().sprite = activeGenerator;
-        Debug.Log("Turned this on");
+        audioSource.Play();
+        trainLights.SetActive(true);
+        trainNoise.SetActive(true);
     }
 }
