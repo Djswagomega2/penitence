@@ -33,7 +33,7 @@ public class WeaponObjectScript : MonoBehaviour
 	[SerializeField] private GameObject weaponObject;
 	[SerializeField] private GameObject fist;
 	[SerializeField] private GameObject blockingObject;
-	[SerializeField]  private GameObject projectile;
+	[SerializeField] private GameObject projectile;
 	[SerializeField] private float stunSeconds; //Can potentially be moved to weap class
 	[SerializeField] private float coolDownSeconds; //Can potentially be moved to weap class
 	#endregion
