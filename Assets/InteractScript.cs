@@ -47,6 +47,7 @@ public class InteractScript : MonoBehaviour
                 if (interactableList[selectedIndex].gameObject.TryGetComponent(out IInteractable interactGameObject))
                 {
                     interactGameObject.Interact();
+                    textHolder.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "" ;
                     if (selectedIndex != 0) selectedIndex -= 1;
                 }
             }

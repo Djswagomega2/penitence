@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Canvas pauseScreen;
     [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
 	[SerializeField] private bool isPaused;
-	[SerializeField] private int notePiecesCollected;
+	public int notePiecesCollected;
 	[SerializeField] private bool allPiecesCollected;
-	
+	public int statuesInteracted;
+	public bool allStatuesInteracted;
 
-	private void Start()
+
+    private void Start()
 	{
 		pauseScreen.enabled = false;
 	}
@@ -35,5 +38,8 @@ public class GameManager : MonoBehaviour
 			pauseScreen.enabled = false;
 		}
 	}
-
+	public void LoadScene(int scene) 
+	{ 
+		SceneManager.LoadScene(scene);
+    }
 }

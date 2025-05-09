@@ -7,9 +7,9 @@ public class FOV : MonoBehaviour
 {
 	[SerializeField] private float fov = 90f; // Field of view in degrees
 	public float distance = 5f; // Max raycast distance
-	[SerializeField] private int rayCount = 10; // Number of FOV rays
-	[SerializeField] private int smallerRaysCount = 12; // Rays around the enemy
-	[SerializeField] private float smallerRayDistance = 2f; // Distance for smaller rays
+	[SerializeField] private int rayCount = 5; // Reduced for performance
+	[SerializeField] private int smallerRaysCount = 6; // Reduced for performance
+	[SerializeField] private float smallerRayDistance = 2f;
 	[SerializeField] private AIPath aiPath;
 
 	private Rigidbody2D rb;
@@ -19,86 +19,77 @@ public class FOV : MonoBehaviour
 	private AILerp aiLerp;
 
 	// Buffer array for RaycastNonAlloc results
-	private RaycastHit2D[] hitsBuffer = new RaycastHit2D[10];
+	private RaycastHit2D[] hitsBuffer = new RaycastHit2D[20];
+
+	// Detection timing
+	private float checkInterval = 0.2f; // check every 0.2s (5x per second)
+	private float checkTimer = 0f;
+
 	void Start()
 	{
-		aiLerp = gameObject.GetComponent<AILerp>();
-		rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D
+		aiLerp = GetComponent<AILerp>();
+		rb = GetComponent<Rigidbody2D>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		aiPath = GetComponent<AIPath>();
 	}
 
 	void Update()
 	{
+		checkTimer -= Time.deltaTime;
+		if (checkTimer <= 0f)
+		{
+			checkTimer = checkInterval;
+			PerformDetection();
+		}
+	}
+
+	private void PerformDetection()
+	{
 		if (rb == null || player == null || aiPath == null) return;
 
-		// Get facing angle of AI
 		float facingAngle = GetFacingAngle();
 
-		// Cast FOV rays
-		if (CheckFOV(facingAngle)) return;
+		// Reset vision flag
+		canSeePlayer = false;
 
-		// Cast smaller rays around the enemy
+		if (CheckFOV(facingAngle)) return;
 		CheckSmallerRays();
 	}
 
 	private float GetFacingAngle()
 	{
-		// Get direction towards the AI's steering target (next path point)
 		Vector2 nextWaypointDirection = ((Vector2)aiPath.steeringTarget - (Vector2)transform.position).normalized;
-
-		// Convert direction to angle
 		return Mathf.Atan2(nextWaypointDirection.y, nextWaypointDirection.x) * Mathf.Rad2Deg;
 	}
 
 	private bool CheckFOV(float facingAngle)
 	{
-		// Calculate the starting angle for the FOV
 		float angleStep = fov / (rayCount - 1);
-		float startAngle = facingAngle - (fov / 2);
+		float startAngle = facingAngle - (fov / 2f);
 
-		canSeePlayer = false;
-
-		// Cast the FOV rays
 		for (int i = 0; i < rayCount; i++)
 		{
 			float angle = startAngle + (i * angleStep);
 			Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
 
-			// Perform the raycast and store results in the hitsBuffer
 			int hitCount = Physics2D.RaycastNonAlloc(transform.position, direction, hitsBuffer, distance, layerMask);
-
-			// Visualize the FOV rays (Red)
 			Debug.DrawRay(rb.position, direction * distance, Color.red);
 
-			// Iterate through all hits
 			for (int j = 0; j < hitCount; j++)
 			{
-				RaycastHit2D hit = hitsBuffer[j];
-				if (hit.collider != null && hit.collider.gameObject == player)
+				if (hitsBuffer[j].collider != null && hitsBuffer[j].collider.gameObject == player)
 				{
-					// Perform another raycast to ensure no walls block the view
-					RaycastHit2D wallCheck = Physics2D.Raycast(rb.position,
-																((Vector2)player.transform.position - rb.position).normalized,
-																hit.distance,
-																layerMask);
-
-					// Only set canSeePlayer to true if there's no wall blocking the view
-					if (wallCheck.collider == null || wallCheck.collider.gameObject == player)
-					{
-						canSeePlayer = true;
-						return true; // Stop checking once the player is confirmed visible
-					}
+					canSeePlayer = true;
+					return true;
 				}
 			}
 		}
 
-		return false; // No player detected in FOV
+		return false;
 	}
 
 	private void CheckSmallerRays()
 	{
-		// Cast smaller rays around the enemy if player is not already detected
 		float angleIncrement = 360f / smallerRaysCount;
 
 		for (int i = 0; i < smallerRaysCount; i++)
@@ -106,30 +97,15 @@ public class FOV : MonoBehaviour
 			float angle = i * angleIncrement;
 			Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
 
-			// Perform the raycast and store results in the hitsBuffer
 			int hitCount = Physics2D.RaycastNonAlloc(transform.position, direction, hitsBuffer, smallerRayDistance, layerMask);
-
-			// Visualize the smaller rays (Blue)
 			Debug.DrawRay(transform.position, direction * smallerRayDistance, Color.blue);
 
-			// Iterate through all hits
 			for (int j = 0; j < hitCount; j++)
 			{
-				RaycastHit2D smallHit = hitsBuffer[j];
-				if (smallHit.collider != null && smallHit.collider.gameObject == player)
+				if (hitsBuffer[j].collider != null && hitsBuffer[j].collider.gameObject == player)
 				{
-					// Perform another raycast to ensure no walls block the view
-					RaycastHit2D wallCheck = Physics2D.Raycast(transform.position,
-																(player.transform.position - transform.position).normalized,
-																smallHit.distance,
-																layerMask);
-
-					// Only set canSeePlayer to true if there's no wall blocking the view
-					if (wallCheck.collider == null || wallCheck.collider.gameObject == player)
-					{
-						canSeePlayer = true;
-						return; // Stop checking once the player is confirmed visible
-					}
+					canSeePlayer = true;
+					return;
 				}
 			}
 		}

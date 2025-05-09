@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 912267990412470607}
   - component: {fileID: -3382419448225064713}
   - component: {fileID: 324920037108513424}
+  - component: {fileID: 3997074772098359774}
   m_Layer: 0
   m_Name: Sight Enemy
   m_TagString: Enemy
@@ -203,7 +204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 70db52de050e0bc4bb5db494aca4f443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -227,13 +228,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90c47230963052a4e9d8226d127f9547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 4
+  radius: 2.71
   playerMask:
     serializedVersion: 2
     m_Bits: 128
   visualDisorient: {fileID: 5520603155469732172, guid: d63d48395947dab43ab2a2a229e30c4e, type: 3}
   spawnerScript: {fileID: 0}
   warningLight: {fileID: 6356275620627168500}
+  animator: {fileID: 0}
 --- !u!58 &912267990412470607
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -299,15 +301,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
+  - {fileID: 2737112834036079629, guid: d7c52281c63b5c24fb386b968af48271, type: 3}
   spawnedEnemies: []
   enemySpawnCoolDown: 0
   enemySpawnCoolTime: 0
   enemyCount: 0
-  maxEnemies: 6
+  maxEnemies: 2
   isSpawningEnemy: 0
   radius: 4
   minPositionShift: 1
   maxPositionShift: 1.5
+--- !u!95 &3997074772098359774
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796713372382137919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 881bf7b675f685649838a5b5d0f6ab53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8676687744155289434
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,9 +380,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0
+  m_FalloffIntensity: 0.23
   m_Color: {r: 0.5188679, g: 0.090557136, b: 0.090557136, a: 1}
-  m_Intensity: 40
+  m_Intensity: 5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
