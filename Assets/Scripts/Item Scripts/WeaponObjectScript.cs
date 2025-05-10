@@ -122,7 +122,10 @@ public class WeaponObjectScript : MonoBehaviour
 				break;
 			case WeapClass.WeaponType.melee:
 				MeleeAttack();
-				Block();
+				if (WeapClassScript == fists)
+				{
+					Block();
+				}
 				break;
 			case WeapClass.WeaponType.throwable:
 				throwAction();
@@ -145,12 +148,15 @@ public class WeaponObjectScript : MonoBehaviour
 				playerScript.muzzleflash.intensity = 50f;
 				weaponAnimator.Play("Jonh_Camera");
 				PlayGunShot();
-				RaycastHit2D hit = Physics2D.Raycast(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
-				if (hit)
+				RaycastHit2D[] hits = Physics2D.RaycastAll(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
+				Debug.DrawLine(playerScript.firePoint.position, playerScript.mouseWorldPosition, Color.red, 1f);
+				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject.CompareTag("Enemy"))
+					Transform root = hit.collider.transform.root;
+					if (root.CompareTag("Enemy"))
 					{
-						StartCoroutine(stun(hit.collider.gameObject.GetComponent<Pathfinding.AILerp>(), stunSeconds));
+						Debug.Log("Got Enemy");
+						StartCoroutine(stun(root.GetComponent<Pathfinding.AILerp>(), stunSeconds));
 					}
 				}
 				StartCoroutine(bulletShellSound());
