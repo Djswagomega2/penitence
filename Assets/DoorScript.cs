@@ -9,10 +9,14 @@ public class DoorScript : MonoBehaviour,IInteractable
 	[SerializeField] private bool isClosed = true;
 	[SerializeField] private AudioSource doorSource;
 	[SerializeField] private AudioClip doorOpenSound;
-	// Start is called before the first frame update
-	void Start()
+	[SerializeField] private DialogueScript dialogueScript;
+    [SerializeField] private GameObject dalougeBox;
+	private bool isShowingDialogue = false;
+    // Start is called before the first frame update
+    void Start()
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
+		doorSource = GetComponent<AudioSource>();
 		isClosed = true;
 	}
 
@@ -24,6 +28,8 @@ public class DoorScript : MonoBehaviour,IInteractable
 			// Open the door
 			// Add your door opening logic here
 			Destroy(gameObject);
+			doorSource.clip = doorOpenSound;
+			doorSource.Play();
 
 		}
 	}
@@ -37,12 +43,25 @@ public class DoorScript : MonoBehaviour,IInteractable
 			{
 				isClosed = false;
 			}
-			//else say "you need a key to open this door"
-			else
-			{
-				Debug.Log("You need a key to open this door.");
-			}
 		}
-	}
+        else
+        {
+			if (!isShowingDialogue)
+			{
+				StartCoroutine(lockedDialouge());
+			}
+        }
+    }
+
+	private IEnumerator lockedDialouge() 
+	{
+        isShowingDialogue = true;
+        dalougeBox.SetActive(true);
+		dialogueScript.dialogue("The door is locked", 0.01f);
+        yield return new WaitForSeconds(0.01f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+        dalougeBox.SetActive(false);
+        isShowingDialogue = false;
+    }
 
 }

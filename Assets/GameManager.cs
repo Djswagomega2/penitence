@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
 	public int notePiecesCollected;
 	[SerializeField] private bool allPiecesCollected;
 	public int statuesInteracted;
-	[SerializeField] private bool allStatuesInteracted;
+	public bool allStatuesInteracted;
 
 
     private void Start()
@@ -37,5 +38,8 @@ public class GameManager : MonoBehaviour
 			pauseScreen.enabled = false;
 		}
 	}
-
+	public void LoadScene(int scene) 
+	{ 
+		SceneManager.LoadScene(scene);
+    }
 }

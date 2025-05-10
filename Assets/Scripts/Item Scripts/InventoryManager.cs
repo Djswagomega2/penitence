@@ -74,11 +74,15 @@ public class InventoryManager : MonoBehaviour
             {
                 inventoryPanel.SetActive(false);
                 isInventoryOpened = false;
+                hotbarSlotHolder.SetActive(true);
+                hotbarSelector.SetActive(true);
             }
             else
             {
                 inventoryPanel.SetActive(true);
                 isInventoryOpened = true;
+                hotbarSlotHolder.SetActive(false);
+                hotbarSelector.SetActive(false);
             }
         }
         if (inventoryPanel.activeSelf)
@@ -251,7 +255,6 @@ public class InventoryManager : MonoBehaviour
         if (itemUsed is ConsumableClass consumable)
         {
             consumable.MultiUse(player, weap);
-            //Make batery increase both the light and the camera 
         }
         else if (itemUsed is MiscClass misc) 
         {

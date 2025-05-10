@@ -10,12 +10,12 @@ public class BatMelee : MonoBehaviour
 	{
 		weaponObjectScript = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponObjectScript>();
 	}
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.CompareTag("Enemy"))
-		{
-			Debug.Log("I've been hit");
-			collision.gameObject.GetComponent<Enemy>().ReceiveDamage(weaponObjectScript.WeapClassScript.weaponDamage);
-		}
-	}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("I've been hit");
+            collision.gameObject.GetComponent<Enemy>().ReceiveDamage(weaponObjectScript.WeapClassScript.weaponDamage);
+        }
+    }
 }

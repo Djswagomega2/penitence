@@ -30,7 +30,7 @@ public class BloodScript : MonoBehaviour
         despawnTime -= Time.deltaTime;
         if (despawnTime < 0)
         {
-            newColor.a -= 0.001f;
+            newColor.a -= 0.01f;
             GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, newColor, 1f);
 
 
