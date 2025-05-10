@@ -156,7 +156,7 @@ public class WeaponObjectScript : MonoBehaviour
 					if (root.CompareTag("Enemy"))
 					{
 						Debug.Log("Got Enemy");
-						StartCoroutine(stun(root.GetComponent<Pathfinding.AILerp>(), stunSeconds));
+						StartCoroutine(stun(root.GetComponent<Pathfinding.AILerp>(), root.GetComponent<Animator>(), stunSeconds));
 					}
 				}
 				StartCoroutine(bulletShellSound());
@@ -173,10 +173,12 @@ public class WeaponObjectScript : MonoBehaviour
 		playerScript.muzzleflash.intensity = Mathf.Clamp(playerScript.muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
 	}
 
-	private IEnumerator stun(Pathfinding.AILerp aiLerp, float stunTime)
+	private IEnumerator stun(Pathfinding.AILerp aiLerp, Animator enemyAnimator, float stunTime)
 	{
 		aiLerp.canMove = false;
+		enemyAnimator.enabled = false;
 		yield return new WaitForSeconds(stunTime);
+		enemyAnimator.enabled = true;
 		aiLerp.canMove = true;
 	}
 
@@ -313,7 +315,7 @@ public class WeaponObjectScript : MonoBehaviour
 	private IEnumerator playBlockAnim(string animName)
 	{
 		bool isPlayingAnim = true;//used to yield the time to the anim so it doesnt instantly destroy the anim object.
-		Vector2 weaponPos = new Vector2(playerTransform.position.x + WeapClassScript.offsetVector.x, playerTransform.position.y + WeapClassScript.offsetVector.y);
+		Vector2 weaponPos = new Vector2(playerTransform.position.x + (WeapClassScript.offsetVector.x * 1.5f), playerTransform.position.y + WeapClassScript.offsetVector.y);
 		Instantiate(blockingObject, weaponPos, Quaternion.Euler(0, 0, playerTransform.rotation.eulerAngles.z));
 		if (isPlayingAnim)
 		{

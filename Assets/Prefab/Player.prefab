@@ -705,7 +705,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: -659066
+  m_InstanceId: -1644
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}
@@ -753,7 +753,7 @@ MonoBehaviour:
   fist: {fileID: 6184510514758950063, guid: 2deca79043c1bb34daab67a89b356df0, type: 3}
   blockingObject: {fileID: 5173538698159292605, guid: aed235962a0c26b47ba1556f396682c6, type: 3}
   projectile: {fileID: 2446294002078769099, guid: cb2f839903350c54c89795464eda33f3, type: 3}
-  stunSeconds: 3
+  stunSeconds: 1
   coolDownSeconds: 2
   weaponAudioSource: {fileID: 2085687854735642901}
   ammoBar: {fileID: 0}

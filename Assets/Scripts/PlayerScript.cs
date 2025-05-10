@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     public float health;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
+    [SerializeField] private Animator johnAnimator;
 	#endregion
 
 	#region Movement Variables
@@ -90,6 +91,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         muzzleflash = muzzle.GetComponent<Light2D>();
         flashlightLights[0] = flashlight.GetComponent<Light2D>();
         flashlightLights[1] = flashlight.transform.GetChild(0).GetComponent<Light2D>();
+        johnAnimator = GetComponent<Animator>();
 		//health = 100f;
         speed = defaultSpeed;
         sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
@@ -247,6 +249,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	public void Heal(float healAmount)
 	{
 		var updatedHealth = health + healAmount;
+        johnAnimator.Play("John_Heal");
 		UpdateHealth(updatedHealth < 100 ? updatedHealth : 100);
 	}
 
