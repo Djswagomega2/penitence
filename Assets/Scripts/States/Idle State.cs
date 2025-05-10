@@ -1,21 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 
 public class IdleState : State
 {
-    public ChaseState chaseState;
-    public bool canSeePlayer;
 
-    public override State RunCurrentState()
+    #region General
+    [Header("General")]
+    public bool showGizmos;
+    [SerializeField] private Animator animator;
+	#endregion
+
+	#region States to transition to
+	[Header("States to transition to")]
+    public State pursuitState;
+    #endregion
+
+    #region Tracking the Player
+    [Header("Tracking the Player")]
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private FOV fov;
+	#endregion
+
+
+	public void Start()
+	{
+		fov = enemy.GetComponent<FOV>();
+		animator = enemy.GetComponent<Animator>();
+        animator.enabled = false;
+	}
+
+	public override State RunCurrentState()
     {
-        if (canSeePlayer)
+        if (fov.canSeePlayer)
         {
-            return chaseState;
+            showGizmos = false;
+            animator.enabled = true;
+			return pursuitState;
         }
-        else
+        else 
         {
-            return this;
-        }
+           showGizmos = true;
+           animator.enabled = false;
+		}
+
+        return this;
     }
+
+
 }

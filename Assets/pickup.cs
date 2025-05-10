@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class pickup : MonoBehaviour
 {
+    //Change it so that we can use this script for any item, not just melee
     [SerializeField] private GameObject inventory;
     private InventoryManager inventoryManager;
-    [SerializeField] private WeapClass weapon;
+    [SerializeField] private ItemClass weapon;
     [SerializeField] private AudioClip pickupSound;
     void Start()
     {

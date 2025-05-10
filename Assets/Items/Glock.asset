@@ -14,18 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Glock 18
   itemIcon: {fileID: 21300000, guid: c585352f955cfcf4bac51800dd6138d3, type: 3}
-  description: a blicky
+  description: A handy dandy Camera
   isStackable: 0
   isDroppable: 0
   itemObject: {fileID: 0}
-  equipSound: {fileID: 0}
+  equipSpeed: 0
   weaponType: 0
   weaponDamage: 0
-  ammoCapacity: 0
-  _fireRate: 0
-  firingError: 0
-  damageFalloffRange: 0
-  damageFalloff: 0
-  reloadSpeed: 0
+  atkRate: 0
+  atkRange: 0
   attackSound: {fileID: 0}
-  reloadSound: {fileID: 0}

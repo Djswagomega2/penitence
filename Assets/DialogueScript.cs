@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class DialogueScript : MonoBehaviour
 {
     private RectTransform rectTransform;
-    private TextMeshProUGUI textDisplay;
+    public TextMeshProUGUI textDisplay;
     private Image img;
     public string fullText;
     private string curText = "";
-    public float delay = 0.05f;
     public AudioClip textSound;
     private bool isTextPlaying;
 
@@ -19,7 +18,7 @@ public class DialogueScript : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        textDisplay = GetComponentInChildren<TextMeshProUGUI>();
+        //textDisplay = GetComponentInChildren<TextMeshProUGUI>();
         img = GetComponentInChildren<Image>();
         isTextPlaying = false;
     }
@@ -27,28 +26,23 @@ public class DialogueScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!isTextPlaying)
-            {
-                StartCoroutine(DisplayText());
-                isTextPlaying = true;
-            }
-            else
-            {
-                StopCoroutine(DisplayText());
-                isTextPlaying = false;
-            }
+            dialogue(fullText,0.01f);
         }
     }
-    IEnumerator DisplayText()
+    public void dialogue(string text,float delay) // throwaway function or rename this shit PLEASE
     {
-        for (int i = 0; i < fullText.Length + 1; i++)
+            StartCoroutine(DisplayText(text, delay));
+    }
+    public IEnumerator DisplayText(string text,float delay)
+    {
+        for (int i = 0; i < text.Length + 1; i++)
         {
-            curText = fullText.Substring(0, i);
+            curText = text.Substring(0, i);
             textDisplay.text = curText;
             yield return new WaitForSeconds(delay);
         }
     }
-    IEnumerator MoveFromTo(Vector3 from, Vector3 to, float speed, RectTransform transform)
+    private IEnumerator MoveFromTo(Vector3 from, Vector3 to, float speed, RectTransform transform)
     {
         float t = 0f;
 

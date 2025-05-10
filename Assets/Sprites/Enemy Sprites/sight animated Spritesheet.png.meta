@@ -1,0 +1,888 @@
+fileFormatVersion: 2
+guid: 6bb4bdaedd8bdfc45a0edca902dcd7c1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sight animated Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10400
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a3caf95def7cf46800f1840ccc89bc
+      internalID: 1368451949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 10400
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e73876e9fc185e4caf03b1585cc9c5f
+      internalID: -316908134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 10400
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e39f1efebedf643b9203c69c3b4058
+      internalID: -1026466055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 10400
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c7cb690ad00454e8889a73e4a5e95e
+      internalID: -1863545215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 10400
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eece0272d8976d4d9dcd754adfc97ce
+      internalID: -2042391924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 10400
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82898b8017ee1ed409a59992d7d7cddd
+      internalID: -423093684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8320
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 397da7e4512036047b10272d7e0c63aa
+      internalID: -1697743858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 8320
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d24b73f425ce55418e1a7b933cdf7b1
+      internalID: 1690538106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 8320
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8134854e6ce27db439e6551698544c52
+      internalID: 1406024696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 8320
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430314015b3f040439eb3217947e3cd7
+      internalID: -513284801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 8320
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630a99896e231a749b3bc741042ebea3
+      internalID: 751123213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 8320
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e01bf266c5e1e49adaa90027c8348f
+      internalID: 1355224626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6240
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9174821055bf440b4f9e47ff19c7f1
+      internalID: 1552160002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 6240
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8364dd12c819f354694af5e8ae65e330
+      internalID: 574514752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 6240
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b591072fd567c4e80cb43682592bd5
+      internalID: -455164549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 6240
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4d91d26e9055c43822959ed4948d28
+      internalID: -1146438796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 6240
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc990122676e414488428bcb775118e
+      internalID: -1139091934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 6240
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1caee353d37f12544b2a6dd58db23ecc
+      internalID: -560827156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f8de07cdccb7342841e3a09c571bbe
+      internalID: 1817372545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 4160
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a662911fa174eb74d819fb8c09b04cb7
+      internalID: 471970433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 4160
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c9865cb107084439164c1a069bcc9c
+      internalID: -463623259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 4160
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb836767ce49414caffaa177d02ca62
+      internalID: 228102798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 4160
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234f3477a87e3f74ba0e72eab45728ff
+      internalID: 1573771876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 4160
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe14fd982c03725438492f99118e2ef4
+      internalID: -1904659961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2080
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df096d6005d2254a8bd4856cfe1d930
+      internalID: -1604484108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 2080
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613c7c6f678fe814c8d2f596cd05012f
+      internalID: -140814808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 2080
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc76989787e1d544af0afb05bdfd627
+      internalID: -1796407862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 2080
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa1c08fb20cb854aabe8cf6f5433b0d
+      internalID: 346526709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 8320
+        y: 2080
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b9b3db7b2f226418e9fab7a2a002fc
+      internalID: -726722264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 10400
+        y: 2080
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826ce06feabf0334e85dc69e4199fe00
+      internalID: 268351860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b06972cdf26a134cb3aa465055725a1
+      internalID: -1616578742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 0
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d603939c00a1643ab7daec18f1c17b
+      internalID: 157730095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 0
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99abfe84c15e3cf4aaf899e77559c998
+      internalID: 473035572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sight animated Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 6240
+        y: 0
+        width: 2080
+        height: 2080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a173d6376c2dcd4380e5b893cca8771
+      internalID: -286442397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sight animated Spritesheet_0: 1368451949
+      sight animated Spritesheet_1: -316908134
+      sight animated Spritesheet_10: 751123213
+      sight animated Spritesheet_11: 1355224626
+      sight animated Spritesheet_12: 1552160002
+      sight animated Spritesheet_13: 574514752
+      sight animated Spritesheet_14: -455164549
+      sight animated Spritesheet_15: -1146438796
+      sight animated Spritesheet_16: -1139091934
+      sight animated Spritesheet_17: -560827156
+      sight animated Spritesheet_18: 1817372545
+      sight animated Spritesheet_19: 471970433
+      sight animated Spritesheet_2: -1026466055
+      sight animated Spritesheet_20: -463623259
+      sight animated Spritesheet_21: 228102798
+      sight animated Spritesheet_22: 1573771876
+      sight animated Spritesheet_23: -1904659961
+      sight animated Spritesheet_24: -1604484108
+      sight animated Spritesheet_25: -140814808
+      sight animated Spritesheet_26: -1796407862
+      sight animated Spritesheet_27: 346526709
+      sight animated Spritesheet_28: -726722264
+      sight animated Spritesheet_29: 268351860
+      sight animated Spritesheet_3: -1863545215
+      sight animated Spritesheet_30: -1616578742
+      sight animated Spritesheet_31: 157730095
+      sight animated Spritesheet_32: 473035572
+      sight animated Spritesheet_33: -286442397
+      sight animated Spritesheet_4: -2042391924
+      sight animated Spritesheet_5: -423093684
+      sight animated Spritesheet_6: -1697743858
+      sight animated Spritesheet_7: 1690538106
+      sight animated Spritesheet_8: 1406024696
+      sight animated Spritesheet_9: -513284801
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

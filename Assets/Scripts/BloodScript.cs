@@ -10,7 +10,7 @@ public class BloodScript : MonoBehaviour
     private Color oldColor;
     private float alpha;
     private float size;
-    
+    private ObjectPooler<GameObject> pooler;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class BloodScript : MonoBehaviour
         size = Random.Range(0.5f, 1.5f);
         this.transform.localScale = new Vector3(size, size, 0f);
         localscale = this.transform.localScale;
+        pooler = new ObjectPooler<GameObject>(gameObject, 10, null);
     }
 
     // Update is called once per frame
@@ -29,11 +30,11 @@ public class BloodScript : MonoBehaviour
         despawnTime -= Time.deltaTime;
         if (despawnTime < 0)
         {
-            newColor.a -= 0.001f;
+            newColor.a -= 0.01f;
             GetComponent<SpriteRenderer>().color = Color.Lerp(oldColor, newColor, 1f);
 
-            //local scale =;
-            if (newColor.a <= 0) Destroy(gameObject);
+
+            if (newColor.a <= 0) pooler.ReturnToPool(gameObject);
         }
     }
 }
