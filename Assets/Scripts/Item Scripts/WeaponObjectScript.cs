@@ -286,7 +286,7 @@ public class WeaponObjectScript : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire2") && InventoryManager.isInventoryOpened == false)
 		{
-			StartCoroutine(playBlockAnim(null));
+			StartCoroutine(playBlockAnim("John_Block"));
 		}
 	}
 

@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public GameObject spawner;
 
+    public GameObject resetPos;
+
     [SerializeField] private GameObject bloodSpray;
     [SerializeField] private GameObject bloodDrop;
     [SerializeField] private AudioSource _audioSource;
@@ -36,15 +38,16 @@ public class Enemy : MonoBehaviour,IDamageable
 		//bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
 		aiLerp = GetComponent<AILerp>();
 
+        if (spawner == null) 
+        {
+            Debug.Log("This enemy did not come from a spawner");
+        }
+
 	}
 
     public void Update()
     {
-        if(_currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            spawner.GetComponent<Spawner>().spawnedEnemies.Remove(gameObject);
-		}
+        Death();
     }
     public void UpdateHealth(float newHealthValue)
     {
@@ -60,12 +63,32 @@ public class Enemy : MonoBehaviour,IDamageable
 
     }
    public void DropBlood(int amount, float spread)
-    {
+   {
         for (int i = 0; i < amount; i++)
         {
             GameObject blood = bloodDropPool.Get((Vector2)(transform.position + Random.insideUnitSphere * spread), Quaternion.identity);
         }
-    }
+   }
+
+    public void Death() 
+    {
+		if (_currentHealth <= 0)
+		{
+			Destroy(gameObject);
+
+			int index = resetPos.GetComponent<EnemyResetPos>().enemies.IndexOf(gameObject);
+			if (index != -1)
+			{
+				resetPos.GetComponent<EnemyResetPos>().enemies.RemoveAt(index);
+				resetPos.GetComponent<EnemyResetPos>().originalPos.RemoveAt(index);
+			}
+
+			if (spawner != null) 
+            {
+			    spawner.GetComponent<Spawner>().spawnedEnemies.Remove(gameObject);
+			}
+		}
+	}
 
     /*private void SprayBlood()
     {
