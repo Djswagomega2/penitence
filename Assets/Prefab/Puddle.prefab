@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8809734691428259497}
   - component: {fileID: 6867601700775387550}
   - component: {fileID: 4714645316176218487}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Puddle
   m_TagString: Puddle
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17581558, y: -0.34064198}
+  m_Offset: {x: -0.15850067, y: -0.28869343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1583557, y: 4.0045166}
+  m_Size: {x: 7.794777, y: 6.809757}
   m_EdgeRadius: 0
 --- !u!114 &4714645316176218487
 MonoBehaviour:

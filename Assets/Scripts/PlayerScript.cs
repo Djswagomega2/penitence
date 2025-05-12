@@ -263,7 +263,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
     private IEnumerator puddleDamage() 
     {
-        ReceiveDamage(1);
+        ReceiveDamage(0.5f);
 		yield return new WaitForSeconds(2f);
 	}
 	#endregion;
