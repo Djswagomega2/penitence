@@ -272,6 +272,7 @@ MonoBehaviour:
   EnemyDmg: 10
   _currentHealth: 0
   spawner: {fileID: 0}
+  resetPos: {fileID: 0}
   bloodSpray: {fileID: 6122068742976237884, guid: f7ed74695a60d4d4b83e7fb95475d27a, type: 3}
   bloodDrop: {fileID: 2883353509993904058, guid: 3567e8daf5a60d144a0b5542f8febb85, type: 3}
   _audioSource: {fileID: 0}
@@ -475,7 +476,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -412522
+  m_InstanceId: -72264
   m_LocalBounds:
     m_Center: {x: 0, y: 0.000000059604645, z: 0}
     m_Extent: {x: 0.5, y: 0.50000006, z: 0}
@@ -547,16 +548,17 @@ MonoBehaviour:
   enemy: {fileID: 0}
   enemyTransform: {fileID: 0}
   pursuitState: {fileID: 5315522406446452025}
-  aiDestinationSetter: {fileID: 0}
-  aiPath: {fileID: 0}
-  aiLerp: {fileID: 0}
+  aiDestinationSetter: {fileID: 309965168748135338}
+  aiPath: {fileID: 1202889311472960103}
+  aiLerp: {fileID: 5757986107788678367}
   minDistanceBetweenPoints: 35
   randomDistanceFactor: 1.5
   wanderSpeed: 1.5
   stuckTimeThreshold: 3
   timeSinceLastMovement: 0
   lastKnownPosition: {x: 0, y: 0, z: 0}
-  fov: {fileID: 0}
+  recentMemoryCount: 3
+  fov: {fileID: 5476620224705431734}
 --- !u!1001 &5560429278422001469
 PrefabInstance:
   m_ObjectHideFlags: 0
