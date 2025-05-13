@@ -280,6 +280,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         CircleCollider2D cirCollider = droplet.AddComponent<CircleCollider2D>(); // Add a collider to the point
         cirCollider.isTrigger = true; // Set collider as trigger
         droplet.tag = "Droplet";
+        droplet.layer = LayerMask.NameToLayer("Droplet"); // Set the layer to Droplet
         return droplet;
     }
 	#endregion

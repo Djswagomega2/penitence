@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private Canvas pauseScreen;
+    [SerializeField] private GameObject pauseScreen;
     [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
 	[SerializeField] private bool isPaused;
 	public int notePiecesCollected;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		pauseScreen.enabled = false;
+		pauseScreen.SetActive(false);
 	}
 	// Update is called once per frame
 	void Update()
@@ -30,8 +30,9 @@ public class GameManager : MonoBehaviour
 		if (isPaused)
 		{
 			Time.timeScale = 0;
-			pauseScreen.enabled = true;
-		}
+			pauseScreen.SetActive(true);
+            player.GetComponent<PlayerScript>().enabled = false;
+        }
 		else
 		{
 			Time.timeScale = 1;

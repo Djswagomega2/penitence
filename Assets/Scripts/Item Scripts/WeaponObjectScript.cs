@@ -36,10 +36,12 @@ public class WeaponObjectScript : MonoBehaviour
 	[SerializeField] private GameObject projectile;
 	[SerializeField] private float stunSeconds; //Can potentially be moved to weap class
 	[SerializeField] private float coolDownSeconds; //Can potentially be moved to weap class
-	#endregion
+/*    [SerializeField]private float maxDistance;
+    [SerializeField] private LayerMask cameraLayers;*/
+    #endregion
 
-	#region Audio and SFX 
-	[Header("Audio and SFX")]
+    #region Audio and SFX 
+    [Header("Audio and SFX")]
 	[SerializeField] private AudioSource weaponAudioSource;
 	private ObjectPooler<AudioSource> gsPool;
 	private ObjectPooler<AudioSource> gnsPool;
@@ -53,10 +55,10 @@ public class WeaponObjectScript : MonoBehaviour
 
 	#region Animation Variables
 	[SerializeField] private Animator weaponAnimator;
-	
-	#endregion
-	// Start is called before the first frame update
-	void Start()
+    #endregion
+
+    // Start is called before the first frame update
+    void Start()
 	{
 		playerTransform = GetComponent<Transform>();
 		playerScript = GetComponent<PlayerScript>();
@@ -161,7 +163,7 @@ public class WeaponObjectScript : MonoBehaviour
 				}
 				StartCoroutine(bulletShellSound());
 				ammo--;
-				weaponAmmoDict[item] = ammo; // <-- persist the ammo change
+				weaponAmmoDict[item] = ammo; 
 				ammoBar.setAmmo(ammo);
 			}
 			else
