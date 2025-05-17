@@ -6,6 +6,7 @@ public class EnemyTriggerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject enemies;
+    public bool playerSteppedThrough;
     void Start()
     {
         enemies.SetActive(false);
@@ -22,6 +23,7 @@ public class EnemyTriggerScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             enemies.SetActive(true);
+            playerSteppedThrough = true;
             Debug.Log("Yes");
         }
     }

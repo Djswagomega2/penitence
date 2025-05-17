@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
 	public int notePiecesCollected;
 	[SerializeField] private bool allPiecesCollected;
 	public int statuesInteracted;
-	public bool allStatuesInteracted;
+	public GameObject door;
 
 
-    private void Start()
+	private void Start()
 	{
 		pauseScreen.enabled = false;
 	}
@@ -37,9 +37,18 @@ public class GameManager : MonoBehaviour
 			Time.timeScale = 1;
 			pauseScreen.enabled = false;
 		}
+
+		if (statuesInteracted >= 7)
+		{
+			Destroy(door);
+		}
+
 	}
+
 	public void LoadScene(int scene) 
 	{ 
 		SceneManager.LoadScene(scene);
     }
+
+	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); <-- Reloads the scene 
 }

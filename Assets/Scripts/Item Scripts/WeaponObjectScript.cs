@@ -122,7 +122,10 @@ public class WeaponObjectScript : MonoBehaviour
 				break;
 			case WeapClass.WeaponType.melee:
 				MeleeAttack();
-				Block();
+				if (WeapClassScript == fists)
+				{
+					Block();
+				}
 				break;
 			case WeapClass.WeaponType.throwable:
 				throwAction();
@@ -145,12 +148,15 @@ public class WeaponObjectScript : MonoBehaviour
 				playerScript.muzzleflash.intensity = 50f;
 				weaponAnimator.Play("Jonh_Camera");
 				PlayGunShot();
-				RaycastHit2D hit = Physics2D.Raycast(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
-				if (hit)
+				RaycastHit2D[] hits = Physics2D.RaycastAll(playerScript.firePoint.position, (Vector2)playerScript.mouseWorldPosition - (Vector2)playerScript.firePoint.position);
+				Debug.DrawLine(playerScript.firePoint.position, playerScript.mouseWorldPosition, Color.red, 1f);
+				foreach (var hit in hits)
 				{
-					if (hit.collider.gameObject.CompareTag("Enemy"))
+					Transform root = hit.collider.transform.root;
+					if (root.CompareTag("Enemy"))
 					{
-						StartCoroutine(stun(hit.collider.gameObject.GetComponent<Pathfinding.AILerp>(), stunSeconds));
+						Debug.Log("Got Enemy");
+						StartCoroutine(stun(root.GetComponent<Pathfinding.AILerp>(), root.GetComponent<Animator>(), stunSeconds));
 					}
 				}
 				StartCoroutine(bulletShellSound());
@@ -167,10 +173,12 @@ public class WeaponObjectScript : MonoBehaviour
 		playerScript.muzzleflash.intensity = Mathf.Clamp(playerScript.muzzleflash.intensity, 0f, 50f); //not the hardcoded muzzle flash
 	}
 
-	private IEnumerator stun(Pathfinding.AILerp aiLerp, float stunTime)
+	private IEnumerator stun(Pathfinding.AILerp aiLerp, Animator enemyAnimator, float stunTime)
 	{
 		aiLerp.canMove = false;
+		enemyAnimator.enabled = false;
 		yield return new WaitForSeconds(stunTime);
+		enemyAnimator.enabled = true;
 		aiLerp.canMove = true;
 	}
 
@@ -278,7 +286,7 @@ public class WeaponObjectScript : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire2") && InventoryManager.isInventoryOpened == false)
 		{
-			StartCoroutine(playBlockAnim(null));
+			StartCoroutine(playBlockAnim("John_Block"));
 		}
 	}
 
@@ -307,7 +315,7 @@ public class WeaponObjectScript : MonoBehaviour
 	private IEnumerator playBlockAnim(string animName)
 	{
 		bool isPlayingAnim = true;//used to yield the time to the anim so it doesnt instantly destroy the anim object.
-		Vector2 weaponPos = new Vector2(playerTransform.position.x + WeapClassScript.offsetVector.x, playerTransform.position.y + WeapClassScript.offsetVector.y);
+		Vector2 weaponPos = new Vector2(playerTransform.position.x + (WeapClassScript.offsetVector.x * 1.5f), playerTransform.position.y + WeapClassScript.offsetVector.y);
 		Instantiate(blockingObject, weaponPos, Quaternion.Euler(0, 0, playerTransform.rotation.eulerAngles.z));
 		if (isPlayingAnim)
 		{
