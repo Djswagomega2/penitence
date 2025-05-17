@@ -7,7 +7,9 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
 	//TODO: Fix Misc items in order to show note or unlock doors based off of the key or note
-	[SerializeField] private GameObject itemCursor;
+    public static InventoryManager instance; 
+
+    [SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject inventoryPanel;
 
 
@@ -35,32 +37,51 @@ public class InventoryManager : MonoBehaviour
 
     public static bool isInventoryOpened;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+    }
     private void Start()
     {
 
-        isInventoryOpened = false;
-        slots = new GameObject[slotHolder.transform.childCount];
-        items = new SlotClass[slots.Length];
+        if (items == null || items.Length == 0)
+        {
+            slots = new GameObject[slotHolder.transform.childCount];
+            items = new SlotClass[slots.Length];
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = new SlotClass();
+            }
+            for (int i = 0; i < startingItems.Length; i++)
+            {
+                items[i] = startingItems[i];
+            }
+        }
+        else
+        {
+            slots = new GameObject[slotHolder.transform.childCount];
+        }
 
         hotbarSlots = new GameObject[hotbarSlotHolder.transform.childCount];
-        for(int i = 0;i < hotbarSlots.Length; i++)
+        for (int i = 0; i < hotbarSlots.Length; i++)
         {
             hotbarSlots[i] = hotbarSlotHolder.transform.GetChild(i).gameObject;
         }
 
-        for (int i = 0; i < items.Length; i++)
-        {
-            items[i] = new SlotClass();
-        }
-        for (int i = 0; i < startingItems.Length; i++)
-        {
-            items[i] = startingItems[i];
-        }
-
         for (int i = 0; i < slotHolder.transform.childCount; i++)
             slots[i] = slotHolder.transform.GetChild(i).gameObject;
-        
+
         RefreshUI();
 
         Add(itemToAdd, 1);
