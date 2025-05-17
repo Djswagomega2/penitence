@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6283125988370780056}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -41.83, y: 52.69, z: 0.5}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 527a1701d9efae5439e5cd3011881d7b, type: 3}
-  m_Color: {r: 1, g: 0.20188677, b: 0.20188677, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -176,6 +176,6 @@ MonoBehaviour:
   staute: {fileID: 6283125988370780056}
   dialougeBox: {fileID: 0}
   statueCloseUps:
-  - {fileID: 21300000, guid: b1fa6198ac804dc488a2185d41e88601, type: 3}
   - {fileID: 21300000, guid: 0e12d2bf2a7c8e846a1bea4739ac9853, type: 3}
+  - {fileID: 21300000, guid: 3d7ac45ba3ca09e4daec158f5273afd6, type: 3}
   interactCollider: {fileID: 6370146916223243883}

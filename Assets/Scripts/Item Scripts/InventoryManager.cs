@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System;
+using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -36,21 +39,30 @@ public class InventoryManager : MonoBehaviour
     public ItemClass selectedItem;
 
     public static bool isInventoryOpened;
-
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Initialize slots
+            for (int i = 0; i < items.Length; i++)
+                items[i] = new SlotClass();
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-
     }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
 
@@ -87,6 +99,60 @@ public class InventoryManager : MonoBehaviour
         Add(itemToAdd, 1);
         Remove(itemToRemove);
     }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        itemCursor = GameObject.Find("Cursor");
+        inventoryPanel = GameObject.Find("InventoryPanel");
+        hotbarSlotHolder = GameObject.Find("Hotbar");
+        hotbarSelector = GameObject.Find("HotbarSelector");
+        slotHolder = inventoryPanel.transform.GetChild(1).gameObject;
+
+        // Get all the hotbar slots
+        for (int i = 0; i < hotbarSlotHolder.transform.childCount; i++)
+        {
+            GameObject slotObj = hotbarSlotHolder.transform.GetChild(i).gameObject;
+
+            // Make sure the index is within the hotbarItems array
+            if (i < items.Length)
+            {
+                SlotClass slotData = items[i];
+                Image icon = slotObj.transform.Find("Icon").GetComponent<Image>();
+                Text quantityText = slotObj.transform.Find("Quantity").GetComponent<Text>();
+
+                if (slotData.GetItem() != null)
+                {
+                    icon.sprite = slotData.GetItem().itemIcon;
+                    icon.enabled = true;
+
+                    int qty = slotData.GetQuantity();
+                    quantityText.text = qty > 1 ? qty.ToString() : "";
+                }
+                else
+                {
+                    icon.sprite = null;
+                    icon.enabled = false;
+                    quantityText.text = "";
+                }
+            }
+        }
+
+        // Position hotbar selector
+        if (hotbarSelector != null && selectedSlotIndex < hotbarSlotHolder.transform.childCount)
+        {
+            hotbarSelector.transform.position = hotbarSlotHolder.transform.GetChild(selectedSlotIndex).position;
+        }
+
+        if(inventoryPanel != null)
+        {
+            inventoryPanel.SetActive(false);
+        }
+
+        if(itemCursor != null)
+        {
+            itemCursor.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))

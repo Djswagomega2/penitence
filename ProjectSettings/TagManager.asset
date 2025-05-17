@@ -21,6 +21,11 @@ TagManager:
   - OpenedDoor
   - ClosedDoor
   - Statue
+  - Cursor
+  - InventoryPanel
+  - SlotHolder
+  - Hotbar
+  - HotbarSelector
   layers:
   - Default
   - TransparentFX

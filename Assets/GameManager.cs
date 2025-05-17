@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
 		{
 			Time.timeScale = 0;
 			pauseScreen.SetActive(true);
-            player.GetComponent<PlayerScript>().enabled = false;
+            //player.GetComponent<PlayerScript>().enabled = false;
         }
 		else
 		{
 			Time.timeScale = 1;
-			pauseScreen.enabled = false;
+			pauseScreen.SetActive(false);
 		}
 
 		if (statuesInteracted >= 7)
