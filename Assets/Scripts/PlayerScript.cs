@@ -10,7 +10,6 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
-    //Make Level 3 One floor
     //Fix the lighting
     #region General Variables
     [Header("General")]
