@@ -11,7 +11,8 @@ public class DistanceAudio: MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-    }
+        player = GameObject.FindGameObjectWithTag("Player");
+	}
 
     void Update()
     {
