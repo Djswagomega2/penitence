@@ -65,7 +65,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-
         if (items == null || items.Length == 0)
         {
             slots = new GameObject[slotHolder.transform.childCount];
@@ -98,59 +97,6 @@ public class InventoryManager : MonoBehaviour
 
         Add(itemToAdd, 1);
         Remove(itemToRemove);
-    }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        itemCursor = GameObject.Find("Cursor");
-        inventoryPanel = GameObject.Find("InventoryPanel");
-        hotbarSlotHolder = GameObject.Find("Hotbar");
-        hotbarSelector = GameObject.Find("HotbarSelector");
-        slotHolder = inventoryPanel.transform.GetChild(1).gameObject;
-
-        // Get all the hotbar slots
-        for (int i = 0; i < hotbarSlotHolder.transform.childCount; i++)
-        {
-            GameObject slotObj = hotbarSlotHolder.transform.GetChild(i).gameObject;
-
-            // Make sure the index is within the hotbarItems array
-            if (i < items.Length)
-            {
-                SlotClass slotData = items[i];
-                Image icon = slotObj.transform.Find("Icon").GetComponent<Image>();
-                Text quantityText = slotObj.transform.Find("Quantity").GetComponent<Text>();
-
-                if (slotData.GetItem() != null)
-                {
-                    icon.sprite = slotData.GetItem().itemIcon;
-                    icon.enabled = true;
-
-                    int qty = slotData.GetQuantity();
-                    quantityText.text = qty > 1 ? qty.ToString() : "";
-                }
-                else
-                {
-                    icon.sprite = null;
-                    icon.enabled = false;
-                    quantityText.text = "";
-                }
-            }
-        }
-
-        // Position hotbar selector
-        if (hotbarSelector != null && selectedSlotIndex < hotbarSlotHolder.transform.childCount)
-        {
-            hotbarSelector.transform.position = hotbarSlotHolder.transform.GetChild(selectedSlotIndex).position;
-        }
-
-        if(inventoryPanel != null)
-        {
-            inventoryPanel.SetActive(false);
-        }
-
-        if(itemCursor != null)
-        {
-            itemCursor.SetActive(false);
-        }
     }
 
     private void Update()
@@ -223,7 +169,7 @@ public class InventoryManager : MonoBehaviour
             selectedSlotIndex = 4;
         }
 
-        hotbarSelector.transform.position = hotbarSlots[selectedSlotIndex].transform.position;
+        //hotbarSelector.transform.position = hotbarSlots[selectedSlotIndex].transform.position;
         selectedItem = items[selectedSlotIndex + (hotbarSlots.Length*2)].GetItem(); // add a var for hotbar rows + correct index
 
         if(Input.GetKeyDown(KeyCode.E))
@@ -231,8 +177,80 @@ public class InventoryManager : MonoBehaviour
             UsedSelected();
 		}
 	}
-    #region inv utility
-    public void RefreshUI()
+
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		itemCursor = GameObject.Find("Cursor");
+		inventoryPanel = GameObject.Find("InventoryPanel");
+		hotbarSlotHolder = GameObject.Find("Hotbar");
+		hotbarSelector = GameObject.Find("HotbarSelector");
+		slotHolder = inventoryPanel.transform.GetChild(1).gameObject;
+
+		// Get all the hotbar slots
+		for (int i = 0; i < hotbarSlotHolder.transform.childCount; i++)
+		{
+			GameObject slotObj = hotbarSlotHolder.transform.GetChild(i).gameObject;
+			Debug.Log($"Hotbar Slot {i}: {slotObj.name}");
+
+			if (i < items.Length)
+			{
+				SlotClass slotData = items[i];
+				Debug.Log($"Hotbar Slot {i} has item: {items[i].GetItem()?.itemName}");
+                Transform iconTransform = slotObj.transform.Find("Image");
+				Transform quantityTransform = slotObj.transform.Find("Quantity");
+
+				if (iconTransform != null)
+				{
+					iconTransform.gameObject.SetActive(true);
+					iconTransform.GetComponent<Image>().enabled = true;
+				}
+
+
+				if (iconTransform == null || quantityTransform == null)
+				{
+					Debug.LogWarning($"Missing 'Icon' or 'Quantity' child in slot '{slotObj.name}' at index {i}");
+					continue; // Skip this slot and avoid crashing
+				}
+
+				Image icon = iconTransform.GetComponent<Image>();
+				Text quantityText = quantityTransform.GetComponent<Text>();
+
+				if (slotData.GetItem() != null)
+				{
+					icon.enabled = true;
+					icon.sprite = slotData.GetItem().itemIcon;
+
+					int qty = slotData.GetQuantity();
+					quantityText.text = qty > 1 ? qty.ToString() : 0.ToString();
+				}
+				else
+				{
+					icon.enabled = false;
+					icon.sprite = null;
+					quantityText.text = "";
+				}
+			}
+		}
+
+		// Position hotbar selector
+		if (hotbarSelector != null && selectedSlotIndex < hotbarSlotHolder.transform.childCount)
+		{
+			hotbarSelector.transform.position = hotbarSlotHolder.transform.GetChild(selectedSlotIndex).position;
+		}
+
+		if (inventoryPanel != null)
+		{
+			inventoryPanel.SetActive(false);
+		}
+
+		if (itemCursor != null)
+		{
+			itemCursor.SetActive(false);
+		}
+	}
+
+	#region inv utility
+	public void RefreshUI()
     {
         for(int i = 0; i < slots.Length;i++)
         {

@@ -26,6 +26,8 @@ TagManager:
   - SlotHolder
   - Hotbar
   - HotbarSelector
+  - Icon
+  - Quantity
   layers:
   - Default
   - TransparentFX

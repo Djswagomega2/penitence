@@ -3086,9 +3086,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5220313359368922429}
     m_Modifications:
+    - target: {fileID: 452691687211143583, guid: 68a06a530bd664c498fca9dfe4016881, type: 3}
+      propertyPath: m_TagString
+      value: Icon
+      objectReference: {fileID: 0}
     - target: {fileID: 3694218043211512660, guid: 68a06a530bd664c498fca9dfe4016881, type: 3}
       propertyPath: m_Name
       value: SlotPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256992437170760481, guid: 68a06a530bd664c498fca9dfe4016881, type: 3}
+      propertyPath: m_TagString
+      value: Quantity
       objectReference: {fileID: 0}
     - target: {fileID: 9223083460761156046, guid: 68a06a530bd664c498fca9dfe4016881, type: 3}
       propertyPath: m_Pivot.x
