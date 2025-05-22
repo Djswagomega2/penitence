@@ -23,6 +23,9 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private SlotClass[] startingItems;
 
+    [SerializeField] private SlotClass[] hotbarItems;
+    [SerializeField] private SlotClass[] inventoryPanelItems;
+
     public SlotClass[] items;
 
     private GameObject[] slots;
@@ -187,7 +190,9 @@ public class InventoryManager : MonoBehaviour
 		slotHolder = inventoryPanel.transform.GetChild(1).gameObject;
 
 		// Get all the hotbar slots
-		for (int i = 0; i < hotbarSlotHolder.transform.childCount; i++)
+
+
+        for (int i = 0; i < hotbarSlotHolder.transform.childCount; i++)
 		{
 			GameObject slotObj = hotbarSlotHolder.transform.GetChild(i).gameObject;
 			Debug.Log($"Hotbar Slot {i}: {slotObj.name}");
@@ -213,7 +218,7 @@ public class InventoryManager : MonoBehaviour
 				}
 
 				Image icon = iconTransform.GetComponent<Image>();
-				Text quantityText = quantityTransform.GetComponent<Text>();
+                TextMeshProUGUI quantityText = quantityTransform.GetComponent<TextMeshProUGUI>();
 
 				if (slotData.GetItem() != null)
 				{
@@ -232,8 +237,53 @@ public class InventoryManager : MonoBehaviour
 			}
 		}
 
-		// Position hotbar selector
-		if (hotbarSelector != null && selectedSlotIndex < hotbarSlotHolder.transform.childCount)
+        for (int i = 0; i < slotHolder.transform.childCount; i++)
+        {
+            GameObject slotObj = slotHolder.transform.GetChild(i).gameObject;
+            Debug.Log($"Hotbar Slot {i}: {slotObj.name}");
+
+            if (i < items.Length)
+            {
+                SlotClass slotData = items[i];
+                Debug.Log($"Hotbar Slot {i} has item: {items[i].GetItem()?.itemName}");
+                Transform iconTransform = slotObj.transform.Find("Image");
+                Transform quantityTransform = slotObj.transform.Find("Quantity");
+
+                if (iconTransform != null)
+                {
+                    iconTransform.gameObject.SetActive(true);
+                    iconTransform.GetComponent<Image>().enabled = true;
+                }
+
+
+                if (iconTransform == null || quantityTransform == null)
+                {
+                    Debug.LogWarning($"Missing 'Icon' or 'Quantity' child in slot '{slotObj.name}' at index {i}");
+                    continue; // Skip this slot and avoid crashing
+                }
+
+                Image icon = iconTransform.GetComponent<Image>();
+                TextMeshProUGUI quantityText = quantityTransform.GetComponent<TextMeshProUGUI>();
+
+                if (slotData.GetItem() != null)
+                {
+                    icon.enabled = true;
+                    icon.sprite = slotData.GetItem().itemIcon;
+
+                    int qty = slotData.GetQuantity();
+                    quantityText.text = qty > 1 ? qty.ToString() : 0.ToString();
+                }
+                else
+                {
+                    icon.enabled = false;
+                    icon.sprite = null;
+                    quantityText.text = "";
+                }
+            }
+        }
+
+        // Position hotbar selector
+        if (hotbarSelector != null && selectedSlotIndex < hotbarSlotHolder.transform.childCount)
 		{
 			hotbarSelector.transform.position = hotbarSlotHolder.transform.GetChild(selectedSlotIndex).position;
 		}

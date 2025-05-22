@@ -12,5 +12,7 @@ public class LevelTransition : MonoBehaviour
         {
             sceneLoader.LoadScene(sceneId);
         }
+
+
     }
 }
