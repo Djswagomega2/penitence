@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
     [SerializeField] private Animator johnAnimator;
+    [SerializeField] private bool canTakeDamage;
 	#endregion
 
 	#region Movement Variables
@@ -91,8 +92,9 @@ public class PlayerScript : MonoBehaviour,IDamageable
         flashlightLights[0] = flashlight.GetComponent<Light2D>();
         flashlightLights[1] = flashlight.transform.GetChild(0).GetComponent<Light2D>();
         johnAnimator = GetComponent<Animator>();
-		//health = 100f;
-        speed = defaultSpeed;
+		health = 100f;
+		canTakeDamage = true;
+		speed = defaultSpeed;
         sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
 
 	}
@@ -242,7 +244,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
    {
         var updatedHealth = health - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
-        //StartCoroutine(Invincablity());
+        StartCoroutine(Invincablity());
    }
 
 	public void Heal(float healAmount)
@@ -254,10 +256,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	private IEnumerator Invincablity() 
     {
-        playerCol.enabled = false;
+        canTakeDamage = false;
         Debug.Log("Player is invincible for 1 second");
         yield return new WaitForSeconds(1f);
-        playerCol.enabled = true;
+        canTakeDamage = true;
     }
 
     private IEnumerator puddleDamage() 
@@ -287,24 +289,31 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Collision Methods
 	private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.gameObject.tag)
+        if (canTakeDamage)
         {
-			case "Enemy":
-				Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-				ReceiveDamage(enemy.EnemyDmg);
-				break;
-			case "Projectile":
-                ReceiveDamage(10);
-				break;
-		}
+            switch (collision.gameObject.tag)
+            {
+                case "Enemy":
+                    Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                    ReceiveDamage(enemy.EnemyDmg);
+
+                    break;
+                case "Projectile":
+                    ReceiveDamage(10);
+                    break;
+            }
+        }
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if(collision.gameObject.CompareTag("Puddle"))
-		{
-			StartCoroutine(puddleDamage());
-		}
+        if (canTakeDamage)
+        {
+            if (collision.gameObject.CompareTag("Puddle"))
+            {
+                StartCoroutine(puddleDamage());
+            }
+        }
 	}
 
 	#endregion
