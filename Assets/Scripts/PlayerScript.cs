@@ -62,6 +62,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     [SerializeField] private LayerMask spawnerMask;
     [SerializeField] private int spawnerRadius;
     public GameObject droplet;
+	public bool hasDied;
 	#endregion
 
 	#region UI Variables
@@ -122,10 +123,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
             flashlight.SetActive(!flashlight.activeSelf);
             isFlashlightOn = !isFlashlightOn;
 		}
-        
-        InventoryHandler();
+
+		if (health <= 0)
+		{
+            StartCoroutine(Respawn());
+		}
+
+		InventoryHandler();
         RespawnParse();
-        Respawn();
+        
         InstantiateDroplet(this.transform.position);
 		//FlashlightDecrease();
 	}
@@ -206,33 +212,33 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 inventory.selectedItem.Use(this);
         }
     }
-	#endregion
+    #endregion
 
-	#region Respawn Methods
-	void RespawnParse()
+    #region Respawn Methods
+    void RespawnParse()
     {
         Collider2D[] circleCols = Physics2D.OverlapCircleAll(this.transform.position, spawnerRadius, spawnerMask);
-		for (int i = 0; i < circleCols.Length; i++)
-		{
+        for (int i = 0; i < circleCols.Length; i++)
+        {
             Collider2D circleCol = circleCols[i];
-			if (circleCol == spawner || circleCol == null)
-			{
-                continue; 
-			}
+            if (circleCol == spawner || circleCol == null)
+            {
+                continue;
+            }
 
             spawner = circleCol.gameObject;
             break;
-		}
-    }
-    //Down the line change this an IEnumator where it waits for the Taste/Death Animation to finish before Respawning
-    void Respawn()
-    {
-        if(health <= 0)
-        {
-			this.transform.position = spawner.transform.position;
-            health = 100;
         }
     }
+
+    IEnumerator Respawn()
+    {
+		hasDied = true;
+		this.transform.position = spawner.transform.position;
+		yield return new WaitForSeconds(0.5f); //we might want change this so that we pause the game until we hit the respawn/countinue button
+		health = 100;
+        hasDied = false;
+	}
 	#endregion
 
 	#region Health Methods

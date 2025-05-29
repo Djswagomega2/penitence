@@ -51,5 +51,8 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene(scene);
     }
 
-	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); <-- Reloads the scene 
+	public void ReloadScene()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 }
