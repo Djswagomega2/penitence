@@ -41,19 +41,25 @@ public class EnemyResetPos : MonoBehaviour
 		for (int i = 0; i < enemies.Count; i++)
 		{
 			GameObject enemy = enemies[i];
+			Debug.Log("Gooning" + enemy);
 
 			// Get components
 			var fov = enemy.GetComponent<FOV>();
 			var aiDestSetter = enemy.GetComponent<AIDestinationSetter>();
 			var aiPath = enemy.GetComponent<AIPath>();
+			StateManager stateManager = enemy.GetComponent<StateManager>();
+			
 
-			// Fully disable chasing behavior
-			if (fov != null) fov.enabled = false;
+            // Fully disable chasing behavior
+            if (fov != null) fov.enabled = false;
 			if (aiDestSetter != null) aiDestSetter.target = null;
 			if (aiPath != null) aiPath.enabled = false;
+			if(stateManager != null) stateManager.currentState = enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<WanderState>();// Set to idle or appropriate state
+			Debug.Log("Disabling AI for enemy: " + stateManager.currentState);
 
-			// Reset position manually
-			enemy.transform.position = originalPos[i];
+
+            // Reset position manually
+            enemy.transform.position = originalPos[i];
 
 			// Wait to ensure physics/AI updates don't interfere
 			yield return new WaitForSeconds(0.1f);
