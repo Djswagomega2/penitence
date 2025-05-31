@@ -6,7 +6,7 @@ using UnityEngine;
 public class DoorLockScript : MonoBehaviour, IInteractable
 {
 	[SerializeField] private GameObject doorCode;
-	[SerializeField] private int[] buttonCombo;
+	[SerializeField][Range(0f, 9f)] private int[] buttonCombo;
 	[SerializeField] private LockButton[] buttonCodes;
 	public bool hasInteracted;
 	public bool codeHasBeenSolved;
