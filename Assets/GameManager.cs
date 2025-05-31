@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
+		pauseScreen = GameObject.FindGameObjectWithTag("PauseScreen");
 		pauseScreen.SetActive(false);
 		if (SceneManager.GetActiveScene().buildIndex.Equals(4)) 
 		{

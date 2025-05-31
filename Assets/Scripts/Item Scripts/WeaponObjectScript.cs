@@ -275,6 +275,7 @@ public class WeaponObjectScript : MonoBehaviour
 		{
 			if (WeapClassScript == fists)
 			{
+				
 				StartCoroutine(playWeaponAnim("John_Punch"));
 			}
 			else
