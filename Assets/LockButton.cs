@@ -8,11 +8,14 @@ public class LockButton : MonoBehaviour
     public GameObject doorButtonCode;
     public TextMeshProUGUI buttonText;
     public int buttonValue;
+    public AudioSource audioSource;
+    public AudioClip buttonSound;
 	// Start is called before the first frame update
 	void Start()
     {
         doorButtonCode = gameObject;
-        buttonText = doorButtonCode.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+		audioSource = GetComponent<AudioSource>();
+		buttonText = doorButtonCode.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 		buttonText.text = buttonValue.ToString();
        
 	}
@@ -30,5 +33,6 @@ public class LockButton : MonoBehaviour
     public void increaseValue() 
     {
         buttonValue++;
-    }
+        audioSource.PlayOneShot(buttonSound);
+	}
 }
