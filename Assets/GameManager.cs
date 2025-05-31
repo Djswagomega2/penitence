@@ -2,22 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private KeyCode pauseKey = KeyCode.Escape;
+	// Start is called before the first frame update
+	public static GameManager instance;
+	[SerializeField] private GameObject pauseScreen;
+	[SerializeField] private KeyCode pauseKey;
 	[SerializeField] private bool isPaused;
 	public int notePiecesCollected;
 	[SerializeField] private bool allPiecesCollected;
 	public int statuesInteracted;
 	public GameObject door;
 
+	private void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
+	}
 
 	private void Start()
 	{
 		pauseScreen.SetActive(false);
+		if (SceneManager.GetActiveScene().buildIndex.Equals(4)) 
+		{
+			door = GameObject.FindGameObjectWithTag("OpenedDoor");
+		}
 	}
 	// Update is called once per frame
 	void Update()

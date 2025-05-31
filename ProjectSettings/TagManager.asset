@@ -28,6 +28,7 @@ TagManager:
   - HotbarSelector
   - Icon
   - Quantity
+  - L2M
   layers:
   - Default
   - TransparentFX

@@ -46,11 +46,18 @@ public class EnemyResetPos : MonoBehaviour
 			var fov = enemy.GetComponent<FOV>();
 			var aiDestSetter = enemy.GetComponent<AIDestinationSetter>();
 			var aiPath = enemy.GetComponent<AIPath>();
+			StateManager stateManager = enemy.GetComponent<StateManager>();
+			State wanderState = enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<WanderState>();
 
 			// Fully disable chasing behavior
 			if (fov != null) fov.enabled = false;
 			if (aiDestSetter != null) aiDestSetter.target = null;
 			if (aiPath != null) aiPath.enabled = false;
+			if(stateManager != null)
+			{
+				stateManager.SwitchToTheNextState(wanderState); // Switch to Wander state
+				stateManager.enabled = false; // Disable state manager to prevent state changes
+			}
 
 			// Reset position manually
 			enemy.transform.position = originalPos[i];
@@ -61,6 +68,7 @@ public class EnemyResetPos : MonoBehaviour
 			// Re-enable behavior
 			if (aiPath != null) aiPath.enabled = true;
 			if (fov != null) fov.enabled = true;
+			if(stateManager != null) stateManager.enabled = true;
 		}
 	}
 
