@@ -52,8 +52,8 @@ public class DoorLockScript : MonoBehaviour, IInteractable
 			hasInteracted = false;
 			doorCode.SetActive(false);
 			Destroy(gameObject);
+			Time.timeScale = 1;
 			Debug.Log("Door code solved! Door can now be opened.");
-			// You can add more functionality here, like opening the door or playing a sound.
 		}
 	}
 
