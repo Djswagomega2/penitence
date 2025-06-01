@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
 		{
 			Time.timeScale = 0;
 			pauseScreen.SetActive(true);
-            //player.GetComponent<PlayerScript>().enabled = false;
         }
 		else
 		{
