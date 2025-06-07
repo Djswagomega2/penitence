@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Statue : MonoBehaviour, IInteractable
 {
-    //Resize Statue 
-    //Change dialouge to be array based 
-
     public Queue<string> textQueue = new Queue<string>();
     public enum StatueType{Statue,EvilStatue}
     public StatueType statueType;

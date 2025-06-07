@@ -576,6 +576,7 @@ MonoBehaviour:
     m_Bits: 64
   spawnerRadius: 2
   droplet: {fileID: 0}
+  hasDied: 0
   inventory: {fileID: 0}
   muzzleflash: {fileID: 5094108714208807529}
   flashlightLights:
@@ -707,7 +708,7 @@ MonoBehaviour:
   - {x: 0.47844204, y: -0.22929345, z: 0}
   m_ShapePathHash: -1973668868
   m_Mesh: {fileID: 0}
-  m_InstanceId: -526930
+  m_InstanceId: -176006
   m_LocalBounds:
     m_Center: {x: -0.069806814, y: -0.06000194, z: 0}
     m_Extent: {x: 0.567334, y: 0.39176702, z: 0}
