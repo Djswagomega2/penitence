@@ -177,11 +177,13 @@ MonoBehaviour:
   EnemyDmg: 40
   _currentHealth: 0
   spawner: {fileID: 0}
+  resetPos: {fileID: 0}
   bloodSpray: {fileID: 2883353509993904058, guid: 3567e8daf5a60d144a0b5542f8febb85, type: 3}
   bloodDrop: {fileID: 2883353509993904058, guid: 3567e8daf5a60d144a0b5542f8febb85, type: 3}
   _audioSource: {fileID: 6774080706956916045}
   hurtSound: {fileID: 8300000, guid: 06432f86751720e45b1242f3fb0ec432, type: 3}
   aiLerp: {fileID: 6912320389702472867}
+  aiPath: {fileID: 0}
 --- !u!114 &1558393477149040482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dc48900c67f4ede9bc9bc626e4610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
+  currentState: {fileID: 6926167710103141286}
 --- !u!114 &1647640448149729267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +278,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 8
+  maxSpeed: 5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -322,10 +324,10 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 0
   canMove: 1
-  speed: 4
+  speed: 3
   orientation: 1
   enableRotation: 1
-  rotationSpeed: 60
+  rotationSpeed: 45
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 5
   targetCompatibility: {fileID: 0}
@@ -382,7 +384,7 @@ MonoBehaviour:
   - {x: -2.68324, y: -2.596443, z: 0}
   m_ShapePathHash: -1471405828
   m_Mesh: {fileID: 0}
-  m_InstanceId: 97224
+  m_InstanceId: 71928
   m_LocalBounds:
     m_Center: {x: 0.074745655, y: 4.0975122, z: 0}
     m_Extent: {x: 4.4858584, y: 6.693955, z: 0}
@@ -568,7 +570,7 @@ MonoBehaviour:
   aiLerp: {fileID: 6912320389702472867}
   pursuitSpeed: 10
   aiDestinationSetter: {fileID: 2018277533952862804}
-  wanderState: {fileID: 5328159192147283957}
+  wanderState: {fileID: 0}
   attackState: {fileID: 0}
   attackRange: 4
 --- !u!1 &8220742183341135487
@@ -580,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4848217999057156454}
-  - component: {fileID: 5328159192147283957}
+  - component: {fileID: 6926167710103141286}
   m_Layer: 0
   m_Name: Wander
   m_TagString: Untagged
@@ -603,7 +605,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5299285927073995163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5328159192147283957
+--- !u!114 &6926167710103141286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,24 +614,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8220742183341135487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9d989171f6fba4f9be22cdf9e628eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8881f72235e8ba44ebedff0ccd1cedca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2737112834036079629}
   enemyTransform: {fileID: 5926030778956253333}
-  pursuitState: {fileID: 0}
+  pursuitState: {fileID: 2140675238021839857}
   aiDestinationSetter: {fileID: 2018277533952862804}
   aiPath: {fileID: 661271319971675768}
   aiLerp: {fileID: 6912320389702472867}
-  minDistanceBetweenPoints: 35
-  randomDistanceFactor: 1.5
-  wanderSpeed: 1
+  minDistanceBetweenPoints: 0
+  randomDistanceFactor: 1
+  wanderSpeed: 0
   stuckTimeThreshold: 3
   timeSinceLastMovement: 0
   lastKnownPosition: {x: 0, y: 0, z: 0}
+  recentMemoryCount: 3
   fov: {fileID: 1647640448149729267}
-  animatior: {fileID: 70048068594935885}
-  animation: {fileID: 0}
 --- !u!1001 &3747635308430355130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 803656558693280944, guid: ace5fcbc97e58fa428c77254caafb625, type: 3}
       propertyPath: Mute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 803656558693280944, guid: ace5fcbc97e58fa428c77254caafb625, type: 3}
       propertyPath: m_Volume
