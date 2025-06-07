@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4992f6a1da345a4b8b825170f9e3dbe, type: 3}
   m_Name: Bandage
   m_EditorClassIdentifier: 
-  itemName: Bandage
-  itemIcon: {fileID: 21300000, guid: 6d32a6a586c4ef34c845f4250baa7d6e, type: 3}
+  itemName: Medkit
+  itemIcon: {fileID: 21300000, guid: 2e2d7febce6f17148b0a85ed7bdcde86, type: 3}
   description: Heal
   isStackable: 1
   isDroppable: 0

@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class SmellAttackState : State
 {
-    //Direct hit 1/10th player's health
-    //Puddle 1 tick of damage every second
-    #region General
-    [Header("General")]
+	//Direct hit 1/10th player's health
+	//Puddle 1 tick of damage every second
+	//Werid glitch where smell enemy knows exactly where the player is when you assign enemy and enemy transform
+	#region General
+	[Header("General")]
     [SerializeField] private bool showGizmos;
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform enemyTransform;
@@ -78,7 +79,7 @@ public class SmellAttackState : State
         float distanceToPlayer = Vector2.Distance(playerTransform.position, enemyTransform.position);
         Vector2 directionToPlayer = (playerTransform.position - enemyTransform.position).normalized;
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
-        enemyTransform.rotation = Quaternion.Euler(0, 0, angle);
+        //enemyTransform.rotation = Quaternion.Euler(0, 0, angle);
 
         stateTimer -= Time.deltaTime; // Decrease commit timer
 

@@ -36,7 +36,7 @@ public class Statue : MonoBehaviour, IInteractable
             statueDialogues.Add(new string[] { "what..." });
             statueDialogues.Add(new string[] { "no…" });
             statueDialogues.Add(new string[] { "it can’t be…" }); 
-            statueDialogues.Add(new string[] { "how..." });
+            statueDialogues.Add(new string[] { "how...", "", "Wait I think I heard something open...","I should probably go check it out." });
 
 		}
 
@@ -114,7 +114,7 @@ public class Statue : MonoBehaviour, IInteractable
 			gameManager.statuesInteracted++;
 			yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
             interactCollider.enabled = false; // Disable the collider after interaction
-            staute.layer = LayerMask.NameToLayer("Default"); //fix this past the first statue
+            staute.layer = LayerMask.NameToLayer("Spawner"); //fix this past the first statue
 
 
         }

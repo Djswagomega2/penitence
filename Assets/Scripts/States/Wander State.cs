@@ -38,7 +38,8 @@ public class WanderState : State
 	[SerializeField] private float stuckTimeThreshold = 3.0f; // Time threshold before considering the AI stuck (in seconds)
 	[SerializeField] private float timeSinceLastMovement = 0.0f; // Timer to track how long since the AI last moved
 	[SerializeField] private Vector3 lastKnownPosition;
-
+	private List<Vector3> recentPoints = new List<Vector3>();
+	[SerializeField] private int recentMemoryCount = 3;
 	public FOV fov;
 	#endregion
 
@@ -100,40 +101,78 @@ public class WanderState : State
 	/// Picks a random point within the grid that is walkable and sufficiently far from the last position.
 	/// </summary>
 	/// <returns> A random point within the grid if that node is walkable, zero otherwiese</returns>
+
 	private Vector3 PickRandomPoint()
 	{
-		Vector3 randomPoint = new Vector3(Random.Range(0, grid.width), Random.Range(0, grid.depth));
-		randomPoint.z = 0;
-		randomPoint += transform.position;
-		Vector3 lastPosition = Vector3.zero;
 		int retries = 0;
 
-		float randomMaxDistance = minDistanceBetweenPoints * Random.Range(0.5f, randomDistanceFactor);
+		// Get world bottom-left corner and world size
+		Vector3 worldBottomLeft = grid.transform.Transform(new Vector3(-grid.width * 0.5f, 0, -grid.depth * 0.5f) * grid.nodeSize);
 
-		while (Vector3.Distance(randomPoint, lastPosition) < minDistanceBetweenPoints)
+		float gridWidthWorld = grid.width * grid.nodeSize;
+		float gridDepthWorld = grid.depth * grid.nodeSize;
+
+		Vector3 center = enemyTransform.position;
+		float radius = Mathf.Min(gridWidthWorld, gridDepthWorld) * 0.5f;
+
+		while (retries < maxRetries)
 		{
-			randomPoint = new Vector3(Random.Range(0, grid.width), Random.Range(0, grid.depth));
-			randomPoint.z = 0;
-			randomPoint += transform.position;
-			if (retries >= maxRetries)
+			// Pick a point in a random direction within the radius
+			Vector2 offset = Random.insideUnitCircle.normalized * Random.Range(minDistanceBetweenPoints, radius);
+			Vector3 randomPoint = new Vector3(center.x + offset.x, center.y, center.z + offset.y);
+
+			// Check distance from recent points
+			bool tooCloseToRecent = false;
+			foreach (var recent in recentPoints)
 			{
-				break;
+				if (Vector3.Distance(recent, randomPoint) < minDistanceBetweenPoints)
+				{
+					tooCloseToRecent = true;
+					break;
+				}
 			}
+			if (tooCloseToRecent)
+			{
+				retries++;
+				continue;
+			}
+
+			// Check if the node is valid and walkable
+			GraphNode node = AstarPath.active.GetNearest(randomPoint).node;
+			if (node == null || !node.Walkable)
+			{
+				retries++;
+				continue;
+			}
+
+			// Optional: ensure a full path is possible
+			var path = ABPath.Construct(enemyTransform.position, (Vector3)node.position, null);
+			AstarPath.StartPath(path);
+			path.BlockUntilCalculated();
+
+			if (!path.error)
+			{
+				// Save to recent list
+				recentPoints.Add((Vector3)node.position);
+				if (recentPoints.Count > recentMemoryCount)
+				{
+					recentPoints.RemoveAt(0);
+				}
+
+				return (Vector3)node.position;
+			}
+
 			retries++;
 		}
 
-		GraphNode node = AstarPath.active.GetNearest(randomPoint).node;
-
-		if (node != null && node.Walkable)
-		{
-			lastPosition = randomPoint;
-			return (Vector3)node.position;
-		}
-		else
-		{
-			return Vector3.zero; // Return zero vector if the point is invalid
-		}
+		// If all retries failed, return current position
+		return enemyTransform.position;
 	}
+
+
+
+
+
 
 	/// <summary>
 	/// Checks if the AI is stuck by comparing its current position to its last known position.
