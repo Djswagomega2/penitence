@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Animations;
+using Pathfinding;
 
 public class EnemyResetPos : MonoBehaviour
 {
@@ -23,10 +24,9 @@ public class EnemyResetPos : MonoBehaviour
 
 	void Update()
 	{
-		if (playerScript.health <= 0 /*<-- this might be happening way to fast*/ && enemyTriggerScript.playerSteppedThrough)
+		if (playerScript.hasDied && enemyTriggerScript.playerSteppedThrough)
 		{
-			Debug.Log("Damn you suck");
-			ResetToOriginalPositions();
+			StartCoroutine(ResetToOriginalPositions());
 		}
 
 		if (enemies.Count <= 0) 
@@ -36,16 +36,50 @@ public class EnemyResetPos : MonoBehaviour
 
 	
 	}
-	public void ResetToOriginalPositions()
+	public IEnumerator ResetToOriginalPositions()
 	{
-		Debug.Log("Resetting enemy positions...");
 		for (int i = 0; i < enemies.Count; i++)
 		{
-			if (enemies[i] != null)
+			GameObject enemy = enemies[i];
+			Debug.Log("Gooning" + enemy);
+
+			// Get components
+			var fov = enemy.GetComponent<FOV>();
+			var aiDestSetter = enemy.GetComponent<AIDestinationSetter>();
+			var aiPath = enemy.GetComponent<AIPath>();
+			StateManager stateManager = enemy.GetComponent<StateManager>();
+
+			
+
+			State wanderState = enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<WanderState>();
+
+
+            // Fully disable chasing behavior
+            if (fov != null) fov.enabled = false;
+			if (aiDestSetter != null) aiDestSetter.target = null;
+			if (aiPath != null) aiPath.enabled = false;
+
+			if(stateManager != null) stateManager.currentState = enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<WanderState>();// Set to idle or appropriate state
+			Debug.Log("Disabling AI for enemy: " + stateManager.currentState);
+
+			if(stateManager != null)
 			{
-				Debug.Log($"Resetting {enemies[i].name} to {originalPos[i]}");
-				enemies[i].transform.position = originalPos[i];
+				stateManager.SwitchToTheNextState(wanderState); // Switch to Wander state
+				stateManager.enabled = false; // Disable state manager to prevent state changes
 			}
+
+
+            // Reset position manually
+            enemy.transform.position = originalPos[i];
+
+			// Wait to ensure physics/AI updates don't interfere
+			yield return new WaitForSeconds(0.1f);
+
+			// Re-enable behavior
+			if (aiPath != null) aiPath.enabled = true;
+			if (fov != null) fov.enabled = true;
+			if(stateManager != null) stateManager.enabled = true;
 		}
 	}
+
 }

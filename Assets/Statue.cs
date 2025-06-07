@@ -27,6 +27,7 @@ public class Statue : MonoBehaviour, IInteractable
     {
         //gameManager = GameObject.Find("GameController").GetComponent<GameManager>();
         dialougeBox.GetComponentInChildren<Image>().sprite = null;
+		gameManager = GameObject.FindObjectOfType<GameManager>();
 		// Only setup multiple dialogues for regular Statue
 		if (statueType == StatueType.Statue)
 		{

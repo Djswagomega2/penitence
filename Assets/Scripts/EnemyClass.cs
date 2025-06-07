@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public GameObject resetPos;
 
-    [SerializeField] private GameObject bloodSpray;
+	[SerializeField] private GameObject bloodSpray;
     [SerializeField] private GameObject bloodDrop;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip hurtSound;
@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour,IDamageable
     private ObjectPooler<GameObject> bloodSprayPool;
 
     [SerializeField] private Pathfinding.AILerp aiLerp;
+    [SerializeField] private Pathfinding.AIPath aiPath;
     
 
     public void Start()
@@ -37,8 +38,9 @@ public class Enemy : MonoBehaviour,IDamageable
         hurtSoundPool = new ObjectPooler<GameObject>(_audioSource.gameObject,5,null);
 		//bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
 		aiLerp = GetComponent<AILerp>();
+        aiPath = GetComponent<AIPath>();
 
-        if (spawner == null) 
+		if (spawner == null) 
         {
             Debug.Log("This enemy did not come from a spawner");
         }
