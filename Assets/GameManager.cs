@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 		{
 			instance = this;
 			DontDestroyOnLoad(gameObject);
+			SceneManager.sceneLoaded += OnSceneLoaded;
 		}
 		else
 		{
@@ -30,10 +32,20 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private void Start()
+	private void OnDestroy()
+	{
+		SceneManager.sceneLoaded -= OnSceneLoaded;
+	}
+
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		pauseScreen = GameObject.FindGameObjectWithTag("PauseScreen");
-		pauseScreen.SetActive(false);
+		isPaused = false;
+	}
+
+	private void Start()
+	{
+		
 		if (SceneManager.GetActiveScene().buildIndex.Equals(4)) 
 		{
 			door = GameObject.FindGameObjectWithTag("OpenedDoor");

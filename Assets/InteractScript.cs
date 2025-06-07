@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 interface IInteractable
 {
@@ -27,9 +28,10 @@ public class InteractScript : MonoBehaviour
         
         if (interactableList.Length > 0)
         {
-            textHolder.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Press E to interact " + interactableList[selectedIndex].name;
-            //handles more than 1 interactable
-            if (interactableList.Length > 1)
+			//textHolder.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Press E to interact " + interactableList[selectedIndex].name;
+			textHolder.SetActive(true);
+			//handles more than 1 interactable
+			if (interactableList.Length > 1)
             {
                 if (Input.GetAxis("Mouse ScrollWheel") > 0)
                 {
@@ -41,21 +43,28 @@ public class InteractScript : MonoBehaviour
                 }
                 //add text to display use of scrollwheel to change what u wanna interact with
             }
-            textHolder.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (interactableList[selectedIndex].gameObject.TryGetComponent(out IInteractable interactGameObject))
-                {
-                    interactGameObject.Interact();
-                    textHolder.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "" ;
-                    if (selectedIndex != 0) selectedIndex -= 1;
-                }
-            }
-        }
+               StartCoroutine(Interacting());
+			}
+		}
         else
         {
             textHolder.SetActive(false);
 
         }
     }
+
+    private IEnumerator Interacting() 
+    {
+		textHolder.GetComponent<Image>().enabled = false;
+		if (interactableList[selectedIndex].gameObject.TryGetComponent(out IInteractable interactGameObject))
+		{
+			interactGameObject.Interact();
+			if (selectedIndex != 0) selectedIndex -= 1;
+		}
+        yield return new WaitForSeconds(0.5f);
+		textHolder.GetComponent<Image>().enabled = true;
+	}
 }
+
