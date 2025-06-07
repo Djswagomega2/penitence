@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     //Fix the lighting
     #region General Variables
     [Header("General")]
-    public float health;
+    [Range(0f,100f)]public float health;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
     [SerializeField] private Animator johnAnimator;

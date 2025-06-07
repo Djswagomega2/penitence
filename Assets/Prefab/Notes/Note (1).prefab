@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7488473909824409647}
   - component: {fileID: 7132348172190828512}
   - component: {fileID: 3820495203116728962}
+  - component: {fileID: 742158822401844928}
   - component: {fileID: 873119359810031434}
   m_Layer: 3
   m_Name: Note (1)
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 63bb8593fd6b50f4aab8ef0ed3294255, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 96.92467, y: 105.69595}
+  m_Offset: {x: 31.032822, y: 30.1391}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,8 +130,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 326.49063, y: 330.69507}
+  m_Size: {x: 194.70691, y: 154.09299}
   m_EdgeRadius: 0
+--- !u!114 &742158822401844928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189452081551680740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899e9d4afad434bdc84be9d526d9da6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!114 &873119359810031434
 MonoBehaviour:
   m_ObjectHideFlags: 0

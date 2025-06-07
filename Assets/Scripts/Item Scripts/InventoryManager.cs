@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
-using System;
-using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
 	//TODO: Fix Misc items in order to show note or unlock doors based off of the key or note
-    public static InventoryManager instance; 
-
-    [SerializeField] private GameObject itemCursor;
+	[SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject inventoryPanel;
 
 
@@ -22,9 +17,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private ItemClass itemToRemove;
 
     [SerializeField] private SlotClass[] startingItems;
-
-    [SerializeField] private SlotClass[] hotbarItems;
-    [SerializeField] private SlotClass[] inventoryPanelItems;
 
     public SlotClass[] items;
 
@@ -42,66 +34,38 @@ public class InventoryManager : MonoBehaviour
     public ItemClass selectedItem;
 
     public static bool isInventoryOpened;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
 
-            // Initialize slots
-            for (int i = 0; i < items.Length; i++)
-                items[i] = new SlotClass();
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
 
     private void Start()
     {
-        if (items == null || items.Length == 0)
-        {
-            slots = new GameObject[slotHolder.transform.childCount];
-            items = new SlotClass[slots.Length];
 
-            for (int i = 0; i < items.Length; i++)
-            {
-                items[i] = new SlotClass();
-            }
-            for (int i = 0; i < startingItems.Length; i++)
-            {
-                items[i] = startingItems[i];
-            }
-        }
-        else
-        {
-            slots = new GameObject[slotHolder.transform.childCount];
-        }
+        isInventoryOpened = false;
+        slots = new GameObject[slotHolder.transform.childCount];
+        items = new SlotClass[slots.Length];
 
         hotbarSlots = new GameObject[hotbarSlotHolder.transform.childCount];
-        for (int i = 0; i < hotbarSlots.Length; i++)
+        for(int i = 0;i < hotbarSlots.Length; i++)
         {
             hotbarSlots[i] = hotbarSlotHolder.transform.GetChild(i).gameObject;
         }
 
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i] = new SlotClass();
+        }
+        for (int i = 0; i < startingItems.Length; i++)
+        {
+            items[i] = startingItems[i];
+        }
+
         for (int i = 0; i < slotHolder.transform.childCount; i++)
             slots[i] = slotHolder.transform.GetChild(i).gameObject;
-
+        
         RefreshUI();
 
         Add(itemToAdd, 1);
         Remove(itemToRemove);
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -172,7 +136,7 @@ public class InventoryManager : MonoBehaviour
             selectedSlotIndex = 4;
         }
 
-        //hotbarSelector.transform.position = hotbarSlots[selectedSlotIndex].transform.position;
+        hotbarSelector.transform.position = hotbarSlots[selectedSlotIndex].transform.position;
         selectedItem = items[selectedSlotIndex + (hotbarSlots.Length*2)].GetItem(); // add a var for hotbar rows + correct index
 
         if(Input.GetKeyDown(KeyCode.E))
@@ -180,127 +144,8 @@ public class InventoryManager : MonoBehaviour
             UsedSelected();
 		}
 	}
-
-	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		itemCursor = GameObject.Find("Cursor");
-		inventoryPanel = GameObject.Find("InventoryPanel");
-		hotbarSlotHolder = GameObject.Find("Hotbar");
-		hotbarSelector = GameObject.Find("HotbarSelector");
-		slotHolder = inventoryPanel.transform.GetChild(1).gameObject;
-
-		// Get all the hotbar slots
-
-
-        for (int i = 0; i < hotbarSlotHolder.transform.childCount; i++)
-		{
-			GameObject slotObj = hotbarSlotHolder.transform.GetChild(i).gameObject;
-			Debug.Log($"Hotbar Slot {i}: {slotObj.name}");
-
-			if (i < items.Length)
-			{
-				SlotClass slotData = items[i];
-				Debug.Log($"Hotbar Slot {i} has item: {items[i].GetItem()?.itemName}");
-                Transform iconTransform = slotObj.transform.Find("Image");
-				Transform quantityTransform = slotObj.transform.Find("Quantity");
-
-				if (iconTransform != null)
-				{
-					iconTransform.gameObject.SetActive(true);
-					iconTransform.GetComponent<Image>().enabled = true;
-				}
-
-
-				if (iconTransform == null || quantityTransform == null)
-				{
-					Debug.LogWarning($"Missing 'Icon' or 'Quantity' child in slot '{slotObj.name}' at index {i}");
-					continue; // Skip this slot and avoid crashing
-				}
-
-				Image icon = iconTransform.GetComponent<Image>();
-                TextMeshProUGUI quantityText = quantityTransform.GetComponent<TextMeshProUGUI>();
-
-				if (slotData.GetItem() != null)
-				{
-					icon.enabled = true;
-					icon.sprite = slotData.GetItem().itemIcon;
-
-					int qty = slotData.GetQuantity();
-					quantityText.text = qty > 1 ? qty.ToString() : 0.ToString();
-				}
-				else
-				{
-					icon.enabled = false;
-					icon.sprite = null;
-					quantityText.text = "";
-				}
-			}
-		}
-
-        for (int i = 0; i < slotHolder.transform.childCount; i++)
-        {
-            GameObject slotObj = slotHolder.transform.GetChild(i).gameObject;
-            Debug.Log($"Hotbar Slot {i}: {slotObj.name}");
-
-            if (i < items.Length)
-            {
-                SlotClass slotData = items[i];
-                Debug.Log($"Hotbar Slot {i} has item: {items[i].GetItem()?.itemName}");
-                Transform iconTransform = slotObj.transform.Find("Image");
-                Transform quantityTransform = slotObj.transform.Find("Quantity");
-
-                if (iconTransform != null)
-                {
-                    iconTransform.gameObject.SetActive(true);
-                    iconTransform.GetComponent<Image>().enabled = true;
-                }
-
-
-                if (iconTransform == null || quantityTransform == null)
-                {
-                    Debug.LogWarning($"Missing 'Icon' or 'Quantity' child in slot '{slotObj.name}' at index {i}");
-                    continue; // Skip this slot and avoid crashing
-                }
-
-                Image icon = iconTransform.GetComponent<Image>();
-                TextMeshProUGUI quantityText = quantityTransform.GetComponent<TextMeshProUGUI>();
-
-                if (slotData.GetItem() != null)
-                {
-                    icon.enabled = true;
-                    icon.sprite = slotData.GetItem().itemIcon;
-
-                    int qty = slotData.GetQuantity();
-                    quantityText.text = qty > 1 ? qty.ToString() : 0.ToString();
-                }
-                else
-                {
-                    icon.enabled = false;
-                    icon.sprite = null;
-                    quantityText.text = "";
-                }
-            }
-        }
-
-        // Position hotbar selector
-        if (hotbarSelector != null && selectedSlotIndex < hotbarSlotHolder.transform.childCount)
-		{
-			hotbarSelector.transform.position = hotbarSlotHolder.transform.GetChild(selectedSlotIndex).position;
-		}
-
-		if (inventoryPanel != null)
-		{
-			inventoryPanel.SetActive(false);
-		}
-
-		if (itemCursor != null)
-		{
-			itemCursor.SetActive(false);
-		}
-	}
-
-	#region inv utility
-	public void RefreshUI()
+    #region inv utility
+    public void RefreshUI()
     {
         for(int i = 0; i < slots.Length;i++)
         {

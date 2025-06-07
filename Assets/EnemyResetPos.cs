@@ -48,14 +48,26 @@ public class EnemyResetPos : MonoBehaviour
 			var aiDestSetter = enemy.GetComponent<AIDestinationSetter>();
 			var aiPath = enemy.GetComponent<AIPath>();
 			StateManager stateManager = enemy.GetComponent<StateManager>();
+<<<<<<< HEAD
 			
+=======
+			State wanderState = enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<WanderState>();
+>>>>>>> origin/SkibidiDanielBranch
 
             // Fully disable chasing behavior
             if (fov != null) fov.enabled = false;
 			if (aiDestSetter != null) aiDestSetter.target = null;
 			if (aiPath != null) aiPath.enabled = false;
+<<<<<<< HEAD
 			if(stateManager != null) stateManager.currentState = enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<WanderState>();// Set to idle or appropriate state
 			Debug.Log("Disabling AI for enemy: " + stateManager.currentState);
+=======
+			if(stateManager != null)
+			{
+				stateManager.SwitchToTheNextState(wanderState); // Switch to Wander state
+				stateManager.enabled = false; // Disable state manager to prevent state changes
+			}
+>>>>>>> origin/SkibidiDanielBranch
 
 
             // Reset position manually
@@ -67,6 +79,7 @@ public class EnemyResetPos : MonoBehaviour
 			// Re-enable behavior
 			if (aiPath != null) aiPath.enabled = true;
 			if (fov != null) fov.enabled = true;
+			if(stateManager != null) stateManager.enabled = true;
 		}
 	}
 

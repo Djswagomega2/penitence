@@ -28,6 +28,8 @@ TagManager:
   - HotbarSelector
   - Icon
   - Quantity
+  - L2M
+  - PauseScreen
   layers:
   - Default
   - TransparentFX

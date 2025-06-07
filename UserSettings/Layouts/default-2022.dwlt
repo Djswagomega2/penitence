@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -144,7 +144,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 921
+    width: 922
     height: 939
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
@@ -171,8 +171,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     width: 921
+=======
+    width: 922
+>>>>>>> origin/SkibidiDanielBranch
     height: 496
 =======
     width: 614
@@ -185,7 +189,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 15}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -204,8 +208,9 @@ MonoBehaviour:
     x: 0
 <<<<<<< Updated upstream
     y: 496
-    width: 921
+    width: 922
     height: 443
+<<<<<<< HEAD
 =======
     y: 353
     width: 614
@@ -213,6 +218,10 @@ MonoBehaviour:
 >>>>>>> Stashed changes
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
+=======
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+>>>>>>> origin/SkibidiDanielBranch
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -235,9 +244,9 @@ MonoBehaviour:
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
-    x: 921
+    x: 922
     y: 0
-    width: 517
+    width: 516
     height: 939
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
@@ -264,8 +273,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     width: 517
+=======
+    width: 516
+>>>>>>> origin/SkibidiDanielBranch
     height: 499
 =======
     width: 345
@@ -289,7 +302,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -297,8 +310,9 @@ MonoBehaviour:
     x: 0
 <<<<<<< Updated upstream
     y: 499
-    width: 517
+    width: 516
     height: 440
+<<<<<<< HEAD
 =======
     y: 350
     width: 345
@@ -307,11 +321,16 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 18}
+=======
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 19}
+>>>>>>> origin/SkibidiDanielBranch
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -367,7 +386,7 @@ MonoBehaviour:
 <<<<<<< Updated upstream
     x: -1920
     y: 517
-    width: 920
+    width: 921
     height: 422
 =======
     x: 0
@@ -438,6 +457,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       width: 920
       height: 401
@@ -449,19 +469,30 @@ MonoBehaviour:
     m_Scale: {x: 2, y: 2}
     m_Translation: {x: 306.5, y: 132.5}
 >>>>>>> Stashed changes
+=======
+      width: 921
+      height: 401
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 460.5, y: 200.5}
+>>>>>>> origin/SkibidiDanielBranch
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       x: -460
+=======
+      x: -460.5
+>>>>>>> origin/SkibidiDanielBranch
       y: -200.5
-      width: 920
+      width: 921
       height: 401
     m_MinimalGUI: 1
   m_defaultScale: 1
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 920, y: 422}
 =======
       x: -153.25
@@ -472,6 +503,9 @@ MonoBehaviour:
   m_defaultScale: 2
   m_LastWindowPixelSize: {x: 1226, y: 572}
 >>>>>>> Stashed changes
+=======
+  m_LastWindowPixelSize: {x: 921, y: 422}
+>>>>>>> origin/SkibidiDanielBranch
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -500,7 +534,7 @@ MonoBehaviour:
 <<<<<<< Updated upstream
     x: -1920
     y: 21
-    width: 920
+    width: 921
     height: 475
 =======
     x: 0
@@ -866,6 +900,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Target: {x: -8.881814, y: -54.44393, z: -17.222427}
     speed: 2
@@ -875,6 +910,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 36.626133, y: 19.297905, z: -0.99041295}
 >>>>>>> Stashed changes
+=======
+    m_Target: {x: -25.537899, y: -11.36994, z: -0.92182404}
+    speed: 2
+    m_Value: {x: -23.653809, y: -8.981022, z: -0.88134766}
+>>>>>>> origin/SkibidiDanielBranch
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -924,6 +964,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Target: 13.326246
     speed: 2
@@ -933,6 +974,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 119.021324
 >>>>>>> Stashed changes
+=======
+    m_Target: 93.99516
+    speed: 2
+    m_Value: 89.947525
+>>>>>>> origin/SkibidiDanielBranch
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1148,9 +1194,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 8c43f7906e64040a0848bc1e73879c95, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 7d89acac4e2da20409e96b86f9a93c02, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -758784945123526803, guid: 8c43f7906e64040a0848bc1e73879c95, type: 2}
+  - m_Target: {fileID: -2780822417778797517, guid: 7d89acac4e2da20409e96b86f9a93c02, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1183,9 +1229,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -999
+    x: -998
     y: 21
-    width: 515
+    width: 514
     height: 478
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1200,6 +1246,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       m_SelectedIDs: de930000
       m_LastClickedID: 0
@@ -1213,13 +1260,26 @@ MonoBehaviour:
         m_UserAcceptedRename: 0
         m_Name: Player
         m_OriginalName: Player
+=======
+      m_SelectedIDs: c28b0000
+      m_LastClickedID: 35778
+      m_ExpandedIDs: 5cf1ffffd0f7ffffe8f7ffff18f8ffff30f8ffff48f8ffffd8f9fffff4ffffff2286000064870000fe8c00005c8e00007e8e00002a910000
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: Canvas
+        m_OriginalName: Canvas
+>>>>>>> origin/SkibidiDanielBranch
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
+<<<<<<< HEAD
         m_UserData: 35728
+=======
+        m_UserData: -1968
+>>>>>>> origin/SkibidiDanielBranch
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -2219,9 +2279,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -999
+    x: -998
     y: 520
-    width: 515
+    width: 514
     height: 419
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2234,11 +2294,15 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_NameFilter: blood
 =======
     m_NameFilter: level2
 >>>>>>> Stashed changes
+=======
+    m_NameFilter: 
+>>>>>>> origin/SkibidiDanielBranch
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -2248,24 +2312,29 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Sprites/Note/Non-important notes
     m_Globs: []
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_OriginalText: blood
 =======
     m_OriginalText: level2
 >>>>>>> Stashed changes
+=======
+    m_OriginalText: 
+>>>>>>> origin/SkibidiDanielBranch
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 49
   m_LastFolders:
-  - Assets
+  - Assets/Sprites/Note/Non-important notes
   m_LastFoldersGridSize: 49
   m_LastProjectPath: C:\Users\nycsu\Desktop\Game Development\Unity\Unity Projects\penitence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     scrollPos: {x: 0, y: 127}
     m_SelectedIDs: 529c0000
@@ -2277,6 +2346,12 @@ MonoBehaviour:
     m_LastClickedID: 141386
     m_ExpandedIDs: 00000000529c0000549c0000569c0000589c00005a9c00005c9c000000ca9a3bffffff7f
 >>>>>>> Stashed changes
+=======
+    scrollPos: {x: 0, y: 593}
+    m_SelectedIDs: a0ae0200
+    m_LastClickedID: 175776
+    m_ExpandedIDs: 000000002e9e0000309e0000329e0000349e0000369e0000389e00003a9e00003c9e00003e9e0000409e0000429e0000449e0000469e0000489e00004a9e00004c9e00004e9e0000509e00003ea5000000ca9a3b
+>>>>>>> origin/SkibidiDanielBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2304,11 +2379,15 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_ExpandedIDs: 00000000529c0000549c0000569c0000589c00005a9c00005c9c00005e9c0000609c0000629c0000649c0000669c0000689c00006a9c00006c9c00006e9c0000709c0000729c0000749c0000
 =======
     m_ExpandedIDs: 00000000529c0000549c0000569c0000589c00005a9c00005c9c0000
 >>>>>>> Stashed changes
+=======
+    m_ExpandedIDs: 000000002e9e0000309e0000329e0000349e0000369e0000389e00003a9e00003c9e00003e9e0000409e0000429e0000449e0000469e0000489e00004a9e00004c9e00004e9e0000509e0000
+>>>>>>> origin/SkibidiDanielBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2333,10 +2412,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 02890000
+    m_LastClickedInstanceID: 35074
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 8c750000a8730000ac36000044750000427700008a9a000026910000b4b10000b4ae000044af0000708c0000f49c0000429100009c850000648e00002aeb0100e89f000052910000
+    m_ExpandedInstanceIDs: 8c750000a8730000ac36000044750000427700008a9a000026910000b4b10000b4ae000044af0000708c0000f49c0000429100009c850000648e00002aeb0100e89f000052910000169f000050420300d4930000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2388,9 +2467,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -999
+    x: -998
     y: 520
-    width: 515
+    width: 514
     height: 419
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2443,7 +2522,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 168
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

@@ -18,12 +18,6 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public GameObject resetPos;
 
-    public GameObject player;
-
-    public PlayerScript playerScript;
-
-    public Vector3 originalPos;
-
 	[SerializeField] private GameObject bloodSpray;
     [SerializeField] private GameObject bloodDrop;
     [SerializeField] private AudioSource _audioSource;
@@ -45,9 +39,6 @@ public class Enemy : MonoBehaviour,IDamageable
 		//bloodSprayPool = new ObjectPooler<GameObject>(bloodSpray,20,null);
 		aiLerp = GetComponent<AILerp>();
         aiPath = GetComponent<AIPath>();
-		originalPos = transform.position; // Store the original position of the enemy
-		player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<PlayerScript>();
 
 		if (spawner == null) 
         {
