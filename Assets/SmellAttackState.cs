@@ -79,7 +79,7 @@ public class SmellAttackState : State
         float distanceToPlayer = Vector2.Distance(playerTransform.position, enemyTransform.position);
         Vector2 directionToPlayer = (playerTransform.position - enemyTransform.position).normalized;
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
-        enemyTransform.rotation = Quaternion.Euler(0, 0, angle);
+        //enemyTransform.rotation = Quaternion.Euler(0, 0, angle);
 
         stateTimer -= Time.deltaTime; // Decrease commit timer
 
