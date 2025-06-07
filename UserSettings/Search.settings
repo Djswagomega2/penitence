@@ -8,9 +8,16 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+<<<<<<< HEAD
 	"last_search.E8DA15E5" = "level2"
+=======
+	"last_search.E8DA15E5" = "door"
+>>>>>>> origin/BryanBranch
 	"OpenInspectorPreview.E8DA15E5" = "0"
 	"currentGroup.E8DA15E5" = "all"
+	"last_search.110DEAF1" = ""
+	"OpenInspectorPreview.110DEAF1" = "0"
+	"currentGroup.110DEAF1" = "asset"
 }
 providers = {
 	packages = {
