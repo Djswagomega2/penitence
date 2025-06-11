@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class SlotClass
 {
-    [SerializeField]private ItemClass item;
-    [SerializeField]private int quantity;
+    public ItemClass item;
+    public int quantity;
 
     public SlotClass()
     {

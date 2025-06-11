@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4345298570770166951}
   m_Layer: 0
   m_Name: GameManger
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   notePiecesCollected: 0
   allPiecesCollected: 0
   statuesInteracted: 0
-  allStatuesInteracted: 0
+  door: {fileID: 0}
 --- !u!114 &4345298570770166951
 MonoBehaviour:
   m_ObjectHideFlags: 0

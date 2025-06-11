@@ -21,6 +21,15 @@ TagManager:
   - OpenedDoor
   - ClosedDoor
   - Statue
+  - Cursor
+  - InventoryPanel
+  - SlotHolder
+  - Hotbar
+  - HotbarSelector
+  - Icon
+  - Quantity
+  - L2M
+  - PauseScreen
   layers:
   - Default
   - TransparentFX
@@ -33,7 +42,7 @@ TagManager:
   - Obstacle
   - Enemy
   - Door
-  - 
+  - Droplet
   - 
   - 
   - 
