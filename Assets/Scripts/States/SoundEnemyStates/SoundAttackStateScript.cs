@@ -12,10 +12,10 @@ public class SoundAttackStateScript : State
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject player;
-    [SerializeField] private bool hasTouchAttacked;
+    [SerializeField] private bool hasSoundAttacked;
     [SerializeField] private float coolDownSeconds;
     [SerializeField] private float coolLungeSecond;
-    [SerializeField] private float touchAttackSpeed;
+    [SerializeField] private float soundAttackSpeed;
     [SerializeField] private PlayerScript ps;
     #endregion
 
@@ -42,8 +42,8 @@ public class SoundAttackStateScript : State
     }
     public override State RunCurrentState()
     {
-        aiLerp.speed = touchAttackSpeed;
-        if (!hasTouchAttacked)
+        aiLerp.speed = soundAttackSpeed;
+        if (!hasSoundAttacked)
         {
             aiDestinationSetter.enabled = false;
             aiPath.enabled = false;
@@ -55,7 +55,7 @@ public class SoundAttackStateScript : State
             aiDestinationSetter.enabled = true;
             aiDestinationSetter.target = null;
             aiPath.enabled = true;
-            hasTouchAttacked = false;
+            hasSoundAttacked = false;
             return pursuitState;
         }
 
@@ -67,7 +67,7 @@ public class SoundAttackStateScript : State
 
         Lunge();
         yield return new WaitForSeconds(coolDownSeconds);
-        hasTouchAttacked = true;
+        hasSoundAttacked = true;
     }
 
 

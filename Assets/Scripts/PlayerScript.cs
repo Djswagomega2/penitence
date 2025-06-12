@@ -10,14 +10,14 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerScript : MonoBehaviour,IDamageable
 {
-    //Make Level 3 One floor
     //Fix the lighting
     #region General Variables
     [Header("General")]
-    public float health;
+    [Range(0f,100f)]public float health;
     private Rigidbody2D rb;
     private CircleCollider2D playerCol;
     [SerializeField] private Animator johnAnimator;
+    [SerializeField] private bool canTakeDamage;
 	#endregion
 
 	#region Movement Variables
@@ -62,6 +62,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
     [SerializeField] private LayerMask spawnerMask;
     [SerializeField] private int spawnerRadius;
     public GameObject droplet;
+	public bool hasDied;
 	#endregion
 
 	#region UI Variables
@@ -92,8 +93,9 @@ public class PlayerScript : MonoBehaviour,IDamageable
         flashlightLights[0] = flashlight.GetComponent<Light2D>();
         flashlightLights[1] = flashlight.transform.GetChild(0).GetComponent<Light2D>();
         johnAnimator = GetComponent<Animator>();
-		//health = 100f;
-        speed = defaultSpeed;
+		health = 100f;
+		canTakeDamage = true;
+		speed = defaultSpeed;
         sprintSpeed = defaultSpeed * speedMultiplyer; //These can be changed
 
 	}
@@ -121,10 +123,15 @@ public class PlayerScript : MonoBehaviour,IDamageable
             flashlight.SetActive(!flashlight.activeSelf);
             isFlashlightOn = !isFlashlightOn;
 		}
-        
-        InventoryHandler();
+
+		if (health <= 0)
+		{
+            StartCoroutine(Respawn());
+		}
+
+		InventoryHandler();
         RespawnParse();
-        Respawn();
+        
         InstantiateDroplet(this.transform.position);
 		//FlashlightDecrease();
 	}
@@ -205,33 +212,33 @@ public class PlayerScript : MonoBehaviour,IDamageable
                 inventory.selectedItem.Use(this);
         }
     }
-	#endregion
+    #endregion
 
-	#region Respawn Methods
-	void RespawnParse()
+    #region Respawn Methods
+    void RespawnParse()
     {
         Collider2D[] circleCols = Physics2D.OverlapCircleAll(this.transform.position, spawnerRadius, spawnerMask);
-		for (int i = 0; i < circleCols.Length; i++)
-		{
+        for (int i = 0; i < circleCols.Length; i++)
+        {
             Collider2D circleCol = circleCols[i];
-			if (circleCol == spawner || circleCol == null)
-			{
-                continue; 
-			}
+            if (circleCol == spawner || circleCol == null)
+            {
+                continue;
+            }
 
             spawner = circleCol.gameObject;
             break;
-		}
-    }
-    //Down the line change this an IEnumator where it waits for the Taste/Death Animation to finish before Respawning
-    void Respawn()
-    {
-        if(health <= 0)
-        {
-			this.transform.position = spawner.transform.position;
-            health = 100;
         }
     }
+
+    IEnumerator Respawn()
+    {
+		hasDied = true;
+		this.transform.position = spawner.transform.position;
+		yield return new WaitForSeconds(0.5f); //we might want change this so that we pause the game until we hit the respawn/countinue button
+		health = 100;
+        hasDied = false;
+	}
 	#endregion
 
 	#region Health Methods
@@ -243,7 +250,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
    {
         var updatedHealth = health - damage;
         UpdateHealth(updatedHealth > 0 ? updatedHealth : 0);
-        //StartCoroutine(Invincablity());
+        StartCoroutine(Invincablity());
    }
 
 	public void Heal(float healAmount)
@@ -255,10 +262,10 @@ public class PlayerScript : MonoBehaviour,IDamageable
 
 	private IEnumerator Invincablity() 
     {
-        playerCol.enabled = false;
+        canTakeDamage = false;
         Debug.Log("Player is invincible for 1 second");
         yield return new WaitForSeconds(1f);
-        playerCol.enabled = true;
+        canTakeDamage = true;
     }
 
     private IEnumerator puddleDamage() 
@@ -280,6 +287,7 @@ public class PlayerScript : MonoBehaviour,IDamageable
         CircleCollider2D cirCollider = droplet.AddComponent<CircleCollider2D>(); // Add a collider to the point
         cirCollider.isTrigger = true; // Set collider as trigger
         droplet.tag = "Droplet";
+        droplet.layer = LayerMask.NameToLayer("Droplet"); // Set the layer to Droplet
         return droplet;
     }
 	#endregion
@@ -287,24 +295,31 @@ public class PlayerScript : MonoBehaviour,IDamageable
 	#region Collision Methods
 	private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.gameObject.tag)
+        if (canTakeDamage)
         {
-			case "Enemy":
-				Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-				ReceiveDamage(enemy.EnemyDmg);
-				break;
-			case "Projectile":
-                ReceiveDamage(10);
-				break;
-		}
+            switch (collision.gameObject.tag)
+            {
+                case "Enemy":
+                    Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                    ReceiveDamage(enemy.EnemyDmg);
+
+                    break;
+                case "Projectile":
+                    ReceiveDamage(10);
+                    break;
+            }
+        }
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if(collision.gameObject.CompareTag("Puddle"))
-		{
-			StartCoroutine(puddleDamage());
-		}
+        if (canTakeDamage)
+        {
+            if (collision.gameObject.CompareTag("Puddle"))
+            {
+                StartCoroutine(puddleDamage());
+            }
+        }
 	}
 
 	#endregion

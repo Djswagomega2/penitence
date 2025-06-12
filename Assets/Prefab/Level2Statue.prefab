@@ -176,6 +176,6 @@ MonoBehaviour:
   staute: {fileID: 1712102538638849786}
   dialougeBox: {fileID: 0}
   statueCloseUps:
-  - {fileID: 21300000, guid: b1fa6198ac804dc488a2185d41e88601, type: 3}
   - {fileID: 21300000, guid: 0e12d2bf2a7c8e846a1bea4739ac9853, type: 3}
+  - {fileID: 21300000, guid: 3d7ac45ba3ca09e4daec158f5273afd6, type: 3}
   interactCollider: {fileID: 175598642389194300}

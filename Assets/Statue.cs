@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Statue : MonoBehaviour, IInteractable
 {
-    //Resize Statue 
-    //Change dialouge to be array based 
-
     public Queue<string> textQueue = new Queue<string>();
     public enum StatueType{Statue,EvilStatue}
     public StatueType statueType;
@@ -27,6 +24,7 @@ public class Statue : MonoBehaviour, IInteractable
     {
         //gameManager = GameObject.Find("GameController").GetComponent<GameManager>();
         dialougeBox.GetComponentInChildren<Image>().sprite = null;
+		gameManager = GameObject.FindObjectOfType<GameManager>();
 		// Only setup multiple dialogues for regular Statue
 		if (statueType == StatueType.Statue)
 		{
