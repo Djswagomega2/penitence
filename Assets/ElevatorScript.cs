@@ -5,7 +5,7 @@ using UnityEngine;
 public class ElevatorScript : MonoBehaviour, IInteractable
 {
 	[SerializeField] private GameObject elevatorButtonPrefab;
-	[SerializeField] private CameraShake cameraShake;
+	[SerializeField] private Animator elevatorAnimator;
 	public int currentfloor; 
 
 
@@ -24,6 +24,13 @@ public class ElevatorScript : MonoBehaviour, IInteractable
 	{
 		elevatorButtonPrefab.SetActive(false);
 		currentfloor = floor;
-	}
+		//StartCoroutine(elevatorShake());
+    }
 
+	IEnumerator elevatorShake() 
+	{
+		elevatorAnimator.enabled = true;
+		yield return new WaitForSeconds(0.5f);
+		elevatorAnimator.enabled = false;
+    }
 }
