@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-	//TODO: Fix Misc items in order to show note or unlock doors based off of the key or note
+	//TODO: Make it so every major item (ex weapon, note) the player collects get saved into starting items.
 	[SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject inventoryPanel;
 

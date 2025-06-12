@@ -37,6 +37,7 @@ public class DoorScript : MonoBehaviour,IInteractable
 	public void Interact()
 	{
 		item = inventoryManager.selectedItem;
+
 		if (item is MiscClass misc)
 		{
 			if (misc.miscType == MiscClass.MiscType.Key)

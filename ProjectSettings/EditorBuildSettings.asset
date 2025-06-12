@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SeizureWarning.unity
     guid: d8051c9d795f95d4aa961024ea9fa0ae
   - enabled: 1
-    path: Assets/Scenes/IntroCutscene.unity
+    path: Assets/Scenes/Final Level Scenes/IntroCutscene.unity
     guid: 1403b28386fb0444fac14a5966516b2b
   - enabled: 1
     path: Assets/Scenes/Final Level Scenes/Level1Scene.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Level Scenes/Level2Scene.unity
     guid: bca6c7d99e7118747a6f23777e64b812
+  - enabled: 1
+    path: Assets/Scenes/Level3Scene.unity
+    guid: 2ce59e8bf9907d540ab1ba441f56b0d3
   m_configObjects: {}

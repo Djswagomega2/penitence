@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class CutsceneOneScript : MonoBehaviour
 {
     [SerializeField] private DialogueScript dialogueScript;
     [SerializeField] private PlayableDirector playableDirector;
+    [SerializeField] private GameManager gm;
 
-    [System.Serializable]
+	[System.Serializable]
     public class DialogueLine
     {
         public int timestamp;         // Time in seconds
@@ -37,5 +39,10 @@ public class CutsceneOneScript : MonoBehaviour
             dialogueScript.dialogue(line.text, line.delay);
             nextLineIndex++;
         }
+
+        if (playableDirector.state == PlayState.Paused) 
+        {
+            gm.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load next scene when cutscene ends
+		}
     }
 }

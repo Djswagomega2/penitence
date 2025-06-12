@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private KeyCode pauseKey;
 	[SerializeField] private bool isPaused;
 	public int notePiecesCollected;
-	[SerializeField] private bool allPiecesCollected;
 	public int statuesInteracted;
 	public GameObject door;
 

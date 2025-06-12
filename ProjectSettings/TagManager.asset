@@ -30,6 +30,7 @@ TagManager:
   - Quantity
   - L2M
   - PauseScreen
+  - Crossfade
   layers:
   - Default
   - TransparentFX
