@@ -26,9 +26,16 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: -1
 =======
   controlID: 15711
+>>>>>>> origin/BryanBranch
+=======
+  controlID: 15711
+=======
+  controlID: -1
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
 --- !u!114 &2
 MonoBehaviour:
@@ -153,9 +160,16 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: -1
 =======
   controlID: 15609
+>>>>>>> origin/BryanBranch
+=======
+  controlID: 15609
+=======
+  controlID: -1
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
 --- !u!114 &4
 MonoBehaviour:
@@ -175,15 +189,27 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
-    width: 919
-    height: 502
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+<<<<<<< HEAD
 =======
     width: 716
     height: 399
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+>>>>>>> origin/BryanBranch
+    width: 919
+    height: 502
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+<<<<<<< HEAD
+=======
+    width: 716
+    height: 399
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+>>>>>>> origin/BryanBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
   m_ActualView: {fileID: 5}
   m_Panes:
@@ -574,6 +600,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: -9.025847, y: -43.807114, z: -17.549953}
     speed: 2
     m_Value: {x: -9.025847, y: -43.807114, z: -17.549953}
@@ -581,6 +608,16 @@ MonoBehaviour:
     m_Target: {x: -48.36159, y: 175.94904, z: -0.47626314}
     speed: 2
     m_Value: {x: -48.36159, y: 175.94904, z: -0.47626314}
+>>>>>>> origin/BryanBranch
+=======
+    m_Target: {x: -48.36159, y: 175.94904, z: -0.47626314}
+    speed: 2
+    m_Value: {x: -48.36159, y: 175.94904, z: -0.47626314}
+=======
+    m_Target: {x: -9.025847, y: -43.807114, z: -17.549953}
+    speed: 2
+    m_Value: {x: -9.025847, y: -43.807114, z: -17.549953}
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
   m_RenderMode: 0
   m_CameraMode:
@@ -632,6 +669,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 45.77167
     speed: 2
     m_Value: 45.77167
@@ -639,6 +677,16 @@ MonoBehaviour:
     m_Target: 24.042858
     speed: 2
     m_Value: 24.042858
+>>>>>>> origin/BryanBranch
+=======
+    m_Target: 24.042858
+    speed: 2
+    m_Value: 24.042858
+=======
+    m_Target: 45.77167
+    speed: 2
+    m_Value: 45.77167
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
   m_Ortho:
     m_Target: 1
@@ -796,11 +844,20 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 824
 --- !u!114 &10
 =======
   controlID: 15668
 --- !u!114 &8
+>>>>>>> origin/BryanBranch
+=======
+  controlID: 15668
+--- !u!114 &8
+=======
+  controlID: 824
+--- !u!114 &10
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -867,6 +924,7 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: bcd80000
       m_LastClickedID: 55484
       m_ExpandedIDs: d8f9ffff
@@ -874,6 +932,16 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: d8f9ffffa2d20000dcd4000032da0000b6de00002cdf00007ce40000
+>>>>>>> origin/BryanBranch
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d8f9ffffa2d20000dcd4000032da0000b6de00002cdf00007ce40000
+=======
+      m_SelectedIDs: bcd80000
+      m_LastClickedID: 55484
+      m_ExpandedIDs: d8f9ffff
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -2039,15 +2107,27 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
 <<<<<<< HEAD
-    scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: cea90000
-    m_LastClickedID: 43470
-    m_ExpandedIDs: 0000000062ef000064ef000066ef000068ef00006aef00006cef00006eef000070ef000072ef000074ef000076ef000078ef00007aef00007cef00007eef000080ef000082ef000084ef0000
+<<<<<<< HEAD
 =======
     scrollPos: {x: 0, y: 37}
     m_SelectedIDs: 96f20000
     m_LastClickedID: 62102
     m_ExpandedIDs: 0000000096f2000000ca9a3bffffff7f
+=======
+>>>>>>> origin/BryanBranch
+    scrollPos: {x: 0, y: 127}
+    m_SelectedIDs: cea90000
+    m_LastClickedID: 43470
+    m_ExpandedIDs: 0000000062ef000064ef000066ef000068ef00006aef00006cef00006eef000070ef000072ef000074ef000076ef000078ef00007aef00007cef00007eef000080ef000082ef000084ef0000
+<<<<<<< HEAD
+=======
+    scrollPos: {x: 0, y: 37}
+    m_SelectedIDs: 96f20000
+    m_LastClickedID: 62102
+    m_ExpandedIDs: 0000000096f2000000ca9a3bffffff7f
+>>>>>>> origin/BryanBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2077,9 +2157,16 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000062ef000064ef000066ef000068ef00006aef00006cef00006eef000070ef000072ef000074ef000076ef000078ef00007aef00007cef00007eef000080ef000082ef000084ef0000
 =======
     m_ExpandedIDs: 0000000096f2000000ca9a3bffffff7f
+>>>>>>> origin/BryanBranch
+=======
+    m_ExpandedIDs: 0000000096f2000000ca9a3bffffff7f
+=======
+    m_ExpandedIDs: 0000000062ef000064ef000066ef000068ef00006aef00006cef00006eef000070ef000072ef000074ef000076ef000078ef00007aef00007cef00007eef000080ef000082ef000084ef0000
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2106,15 +2193,27 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< HEAD
-    m_SelectedInstanceIDs: 14aa0200
-    m_LastClickedInstanceID: 174612
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 8c750000a8730000ac36000044750000427700008a9a000026910000b4b10000b4ae000044af0000708c0000f49c0000429100009c850000648e00002aeb0100e89f00005291000078930000e6a8000000000000
+<<<<<<< HEAD
 =======
     m_SelectedInstanceIDs: d6d80000
     m_LastClickedInstanceID: 55510
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 8c750000a8730000ac36000044750000427700008a9a000026910000b4b10000b4ae000044af0000708c0000f49c0000429100009c850000648e000044d8010000000000569e0000e8070100de9f0000c0950000d8ab0000
+=======
+>>>>>>> origin/BryanBranch
+    m_SelectedInstanceIDs: 14aa0200
+    m_LastClickedInstanceID: 174612
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: 8c750000a8730000ac36000044750000427700008a9a000026910000b4b10000b4ae000044af0000708c0000f49c0000429100009c850000648e00002aeb0100e89f00005291000078930000e6a8000000000000
+<<<<<<< HEAD
+=======
+    m_SelectedInstanceIDs: d6d80000
+    m_LastClickedInstanceID: 55510
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: 8c750000a8730000ac36000044750000427700008a9a000026910000b4b10000b4ae000044af0000708c0000f49c0000429100009c850000648e000044d8010000000000569e0000e8070100de9f0000c0950000d8ab0000
+>>>>>>> origin/BryanBranch
+=======
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2140,11 +2239,20 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ScrollPosition: {x: 0, y: 2200}
     m_GridSize: 49
 =======
     m_ScrollPosition: {x: 0, y: 435367.75}
     m_GridSize: 57
+>>>>>>> origin/BryanBranch
+=======
+    m_ScrollPosition: {x: 0, y: 435367.75}
+    m_GridSize: 57
+=======
+    m_ScrollPosition: {x: 0, y: 2200}
+    m_GridSize: 49
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 116
@@ -2250,9 +2358,16 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastInspectedObjectInstanceID: -1
 =======
   m_LastInspectedObjectInstanceID: 55510
+>>>>>>> origin/BryanBranch
+=======
+  m_LastInspectedObjectInstanceID: 55510
+=======
+  m_LastInspectedObjectInstanceID: -1
+>>>>>>> origin/SkibidiDanielBranch
 >>>>>>> origin/BryanBranch
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 

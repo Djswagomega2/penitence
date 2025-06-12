@@ -1906,86 +1906,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!114 &39893295
-MonoBehaviour:
-=======
+<<<<<<<<< Temporary merge branch 1
 --- !u!1 &47667437
 GameObject:
->>>>>>> origin/BryanBranch
+=========
+--- !u!114 &39893295
+MonoBehaviour:
+>>>>>>>>> Temporary merge branch 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 39893291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe83be7bf8450ab42990b7509720fcf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  transition: {fileID: 423000902}
-  floorPlace: {fileID: 1589814191}
-  crossfadeObject: {fileID: 423000901}
---- !u!1001 &40833349
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.473264
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.0701045
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.029174557
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7595493121952874339, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-      propertyPath: m_Name
-      value: GameManger
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
-=======
+<<<<<<<<< Temporary merge branch 1
   serializedVersion: 6
   m_Component:
   - component: {fileID: 47667438}
@@ -2110,7 +2042,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> origin/BryanBranch
+=========
+  m_GameObject: {fileID: 39893291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe83be7bf8450ab42990b7509720fcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  transition: {fileID: 423000902}
+  floorPlace: {fileID: 1589814191}
+  crossfadeObject: {fileID: 423000901}
+--- !u!1001 &40833349
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.473264
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0701045
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.029174557
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696079336264820140, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595493121952874339, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+      propertyPath: m_Name
+      value: GameManger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+>>>>>>>>> Temporary merge branch 2
 --- !u!1 &51167759
 GameObject:
   m_ObjectHideFlags: 0
@@ -124211,8 +124211,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 955968730}
     m_Modifications:
-<<<<<<< HEAD
-=======
+<<<<<<<<< Temporary merge branch 1
     - target: {fileID: -3994756416978940509, guid: 544c9b2fbbce74fcf8206ce3bb828c9a, type: 3}
       propertyPath: m_Size.x
       value: 0.29398486
@@ -124233,7 +124232,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 12
       objectReference: {fileID: 0}
->>>>>>> origin/BryanBranch
+=========
+>>>>>>>>> Temporary merge branch 2
     - target: {fileID: 2850801921098840937, guid: 544c9b2fbbce74fcf8206ce3bb828c9a, type: 3}
       propertyPath: m_Name
       value: Fuse 1
@@ -141315,18 +141315,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 606908550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!43 &810275539
-Mesh:
-=======
+<<<<<<<<< Temporary merge branch 1
 --- !u!1 &808638461
 GameObject:
->>>>>>> origin/BryanBranch
+=========
+--- !u!43 &810275539
+Mesh:
+>>>>>>>>> Temporary merge branch 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808638462}
+  m_Layer: 0
+  m_Name: Desk Set (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808638462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808638461}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 162.04, y: 171.14, z: -1.0022765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 959457084}
+  - {fileID: 376427439}
+  m_Father: {fileID: 1229978661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=========
   m_Name: 
   serializedVersion: 11
   m_SubMeshes:
@@ -141486,35 +141514,7 @@ GameObject:
     offset: 0
     size: 0
     path: 
-=======
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 808638462}
-  m_Layer: 0
-  m_Name: Desk Set (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &808638462
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808638461}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 162.04, y: 171.14, z: -1.0022765}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 959457084}
-  - {fileID: 376427439}
-  m_Father: {fileID: 1229978661}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> origin/BryanBranch
+>>>>>>>>> Temporary merge branch 2
 --- !u!1 &818368293
 GameObject:
   m_ObjectHideFlags: 0
@@ -218927,18 +218927,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!61 &1833458165
-BoxCollider2D:
-=======
+<<<<<<<<< Temporary merge branch 1
 --- !u!1 &1837181750
 GameObject:
->>>>>>> origin/BryanBranch
+=========
+--- !u!61 &1833458165
+BoxCollider2D:
+>>>>>>>>> Temporary merge branch 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837181751}
+  m_Layer: 0
+  m_Name: Desk Set (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837181751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837181750}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.1, y: 168, z: -1.0022765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1269465218}
+  - {fileID: 1931180071}
+  - {fileID: 461449820}
+  m_Father: {fileID: 1926563219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=========
   m_GameObject: {fileID: 1833458160}
   m_Enabled: 1
   m_Density: 1
@@ -218994,36 +219023,7 @@ MonoBehaviour:
   transition: {fileID: 423000902}
   floorPlace: {fileID: 434193925}
   crossfadeObject: {fileID: 423000901}
-=======
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1837181751}
-  m_Layer: 0
-  m_Name: Desk Set (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1837181751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837181750}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.1, y: 168, z: -1.0022765}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1269465218}
-  - {fileID: 1931180071}
-  - {fileID: 461449820}
-  m_Father: {fileID: 1926563219}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> origin/BryanBranch
+>>>>>>>>> Temporary merge branch 2
 --- !u!1 &1837221741
 GameObject:
   m_ObjectHideFlags: 0
