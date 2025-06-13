@@ -19,15 +19,27 @@ public class CutsceneOneScript : MonoBehaviour
 
     [Tooltip("Add your dialogue lines here, with their timestamps and delays.")]
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
+	public List<DialogueLine> goodEndingLines = new List<DialogueLine>();
+	public List<DialogueLine> badEndingLines = new List<DialogueLine>();
 
-    private int currentTime;
+	private int currentTime;
     private int nextLineIndex = 0;
 
     void Start()
     {
-        // Optional: Sort the lines by timestamp at runtime
-        dialogueLines.Sort((a, b) => a.timestamp.CompareTo(b.timestamp));
-    }
+		gm = GameObject.FindObjectOfType<GameManager>();
+        if(SceneManager.GetActiveScene().buildIndex.Equals(7) && gm.notePiecesCollected >= 3)
+		{
+			dialogueLines = goodEndingLines;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex.Equals(7))
+		{
+			dialogueLines = badEndingLines;
+		}
+		// Optional: Sort the lines by timestamp at runtime
+		dialogueLines.Sort((a, b) => a.timestamp.CompareTo(b.timestamp));
+        
+	}
 
     void Update()
     {

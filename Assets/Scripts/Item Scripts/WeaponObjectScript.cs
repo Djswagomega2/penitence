@@ -64,6 +64,7 @@ public class WeaponObjectScript : MonoBehaviour
 		playerTransform = GetComponent<Transform>();
 		playerScript = GetComponent<PlayerScript>();
 		weaponAnimator = GetComponent<Animator>();
+		ammoBar = GameObject.FindGameObjectWithTag("AmmoBar").GetComponent<AmmoBar>();
 		inventoryManager = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
 		gsPool = new ObjectPooler<AudioSource>(weaponAudioSource, ammo);
 		gnsPool = new ObjectPooler<AudioSource>(weaponAudioSource, 20, null);

@@ -12,7 +12,7 @@ public class ElevatorScript : MonoBehaviour, IInteractable
 	// Start is called before the first frame update
 	void Start()
     {
-        elevatorButtonPrefab.SetActive(false);
+		elevatorButtonPrefab.SetActive(false);
 	}
 
 	public void Interact()
@@ -24,13 +24,13 @@ public class ElevatorScript : MonoBehaviour, IInteractable
 	{
 		elevatorButtonPrefab.SetActive(false);
 		currentfloor = floor;
-		//StartCoroutine(elevatorShake());
+		StartCoroutine(elevatorShake());
     }
 
 	IEnumerator elevatorShake() 
 	{
-		elevatorAnimator.enabled = true;
-		yield return new WaitForSeconds(0.5f);
-		elevatorAnimator.enabled = false;
+		elevatorAnimator.SetTrigger("ElevatorShake");
+		yield return new WaitForSeconds(1f);
+		elevatorAnimator.SetTrigger("ElevatorStill");
     }
 }
