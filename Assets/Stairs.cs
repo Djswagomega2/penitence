@@ -5,9 +5,11 @@ using UnityEngine;
 public class Stairs : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private Transform floorPlace;
-    // Start is called before the first frame update
-    void Start()
+	[SerializeField] private Animator transition;
+	[SerializeField] private Transform floorPlace;
+	[SerializeField] private GameObject crossfadeObject;
+	// Start is called before the first frame update
+	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
@@ -16,7 +18,17 @@ public class Stairs : MonoBehaviour
 	{
 		if(collision.gameObject.tag.Equals("Player"))
 		{
-			player.transform.position = floorPlace.position;
+			StartCoroutine(TransitionToFloor());
 		}
+	}
+
+	private IEnumerator TransitionToFloor()
+	{
+		player.transform.position = floorPlace.position;
+		crossfadeObject.SetActive(true);
+		transition.SetTrigger("Start");
+		yield return new WaitForSeconds(1f);
+		transition.Play("Crossfade_End");
+		crossfadeObject.SetActive(false);
 	}
 }
