@@ -31,6 +31,7 @@ public class FuseBoxScript : MonoBehaviour, IInteractable
 		{
 			isActivated = true;
 		}
+
 		if (isActivated) 
 		{
 			fuseBoxSource.clip = fuseBoxOpenSound;
