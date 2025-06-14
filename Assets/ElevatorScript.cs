@@ -5,14 +5,14 @@ using UnityEngine;
 public class ElevatorScript : MonoBehaviour, IInteractable
 {
 	[SerializeField] private GameObject elevatorButtonPrefab;
-	[SerializeField] private CameraShake cameraShake;
+	[SerializeField] private Animator elevatorAnimator;
 	public int currentfloor; 
 
 
 	// Start is called before the first frame update
 	void Start()
     {
-        elevatorButtonPrefab.SetActive(false);
+		elevatorButtonPrefab.SetActive(false);
 	}
 
 	public void Interact()
@@ -24,6 +24,13 @@ public class ElevatorScript : MonoBehaviour, IInteractable
 	{
 		elevatorButtonPrefab.SetActive(false);
 		currentfloor = floor;
-	}
+		StartCoroutine(elevatorShake());
+    }
 
+	IEnumerator elevatorShake() 
+	{
+		elevatorAnimator.SetTrigger("ElevatorShake");
+		yield return new WaitForSeconds(1f);
+		elevatorAnimator.SetTrigger("ElevatorStill");
+    }
 }

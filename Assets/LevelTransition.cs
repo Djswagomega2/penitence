@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LevelTransition : MonoBehaviour
 {
-    public SceneLoader sceneLoader;
-    [SerializeField] int sceneId;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public LocalSceneLoader sceneLoader;
+	public int sceneId;
+	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
