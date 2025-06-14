@@ -27,10 +27,12 @@ public class FuseBoxScript : MonoBehaviour, IInteractable
 	// Update is called once per frame
 	void Update()
 	{
+		/*
 		if (Input.GetKeyDown(KeyCode.C))
 		{
 			isActivated = true;
 		}
+		*/
 
 		if (isActivated) 
 		{
