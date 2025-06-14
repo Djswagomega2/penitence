@@ -38,7 +38,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-
+        DontDestroyOnLoad(gameObject);
         isInventoryOpened = false;
         slots = new GameObject[slotHolder.transform.childCount];
         items = new SlotClass[slots.Length];
