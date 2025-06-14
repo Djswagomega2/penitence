@@ -31,8 +31,19 @@ public class SoundAttackStateScript : State
     [SerializeField] private State pursuitState;
     #endregion
 
+    #region random slop go
+    public Animator enemyAnimator;
+    public AnimationClip enemyAttackAnimationClip;
+    public bool hasAttacked;
+    public CircleCollider2D detectionCollider;
+    public CircleCollider2D killCollider;
+    public 
+    #endregion
+
+
     void Start()
     {
+        enemyAnimator = gameObject.GetComponent<Animator>();
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiPath = enemy.GetComponent<AIPath>();
         aiLerp = enemy.GetComponent<AILerp>();
@@ -64,8 +75,10 @@ public class SoundAttackStateScript : State
 
     private IEnumerator TouchAttack()
     {
-
         Lunge();
+        enemyAnimator.SetTrigger("attackNow");
+        detectionCollider.enabled = !detectionCollider.enabled;
+        killCollider.enabled = killCollider.enabled;
         yield return new WaitForSeconds(coolDownSeconds);
         hasSoundAttacked = true;
     }
@@ -76,6 +89,5 @@ public class SoundAttackStateScript : State
         Vector2 directionToPlayer = ((Vector2)ps.droplet.transform.position - rb.position).normalized;
         rb.velocity = directionToPlayer * aiLerp.speed; ;
     }
-
 }
 
