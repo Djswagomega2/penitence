@@ -28,11 +28,11 @@ public class CutsceneOneScript : MonoBehaviour
     void Start()
     {
 		gm = GameObject.FindObjectOfType<GameManager>();
-        if(SceneManager.GetActiveScene().buildIndex.Equals(7) && gm.notePiecesCollected >= 3)
+        if(SceneManager.GetActiveScene().buildIndex.Equals(8) && gm.notePiecesCollected >= 3)
 		{
 			dialogueLines = goodEndingLines;
 		}
-		else if (SceneManager.GetActiveScene().buildIndex.Equals(7))
+		else if (SceneManager.GetActiveScene().buildIndex.Equals(8))
 		{
 			dialogueLines = badEndingLines;
 		}

@@ -43,7 +43,6 @@ public class SoundAttackStateScript : State
 
     void Start()
     {
-        enemyAnimator = gameObject.GetComponent<Animator>();
         aiDestinationSetter = enemy.GetComponent<AIDestinationSetter>();
         aiPath = enemy.GetComponent<AIPath>();
         aiLerp = enemy.GetComponent<AILerp>();
