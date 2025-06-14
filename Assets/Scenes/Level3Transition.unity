@@ -18180,7 +18180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9183bfcc7604a244cb8b67d43ec2c5b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19026,36 +19026,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1355768494}
-  playableDirector: {fileID: 0}
-  gm: {fileID: 0}
+  playableDirector: {fileID: 1997233865}
+  gm: {fileID: 2102174866}
   dialogueLines:
   - timestamp: 0
-    text: Only a few weeks ago, there were so many people here
-    delay: 0.05
+    text: God, I live in hell
+    delay: 0.06
   - timestamp: 10
-    text: I remember all the days I used to stand shoulder-to-shoulder with them
-      in those cramped subway cars
-    delay: 0.03
+    text: Every marbled face and monster I see scares me
+    delay: 0.04
   - timestamp: 15
-    text: listening to them talk nonsense
-    delay: 0.02
-  - timestamp: 22
-    text: They're not here anymore though, but at least the trains are more
+    text: 'I don''t know why but... '
+    delay: 0.08
+  - timestamp: 23
+    text: "I think it\u2019s because of how they feel\u2026 They all haunt me with
+      reflections\u2026 and memories"
     delay: 0.1
-  - timestamp: 30
-    text: quiet...
-    delay: 0.02
-  - timestamp: 38
-    text: plenty of time to think...
+  - timestamp: 32
+    text: "like they\u2019re telling me I'm evil"
     delay: 0.05
-  - timestamp: 45
-    text: though maybe a little too much *Chuckles*
-    delay: 0.05
-  - timestamp: 56
-    text: "I just don\u2019t know where it all went wrong while I was gone"
+  - timestamp: 37
+    text: but I don't want to be
     delay: 0.1
-  - timestamp: 64
-    text: "I really don't\u2026"
+  - timestamp: 44
+    text: ' I''m not...'
+    delay: 0.07
+  - timestamp: 49
+    text: " I can't stand being like this\u2026"
+    delay: 0.12
+  - timestamp: 57
+    text: " I just want to be more\u2026"
+    delay: 0.07
+  - timestamp: 65
+    text: ' Lily deserves more...'
     delay: 0.1
   goodEndingLines: []
   badEndingLines: []
@@ -22625,6 +22628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ea99c70e7aca3468ffef48407f0dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!4 &1820771151
 Transform:
   m_ObjectHideFlags: 0
@@ -22715,6 +22719,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837725837}
   m_CullTransparentMesh: 1
+--- !u!1 &1839639225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1839639228}
+  - component: {fileID: 1839639227}
+  - component: {fileID: 1839639226}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1839639226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839639225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1839639227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839639225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1839639228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839639225}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886674160
 GameObject:
   m_ObjectHideFlags: 0
@@ -22798,7 +22870,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 320108574205318, guid: 564f5ea7e3bbb1e449a21d45d7b580fa, type: 2}
+    value: {fileID: 873092760}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &2018172141
@@ -22895,7 +22969,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1597071724, guid: ded8a22cd774a7e41944b9ba8e88ba9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22907,6 +22981,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2102174866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 514240076870681152, guid: 8274d1e496d697a488d47beec74ceb7b, type: 3}
+  m_PrefabInstance: {fileID: 1005402631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f79bbd8f77e3764dafe5c8f21045117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -22919,3 +23004,4 @@ SceneRoots:
   - {fileID: 1005402631}
   - {fileID: 429099152}
   - {fileID: 1820771151}
+  - {fileID: 1839639228}

@@ -123,15 +123,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 694360978, guid: bf11b26505f54f34f81723b23a84b834, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
-  m_Size: {x: 64, y: 64}
+  m_Size: {x: 32, y: 32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &9096017381491889916
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dc48900c67f4ede9bc9bc626e4610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 6926167710103141286}
+  currentState: {fileID: 5257794123107722854}
 --- !u!114 &1647640448149729267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   - {x: -2.68324, y: -2.596443, z: 0}
   m_ShapePathHash: -1471405828
   m_Mesh: {fileID: 0}
-  m_InstanceId: 71928
+  m_InstanceId: 79226
   m_LocalBounds:
     m_Center: {x: 0.074745655, y: 4.0975122, z: 0}
     m_Extent: {x: 4.4858584, y: 6.693955, z: 0}
@@ -455,7 +455,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 4}
@@ -517,7 +517,12 @@ MonoBehaviour:
   aiDestinationSetter: {fileID: 2018277533952862804}
   aiPath: {fileID: 661271319971675768}
   aiLerp: {fileID: 6912320389702472867}
-  pursuitState: {fileID: 2140675238021839857}
+  pursuitState: {fileID: 0}
+  enemyAnimator: {fileID: 0}
+  enemyAttackAnimationClip: {fileID: 0}
+  hasAttacked: 0
+  detectionCollider: {fileID: 1668406642386194809}
+  killCollider: {fileID: 0}
 --- !u!1 &4277119251623968904
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8694501834790135618}
-  - component: {fileID: 2140675238021839857}
+  - component: {fileID: 1169254193764862892}
   m_Layer: 0
   m_Name: Pursuit
   m_TagString: Untagged
@@ -550,7 +555,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5299285927073995163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2140675238021839857
+--- !u!114 &1169254193764862892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -559,7 +564,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4277119251623968904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2e58435553d2fb42b4be87b1a2690dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cd8e73210d523541a8eae92c1d0e5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   showGizmos: 0
@@ -568,11 +573,11 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   fov: {fileID: 1647640448149729267}
   aiLerp: {fileID: 6912320389702472867}
-  pursuitSpeed: 10
+  pursuitSpeed: 3
   aiDestinationSetter: {fileID: 2018277533952862804}
-  wanderState: {fileID: 0}
-  attackState: {fileID: 0}
-  attackRange: 4
+  wanderState: {fileID: 5257794123107722854}
+  attackState: {fileID: 7808552903813536088}
+  attackRange: 0
 --- !u!1 &8220742183341135487
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4848217999057156454}
-  - component: {fileID: 6926167710103141286}
+  - component: {fileID: 5257794123107722854}
   m_Layer: 0
   m_Name: Wander
   m_TagString: Untagged
@@ -605,7 +610,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5299285927073995163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6926167710103141286
+--- !u!114 &5257794123107722854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,13 +624,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2737112834036079629}
   enemyTransform: {fileID: 5926030778956253333}
-  pursuitState: {fileID: 2140675238021839857}
+  pursuitState: {fileID: 1169254193764862892}
   aiDestinationSetter: {fileID: 2018277533952862804}
   aiPath: {fileID: 661271319971675768}
   aiLerp: {fileID: 6912320389702472867}
   minDistanceBetweenPoints: 0
   randomDistanceFactor: 1
-  wanderSpeed: 0
+  wanderSpeed: 3
   stuckTimeThreshold: 3
   timeSinceLastMovement: 0
   lastKnownPosition: {x: 0, y: 0, z: 0}
